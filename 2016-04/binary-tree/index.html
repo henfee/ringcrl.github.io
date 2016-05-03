@@ -1,0 +1,756 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据结构与算法,JavaScript,二叉树," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="二叉树是什么？二叉树（Binary Tree）是n（n&amp;gt;=0）个结点的有限集合，该集合或者为空集（空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树的二叉树组成。
+
+二叉树的特点每个结点最多有两棵子树，所以二叉树中不存在度大于2的结点。二叉树中每一个节点都是一个对象，每一个数据节点都有三个指针，分别是指向父母、左孩子和右孩子的指针。每一个节点都是通过指针相互连接的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数据结构与算法-二叉树">
+<meta property="og:url" content="http://ringcrl.com/2016-04/binary-tree/index.html">
+<meta property="og:site_name" content="RingTalk">
+<meta property="og:description" content="二叉树是什么？二叉树（Binary Tree）是n（n&amp;gt;=0）个结点的有限集合，该集合或者为空集（空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树的二叉树组成。
+
+二叉树的特点每个结点最多有两棵子树，所以二叉树中不存在度大于2的结点。二叉树中每一个节点都是一个对象，每一个数据节点都有三个指针，分别是指向父母、左孩子和右孩子的指针。每一个节点都是通过指针相互连接的。">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgFE">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgFS">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgFV">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgFV">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgFX">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgGm">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgIG">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgII">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgIK">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgIM">
+<meta property="og:image" content="https://segmentfault.com/img/bVdgJs">
+<meta property="og:updated_time" content="2016-04-21T08:20:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript数据结构与算法-二叉树">
+<meta name="twitter:description" content="二叉树是什么？二叉树（Binary Tree）是n（n&amp;gt;=0）个结点的有限集合，该集合或者为空集（空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树的二叉树组成。
+
+二叉树的特点每个结点最多有两棵子树，所以二叉树中不存在度大于2的结点。二叉树中每一个节点都是一个对象，每一个数据节点都有三个指针，分别是指向父母、左孩子和右孩子的指针。每一个节点都是通过指针相互连接的。">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVdgFE">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> JavaScript数据结构与算法-二叉树 | RingTalk </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7c95bb71fd7c5dd5024a13675c205ea2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RingTalk</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最朴实的生活，最遥远的梦想。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'qp8_7pbfcjzMmTzmmaqF','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript数据结构与算法-二叉树
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-15T00:00:00+08:00" content="2016-04-15">
+              2016-04-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-04/binary-tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016-04/binary-tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="二叉树是什么？"><a href="#二叉树是什么？" class="headerlink" title="二叉树是什么？"></a>二叉树是什么？</h2><p>二叉树（Binary Tree）是n（n&gt;=0）个结点的有限集合，该集合或者为空集（空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树的二叉树组成。</p>
+<p><img src="https://segmentfault.com/img/bVdgFE" alt="pic"></p>
+<h2 id="二叉树的特点"><a href="#二叉树的特点" class="headerlink" title="二叉树的特点"></a>二叉树的特点</h2><p>每个结点最多有两棵子树，所以二叉树中不存在度大于2的结点。二叉树中每一个节点都是一个对象，每一个数据节点都有三个指针，分别是指向父母、左孩子和右孩子的指针。每一个节点都是通过指针相互连接的。相连指针的关系都是父子关系。</p>
+<h2 id="二叉树节点的定义"><a href="#二叉树节点的定义" class="headerlink" title="二叉树节点的定义"></a>二叉树节点的定义</h2><p>二叉树节点定义如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct BinaryTreeNode</span><br><span class="line">&#123;</span><br><span class="line">    int m_nValue;</span><br><span class="line">    BinaryTreeNode* m_pLeft;</span><br><span class="line">    BinaryTreeNode* m_pRight;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树的五种基本形态"><a href="#二叉树的五种基本形态" class="headerlink" title="二叉树的五种基本形态"></a>二叉树的五种基本形态</h2><ol>
+<li>空二叉树</li>
+<li>只有一个根结点</li>
+<li>根结点只有左子树</li>
+<li>根结点只有右子树</li>
+<li>根结点既有左子树又有右子树</li>
+</ol>
+<p><img src="https://segmentfault.com/img/bVdgFS" alt="pic"></p>
+<p>拥有三个结点的普通树只有两种情况：两层或者三层。但由于二叉树要区分左右，所以就会演变成如下的五种形态：</p>
+<p><img src="https://segmentfault.com/img/bVdgFV" alt="pic"></p>
+<h2 id="特殊二叉树"><a href="#特殊二叉树" class="headerlink" title="特殊二叉树"></a>特殊二叉树</h2><h3 id="斜树"><a href="#斜树" class="headerlink" title="斜树"></a>斜树</h3><p><img src="https://segmentfault.com/img/bVdgFV" alt="pic"></p>
+<p>如图2、3小图所示</p>
+<h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><p><img src="https://segmentfault.com/img/bVdgFX" alt="pic"></p>
+<p>在一棵二叉树中，如果所有分支结点都存在左子树和右子树，并且所有叶子都在同一层上，这样的二叉树称为满二叉树。</p>
+<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p>完全二叉树是指最后一层左边是满的，右边可能满也可能不满，然后其余层都是满的。一个深度为k，节点个数为 2^k - 1 的二叉树为满二叉树（完全二叉树）。就是一棵树，深度为k，并且没有空位。</p>
+<p>完全二叉树的特点有：  </p>
+<ol>
+<li>叶子结点只能出现在最下两层。  </li>
+<li>最下层的叶子一定集中在左部连续位置。  </li>
+<li>倒数第二层，若有叶子结点，一定都在右部连续位置。  </li>
+<li>如果结点度为1，则该结点只有左孩子。  </li>
+<li>同样结点树的二叉树，完全二叉树的深度最小。</li>
+</ol>
+<p><img src="https://segmentfault.com/img/bVdgGm" alt="pic"></p>
+<p>注意：满二叉树一定是完全二叉树，但完全二叉树不一定是满二叉树。</p>
+<p>算法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">bool is_complete(tree *root)  </span><br><span class="line">&#123;  </span><br><span class="line">    queue q;  </span><br><span class="line">    tree *ptr;  </span><br><span class="line">    <span class="comment">// 进行广度优先遍历（层次遍历），并把NULL节点也放入队列  </span></span><br><span class="line">    q.push(root);  </span><br><span class="line">    <span class="keyword">while</span> ((ptr = q.pop()) != NULL)  </span><br><span class="line">    &#123;  </span><br><span class="line">        q.push(ptr-&gt;left);  </span><br><span class="line">        q.push(ptr-&gt;right);  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断是否还有未被访问到的节点  </span></span><br><span class="line">    <span class="keyword">while</span> (!q.is_empty())  </span><br><span class="line">    &#123;  </span><br><span class="line">        ptr = q.pop();  </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 有未访问到的的非NULL节点，则树存在空洞，为非完全二叉树  </span></span><br><span class="line">        <span class="keyword">if</span> (NULL != ptr)  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h2><p>二叉树的性质一：在二叉树的第i层上至多有2^(i-1)个结点(i&gt;=1)</p>
+<p>二叉树的性质二：深度为k的二叉树至多有2^k-1个结点(k&gt;=1)</p>
+<h2 id="二叉树的顺序存储结构"><a href="#二叉树的顺序存储结构" class="headerlink" title="二叉树的顺序存储结构"></a>二叉树的顺序存储结构</h2><p>二叉树的顺序存储结构就是用一维数组存储二叉树中的各个结点，并且结点的存储位置能体现结点之间的逻辑关系。</p>
+<p><img src="https://segmentfault.com/img/bVdgIG" alt="pic"></p>
+<h2 id="二叉链表"><a href="#二叉链表" class="headerlink" title="二叉链表"></a>二叉链表</h2><p>既然顺序存储方式的适用性不强，那么我们就要考虑链式存储结构啦。二叉树的存储按照国际惯例来说一般也是采用链式存储结构的。</p>
+<p>二叉树每个结点最多有两个孩子，所以为它设计一个数据域和两个指针域是比较自然的想法，我们称这样的链表叫做二叉链表。</p>
+<p><img src="https://segmentfault.com/img/bVdgII" alt="pic"></p>
+<h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><p>二叉树的遍历(traversing binary tree)是指从根结点出发，按照某种次序依次访问二叉树中所有结点，使得每个结点被访问一次且仅被访问一次。</p>
+<p>二叉树的遍历有三种方式，如下：</p>
+<p>（1）前序遍历（DLR），首先访问根结点，然后遍历左子树，最后遍历右子树。简记根-左-右。</p>
+<p>（2）中序遍历（LDR），首先遍历左子树，然后访问根结点，最后遍历右子树。简记左-根-右。</p>
+<p>（3）后序遍历（LRD），首先遍历左子树，然后遍历右子树，最后访问根结点。简记左-右-根。</p>
+<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><p>若二叉树为空，则空操作返回，否则先访问根结点，然后前序遍历左子树，再前序遍历右子树。</p>
+<p><img src="https://segmentfault.com/img/bVdgIK" alt="pic"></p>
+<p>遍历的顺序为：<code>A B D H I E J C F K G</code></p>
+<pre><code>//先序遍历
+function preOrder(node){
+    if(!node == null){
+        putstr(node.show()+ &quot; &quot;);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+}
+</code></pre><h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><p>若树为空，则空操作返回，否则从根结点开始（注意并不是先访问根结点），中序遍历根结点的左子树，然后是访问根结点，最后中序遍历右子树。</p>
+<p><img src="https://segmentfault.com/img/bVdgIM" alt="pic"></p>
+<p>遍历的顺序为：<code>H D I B E J A F K C G</code></p>
+<pre><code>//使用递归方式实现中序遍历
+function inOrder(node){
+    if(!(node == null)){
+        inOrder(node.left);//先访问左子树
+        putstr(node.show()+ &quot; &quot;);//再访问根节点
+        inOrder(node.right);//最后访问右子树
+    }
+}
+</code></pre><h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>若树为空，则空操作返回，否则从左到右先叶子后结点的方式遍历访问左右子树，最后访问根结点。</p>
+<p><img src="https://segmentfault.com/img/bVdgJs" alt="pic"></p>
+<p>遍历的顺序为：<code>H I D J E B K F G C A</code></p>
+<pre><code>//后序遍历
+function postOrder(node){
+    if(!node == null){
+        postOrder(node.left);
+        postOrder(node.right);
+        putStr(node.show()+ &quot; &quot;);
+    }
+}
+</code></pre><h2 id="实现二叉查找树"><a href="#实现二叉查找树" class="headerlink" title="实现二叉查找树"></a>实现二叉查找树</h2><p>二叉查找树（BST）由节点组成，所以我们定义一个<code>Node</code>节点对象如下：</p>
+<pre><code>function Node(data,left,right){
+    this.data = data;
+    this.left = left;//保存left节点链接
+    this.right = right;
+    this.show = show;
+}
+
+
+function show(){
+    return this.data;//显示保存在节点中的数据
+}
+</code></pre><p>查找BST上的最小值和最大值非常简单，因为较小的值总是在左子节点上，在BST上查找最小值，只需遍历左子树，直到找到最后一个节点。</p>
+<h3 id="查找最小值"><a href="#查找最小值" class="headerlink" title="查找最小值"></a>查找最小值</h3><pre><code>function getMin(){
+    var current = this.root;
+    while(!(current.left == null)){
+        current = current.left;
+    }
+    return current.data;
+}
+</code></pre><p>该方法沿着BST的左子树挨个遍历，直到遍历到BST最左的节点，该节点被定义为：</p>
+<pre><code>current.left = null;
+</code></pre><p>这时，当前节点上保存的值就是最小值。</p>
+<h3 id="查找最大值"><a href="#查找最大值" class="headerlink" title="查找最大值"></a>查找最大值</h3><p>在BST上查找最大值只需要遍历右子树，直到找到最后一个节点，该节点上保存的值就是最大值。</p>
+<pre><code>function getMax(){
+    var current = this.root;
+    while(!(current.right == null)){
+        current = current.right;
+    }
+    return current.data;
+}
+</code></pre><p>二叉树相关题目：<a href="http://blog.csdn.net/luckyxiaoqiang/article/details/7518888" target="_blank" rel="external">http://blog.csdn.net/luckyxiaoqiang/article/details/7518888</a></p>
+<p>牛客网算法精讲课：<a href="http://www.nowcoder.com/courses/1" target="_blank" rel="external">http://www.nowcoder.com/courses/1</a><br>优惠码：AfCClKq（使用后优惠10元），二叉树的课是免费的。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构与算法/" rel="tag">#数据结构与算法</a>
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/二叉树/" rel="tag">#二叉树</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-04/Markdown/" rel="next" title="关于Markdown语法，最好的使用向导！">
+                <i class="fa fa-chevron-left"></i> 关于Markdown语法，最好的使用向导！
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-04/web-concepts/" rel="prev" title="Web相关名词的通俗解析">
+                Web相关名词的通俗解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016-04/binary-tree/"
+           data-title="JavaScript数据结构与算法-二叉树" data-url="http://ringcrl.com/2016-04/binary-tree/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/RingTalk.jpg"
+               alt="Chenng" />
+          <p class="site-author-name" itemprop="name">Chenng</p>
+          <p class="site-description motion-element" itemprop="description">前端手艺人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ringcrl" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ringcrl" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树是什么？"><span class="nav-number">1.</span> <span class="nav-text">二叉树是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的特点"><span class="nav-number">2.</span> <span class="nav-text">二叉树的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树节点的定义"><span class="nav-number">3.</span> <span class="nav-text">二叉树节点的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的五种基本形态"><span class="nav-number">4.</span> <span class="nav-text">二叉树的五种基本形态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊二叉树"><span class="nav-number">5.</span> <span class="nav-text">特殊二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#斜树"><span class="nav-number">5.1.</span> <span class="nav-text">斜树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#满二叉树"><span class="nav-number">5.2.</span> <span class="nav-text">满二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全二叉树"><span class="nav-number">5.3.</span> <span class="nav-text">完全二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的性质"><span class="nav-number">6.</span> <span class="nav-text">二叉树的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的顺序存储结构"><span class="nav-number">7.</span> <span class="nav-text">二叉树的顺序存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉链表"><span class="nav-number">8.</span> <span class="nav-text">二叉链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">9.</span> <span class="nav-text">二叉树的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前序遍历"><span class="nav-number">9.1.</span> <span class="nav-text">前序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中序遍历"><span class="nav-number">9.2.</span> <span class="nav-text">中序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后序遍历"><span class="nav-number">9.3.</span> <span class="nav-text">后序遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现二叉查找树"><span class="nav-number">10.</span> <span class="nav-text">实现二叉查找树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查找最小值"><span class="nav-number">10.1.</span> <span class="nav-text">查找最小值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找最大值"><span class="nav-number">10.2.</span> <span class="nav-text">查找最大值</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <a style="text-decoration:none;" href="https://github.com/ringcrl" target="_blank">GitHub</a>
+<span>&</span>
+<a style="text-decoration:none;" href="http://weibo.com/ringcrl" target="_blank">Weibo</a>
+
+<div class="copyright" >
+  
+  &copy;
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenng</span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ringtalk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

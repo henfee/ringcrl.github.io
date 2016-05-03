@@ -1,0 +1,664 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Mac,Terminal,Bash,Vim," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Vi/Vim基本操作vi/vim 分三种模式: 指令模式,编辑模式,选择模式. 只有在编辑模式下才能进行输入。  
+
+在默认的”指令模式”下按 i 进入编辑模式
+在非指令模式下按 ESC 返回指令模式
+在”指令模式”下输入::w保存当前文件:q 退出编辑,如果文件为保存需要用强制模式:q!强制退出不保存修改:wq组合指令, 保存并退出  
+在”指令模式”下移动:h左j下k上l右
+翻页Shift +">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac 终端使用指南，20分钟大幅度提升操作效率">
+<meta property="og:url" content="http://ringcrl.com/2016-04/Mac-Terminal/index.html">
+<meta property="og:site_name" content="RingTalk">
+<meta property="og:description" content="Vi/Vim基本操作vi/vim 分三种模式: 指令模式,编辑模式,选择模式. 只有在编辑模式下才能进行输入。  
+
+在默认的”指令模式”下按 i 进入编辑模式
+在非指令模式下按 ESC 返回指令模式
+在”指令模式”下输入::w保存当前文件:q 退出编辑,如果文件为保存需要用强制模式:q!强制退出不保存修改:wq组合指令, 保存并退出  
+在”指令模式”下移动:h左j下k上l右
+翻页Shift +">
+<meta property="og:updated_time" content="2016-04-21T08:20:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac 终端使用指南，20分钟大幅度提升操作效率">
+<meta name="twitter:description" content="Vi/Vim基本操作vi/vim 分三种模式: 指令模式,编辑模式,选择模式. 只有在编辑模式下才能进行输入。  
+
+在默认的”指令模式”下按 i 进入编辑模式
+在非指令模式下按 ESC 返回指令模式
+在”指令模式”下输入::w保存当前文件:q 退出编辑,如果文件为保存需要用强制模式:q!强制退出不保存修改:wq组合指令, 保存并退出  
+在”指令模式”下移动:h左j下k上l右
+翻页Shift +">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Mac 终端使用指南，20分钟大幅度提升操作效率 | RingTalk </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7c95bb71fd7c5dd5024a13675c205ea2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RingTalk</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最朴实的生活，最遥远的梦想。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'qp8_7pbfcjzMmTzmmaqF','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Mac 终端使用指南，20分钟大幅度提升操作效率
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-12T00:00:00+08:00" content="2016-04-12">
+              2016-04-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-04/Mac-Terminal/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016-04/Mac-Terminal/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Vi-Vim基本操作"><a href="#Vi-Vim基本操作" class="headerlink" title="Vi/Vim基本操作"></a>Vi/Vim基本操作</h4><p>vi/vim 分三种模式: 指令模式,编辑模式,选择模式. 只有在编辑模式下才能进行输入。  </p>
+<ol>
+<li>在默认的”指令模式”下按 i 进入编辑模式</li>
+<li>在非指令模式下按 ESC 返回指令模式</li>
+<li>在”指令模式”下输入:<br>:w保存当前文件<br>:q 退出编辑,如果文件为保存需要用强制模式<br>:q!强制退出不保存修改<br>:wq组合指令, 保存并退出  </li>
+<li>在”指令模式”下移动:<br>h左<br>j下<br>k上<br>l右</li>
+<li>翻页<br>Shift + f(front)下一页<br>Shift + b(back)上一页</li>
+</ol>
+<h4 id="Terminal基本操作"><a href="#Terminal基本操作" class="headerlink" title="Terminal基本操作"></a>Terminal基本操作</h4><h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><p>Command + K 清屏<br>Command + T 新建标签<br>Command + {} 向左/向右切换标签<br>ctrl+C 无条件终止</p>
+<h4 id="cd切换工作目录"><a href="#cd切换工作目录" class="headerlink" title="cd切换工作目录"></a>cd切换工作目录</h4><p>. 表示当前目录<br>.. 表示当前目录的上一级目录<br>/ 根目录/目录分隔符<br>./ 当前目录<br>../ 回到上一级目录<br>相对路径/绝对路径：凡是以/开始的路径，都是绝对路径</p>
+<p>cd .. 进入上级目录</p>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><p>ls 列出指定目录下文件<br>ls -l 显示文件的详细信息<br>ls -a 显示目录下所有文件（包括隐藏文件）  </p>
+<p>mkdir 创建新目录<br>rmdir 删除空目录</p>
+<p>cat name.txt 查看name.txt的内容<br>less name.txt 适合长文本，按<code>V</code>使用vi文本编辑器</p>
+<p>rm -rf * 强制删除当前目录下所有文件<br>rm -rf 删除文件或目录</p>
+<h4 id="man命令"><a href="#man命令" class="headerlink" title="man命令"></a>man命令</h4><p>虽然有上千条命令，每条命令还有许多可选参数和具体的使用方式，但是你却不需要记住这些命令。你只需要记住一个：<code>man</code><br>语法：<code>man ls</code>,输入<code>/</code>和关键字来按照关键字搜索，按<code>Q</code>来退出使用指南页面。</p>
+<h4 id="文件夹穿梭"><a href="#文件夹穿梭" class="headerlink" title="文件夹穿梭"></a>文件夹穿梭</h4><p>先输入<code>cd</code>，然后把文件夹从 Finder 拖到 Terminal 窗口来创建绝对路径。</p>
+<p>更有效率的解决方案是使用 Tab Complete 功能：<br>在<code>bogon:~ ringcrl$</code>情况下进入Git/ringcrl.github.io：<br>输入<code>cd G</code>后按下<code>tab键</code>，会自动补全Git，再输入<code>r</code>后再按下<code>tab键</code>，会自动补全；<br>如果有同样是<code>r</code>开头的文件夹，只需要多按一下<code>tab键</code>，输入多两个关键词后就会自动补全；<br>回到初始目录，只需要按<code>cd ~</code>。</p>
+<h4 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h4><p>vi 是command line中最常见的文本编辑器。用vi打开文本文件，只需要输入vi后接文件路径即可。Mac OS X 还提供了<code>nano</code>，一个更加现代的文本编辑器。它也更加方便，例如在底部包含了一个作弊小条，上面有常用的快捷键列表（你就不用背下来它们了）。然而，vi却有时是默认的文本编辑器，所以掌握vi是很有用的。<br>和<code>less</code>命令类似,<code>vi</code>命令会占用整个Terminal空间来显示文件内容。打开后，在“command模式”，vi 会等你输入一些预定义字符来告诉 vi 你想做什么。你也可以使用键盘上的箭头键单纯地浏览文件。你想编辑时，按<code>A</code>开始（会进入编辑模式）。文字会插入到光标处。如果你想保存，需要先退出编辑模式进入 command 模式。方法是按下esc键。回到command模式后，按住shift同时按两次Z来保存并退出。如果你不想保存，在 command 模式输入<code>:q!</code>并按enter直接退出。</p>
+<h4 id="使用小技巧"><a href="#使用小技巧" class="headerlink" title="使用小技巧"></a>使用小技巧</h4><p>输入命令<code>open .</code>可以用 Finder 打开当前的位置。<br>在 Terminal 的偏好里面可以设定它的外观和风格。<br>中止一个错误的或者发疯的命令，可以使用组合键control + C。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Mac/" rel="tag">#Mac</a>
+          
+            <a href="/tags/Terminal/" rel="tag">#Terminal</a>
+          
+            <a href="/tags/Bash/" rel="tag">#Bash</a>
+          
+            <a href="/tags/Vim/" rel="tag">#Vim</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-04/RegExp/" rel="prev" title="实例+正则表达式，今后没有你看不懂的正则！">
+                实例+正则表达式，今后没有你看不懂的正则！ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016-04/Mac-Terminal/"
+           data-title="Mac 终端使用指南，20分钟大幅度提升操作效率" data-url="http://ringcrl.com/2016-04/Mac-Terminal/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/RingTalk.jpg"
+               alt="Chenng" />
+          <p class="site-author-name" itemprop="name">Chenng</p>
+          <p class="site-description motion-element" itemprop="description">前端手艺人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ringcrl" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ringcrl" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vi-Vim基本操作"><span class="nav-number">1.</span> <span class="nav-text">Vi/Vim基本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Terminal基本操作"><span class="nav-number">2.</span> <span class="nav-text">Terminal基本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用操作"><span class="nav-number">3.</span> <span class="nav-text">常用操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cd切换工作目录"><span class="nav-number">4.</span> <span class="nav-text">cd切换工作目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件操作"><span class="nav-number">5.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#man命令"><span class="nav-number">6.</span> <span class="nav-text">man命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件夹穿梭"><span class="nav-number">7.</span> <span class="nav-text">文件夹穿梭</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vi编辑器"><span class="nav-number">8.</span> <span class="nav-text">vi编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用小技巧"><span class="nav-number">9.</span> <span class="nav-text">使用小技巧</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <a style="text-decoration:none;" href="https://github.com/ringcrl" target="_blank">GitHub</a>
+<span>&</span>
+<a style="text-decoration:none;" href="http://weibo.com/ringcrl" target="_blank">Weibo</a>
+
+<div class="copyright" >
+  
+  &copy;
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenng</span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ringtalk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

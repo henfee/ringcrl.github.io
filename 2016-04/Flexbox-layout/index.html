@@ -1,0 +1,695 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS,Flexbox," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="flex box术语主轴、主轴方向(main axis |main dimension)：用户代理沿着一个伸缩容器的主轴配置伸缩项目，主轴是主轴方向的延伸。
+主轴起点、主轴终点(main-start |main-end)：伸缩项目的配置从容器的主轴起点边开始，往主轴终点边结束。
+主轴长度、主轴长度属性(main size |main size property)：伸缩项目的在主轴方向的宽度或高度就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flexbox 快速布局">
+<meta property="og:url" content="http://ringcrl.com/2016-04/Flexbox-layout/index.html">
+<meta property="og:site_name" content="RingTalk">
+<meta property="og:description" content="flex box术语主轴、主轴方向(main axis |main dimension)：用户代理沿着一个伸缩容器的主轴配置伸缩项目，主轴是主轴方向的延伸。
+主轴起点、主轴终点(main-start |main-end)：伸缩项目的配置从容器的主轴起点边开始，往主轴终点边结束。
+主轴长度、主轴长度属性(main size |main size property)：伸缩项目的在主轴方向的宽度或高度就">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout01.PNG">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout02.PNG">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout03.PNG">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout04.PNG">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout05.PNG">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout06.PNG">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout07.PNG">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout08.PNG">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout09.PNG">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout10.PNG">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout11.PNG">
+<meta property="og:updated_time" content="2016-04-21T08:20:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flexbox 快速布局">
+<meta name="twitter:description" content="flex box术语主轴、主轴方向(main axis |main dimension)：用户代理沿着一个伸缩容器的主轴配置伸缩项目，主轴是主轴方向的延伸。
+主轴起点、主轴终点(main-start |main-end)：伸缩项目的配置从容器的主轴起点边开始，往主轴终点边结束。
+主轴长度、主轴长度属性(main size |main size property)：伸缩项目的在主轴方向的宽度或高度就">
+<meta name="twitter:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout01.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Flexbox 快速布局 | RingTalk </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7c95bb71fd7c5dd5024a13675c205ea2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RingTalk</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最朴实的生活，最遥远的梦想。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'qp8_7pbfcjzMmTzmmaqF','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Flexbox 快速布局
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-16T18:13:36+08:00" content="2016-04-16">
+              2016-04-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-04/Flexbox-layout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016-04/Flexbox-layout/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="flex-box术语"><a href="#flex-box术语" class="headerlink" title="flex box术语"></a>flex box术语</h2><p><strong>主轴、主轴方向(main axis |main dimension)：</strong><br>用户代理沿着一个伸缩容器的主轴配置伸缩项目，主轴是主轴方向的延伸。</p>
+<p><strong>主轴起点、主轴终点(main-start |main-end)：</strong><br>伸缩项目的配置从容器的主轴起点边开始，往主轴终点边结束。</p>
+<p><strong>主轴长度、主轴长度属性(main size |main size property)：</strong><br>伸缩项目的在主轴方向的宽度或高度就是项目的主轴长度，伸缩项目的主轴长度属性是width或height属性，由哪一个对着主轴方向决定。</p>
+<p><strong>侧轴、侧轴方向(cross axis |cross dimension)：</strong><br>与主轴垂直的轴称作侧轴，是侧轴方向的延伸。</p>
+<p><strong>侧轴起点、侧轴终点(cross-start |cross-end)：</strong><br>填满项目的伸缩行的配置从容器的侧轴起点边开始，往侧轴终点边结束。</p>
+<p><strong>侧轴长度、侧轴长度属性(cross size |cross size property)：</strong><br>伸缩项目的在侧轴方向的宽度或高度就是项目的侧轴长度，伸缩项目的侧轴长度属性是”width”或”height”属性，由哪一个对着侧轴方向决定。</p>
+<h2 id="flex-box属性"><a href="#flex-box属性" class="headerlink" title="flex box属性"></a>flex box属性</h2><h3 id="flex-container"><a href="#flex-container" class="headerlink" title="flex container"></a>flex container</h3><h4 id="display"><a href="#display" class="headerlink" title="display"></a>display</h4><pre><code>display: other values | flex | inline-flex;
+</code></pre><h4 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h4><p>这个主要用来创建主轴，从而定义了伸缩项目放置在伸缩容器的方向。</p>
+<pre><code>flex-direction: row | row-reverse | column | column-reverse
+</code></pre><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout01.PNG" alt="pic"></p>
+<p>row(默认值)：在“ltr”排版方式下从左向右排列；在“rtl”排版方式下从右向左排列。<br>row-reverse：与row排列方向相反，在“ltr”排版方式下从右向左排列；在“rtl”排版方式下从左向右排列.<br>column：类似 于row，不过是从上到下排列.<br>column-reverse：类似于row-reverse，不过是从下到上排列。</p>
+<h4 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h4><p>这个主要用来定义伸缩容器里是单行还是多行显示，侧轴的方向决定了新行堆放的方向。</p>
+<pre><code>flex-wrap: nowrap | wrap | wrap-reverse 
+</code></pre><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout02.PNG" alt="pic"></p>
+<p>nowrap(默认值)：伸缩容器单行显示，“ltr”排版下，伸缩项目从左到右排列；“rtl”排版上伸缩项目从右向左排列。<br>wrap：伸缩容器多行显示，“ltr”排版下，伸缩项目从左到右排列；“rtl”排版上伸缩项目从右向左排列。<br>wrap-reverse：伸缩容器多行显示，“ltr”排版下，伸缩项目从右向左排列；“rtl”排版下，伸缩项目从左到右排列。（和wrap相反）</p>
+<h4 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h4><p>这个是“flex-direction”和“flex-wrap”属性的缩写版本。同时定义了伸缩容器的主轴和侧轴。其默认值为“row nowrap”。</p>
+<pre><code>flex-flow: &lt;‘flex-direction’&gt; || &lt;‘flex-wrap’&gt;
+</code></pre><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout03.PNG" alt="pic"></p>
+<p>div { flex-flow: row; }<br>/<em> Initial value. Main-axis is inline, no wrap. </em>/</p>
+<p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout04.PNG" alt="pic"></p>
+<p>div { flex-flow: row-reverse wrap-reverse; }<br>/<em> Main-axis is the opposite of inline direction(right to left). New lines wrap upwards. </em>/</p>
+<h4 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h4><p>这个是用来定义伸缩项目沿着主轴线的对齐方式。当一行上的所有伸缩项目都不能伸缩或可伸缩但是已经达到其最大长度时，这一属性才会对多余的空间进行分配。当项目溢出某一行时，这一属性也会在项目的对齐上施加一些控制。</p>
+<pre><code>justify-content: flex-start | flex-end | center | space-between | space-around;
+</code></pre><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout05.PNG" alt="pic"></p>
+<p>flex-start(默认值)：伸缩项目向一行的起始位置靠齐。<br>flex-end：伸缩项目向一行的结束位置靠齐。<br>center：伸缩项目向一行的中间位置靠齐。<br>space-between：伸缩项目会平均地分布在行里。第一个伸缩项目一行中的最开始位置，最后一个伸缩项目在一行中最终点位置。<br>space-around：伸缩项目会平均地分布在行里，两端保留一半的空间。</p>
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p>这个属性主要用来调准伸缩行在伸缩容器里的对齐方式。类似于伸缩项目在主轴上使用“justify-content”一样。</p>
+<pre><code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+</code></pre><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout06.PNG" alt="pic"></p>
+<h4 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h4><pre><code>align-items: flex-start | flex-end | center | baseline | stretch
+</code></pre><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout07.PNG" alt="pic"></p>
+<p>flex-start：伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。<br>flex-end：伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边 。<br>center：伸缩项目的外边距盒在该行的侧轴上居中放置。<br>baseline：伸缩项目根据他们的基线对齐。<br>stretch（默认值）：伸缩项目拉伸填充整个伸缩容器。此值会使项目的外边距盒的尺寸在遵照「min/max-width/height」属性的限制下尽可能接近所在行的尺寸。</p>
+<h3 id="flex-items"><a href="#flex-items" class="headerlink" title="flex items"></a>flex items</h3><h4 id="order"><a href="#order" class="headerlink" title="order"></a>order</h4><p>默认情况下，伸缩项目是按照文档流出现先后顺序排列。然而，“order”属性可以控制伸缩项目在他们的伸缩容器出现的顺序。</p>
+<pre><code>order: &lt;integer&gt;   
+</code></pre><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout08.PNG" alt="pic"></p>
+<h4 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h4><p>用来在单独的伸缩项目上覆写默认的对齐方式。</p>
+<pre><code>align-self: auto | flex-start | flex-end | center | baseline | stretch;
+</code></pre><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout09.PNG" alt="pic"></p>
+<h4 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h4><p>根据需要用来定义伸缩项目的扩展能力。它接受一个不带单位的值做为一个比例。主要用来决定伸缩容器剩余空间按比例应扩展多少空间。</p>
+<pre><code>flex-grow: &lt;number&gt;; /* default 0 */
+</code></pre><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout10.PNG" alt="pic"></p>
+<p>如果所有伸缩项目的“flex-grow”设置了“1”，那么每个伸缩项目将设置为一个大小相等的剩余空间。如果你给其中一个伸缩项目设置了“flex-grow”值为“2”，那么这个伸缩项目所占的剩余空间是其他伸缩项目所占剩余空间的两倍。</p>
+<p>1、flex-shrink</p>
+<p>根据需要用来定义伸缩项目收缩的能力。[注意：负值同样生效。]</p>
+<p>2、flex-basis</p>
+<p>这个用来设置伸缩基准值，剩余的空间按比率进行伸缩。</p>
+<pre><code>flex-basis: &lt;length&gt; | auto; /* default auto */
+</code></pre><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Flexbox-layout11.PNG" alt="pic"></p>
+<p>如果设置为“0”，不考虑剩余空白空间。如果设置为自动，则按照flex-grow值分配剩余空白空间。</p>
+<pre><code>flex-shrink: &lt;number&gt;; /* default 1 */
+</code></pre><p>3、flex<br>这是“flex-grow”、“flex-shrink”和“flex-basis”三个属性的缩写。其中第二个和第三个参数（flex-shrink、flex-basis）是可选参数。默认值为“0 1 auto”。</p>
+<pre><code>flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]
+</code></pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+            <a href="/tags/Flexbox/" rel="tag">#Flexbox</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-04/Git-guide/" rel="next" title="Git使用指南，常用操作速查">
+                <i class="fa fa-chevron-left"></i> Git使用指南，常用操作速查
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-04/Arithmetic/" rel="prev" title="12道经典JavaScript算法题">
+                12道经典JavaScript算法题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016-04/Flexbox-layout/"
+           data-title="Flexbox 快速布局" data-url="http://ringcrl.com/2016-04/Flexbox-layout/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/RingTalk.jpg"
+               alt="Chenng" />
+          <p class="site-author-name" itemprop="name">Chenng</p>
+          <p class="site-description motion-element" itemprop="description">前端手艺人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ringcrl" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ringcrl" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-box术语"><span class="nav-number">1.</span> <span class="nav-text">flex box术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-box属性"><span class="nav-number">2.</span> <span class="nav-text">flex box属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-container"><span class="nav-number">2.1.</span> <span class="nav-text">flex container</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#display"><span class="nav-number">2.1.1.</span> <span class="nav-text">display</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-direction"><span class="nav-number">2.1.2.</span> <span class="nav-text">flex-direction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-wrap"><span class="nav-number">2.1.3.</span> <span class="nav-text">flex-wrap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-flow"><span class="nav-number">2.1.4.</span> <span class="nav-text">flex-flow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#justify-content"><span class="nav-number">2.1.5.</span> <span class="nav-text">justify-content</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#align-content"><span class="nav-number">2.1.6.</span> <span class="nav-text">align-content</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#align-items"><span class="nav-number">2.1.7.</span> <span class="nav-text">align-items</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-items"><span class="nav-number">2.2.</span> <span class="nav-text">flex items</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#order"><span class="nav-number">2.2.1.</span> <span class="nav-text">order</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#align-self"><span class="nav-number">2.2.2.</span> <span class="nav-text">align-self</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-grow"><span class="nav-number">2.2.3.</span> <span class="nav-text">flex-grow</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <a style="text-decoration:none;" href="https://github.com/ringcrl" target="_blank">GitHub</a>
+<span>&</span>
+<a style="text-decoration:none;" href="http://weibo.com/ringcrl" target="_blank">Weibo</a>
+
+<div class="copyright" >
+  
+  &copy;
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenng</span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ringtalk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

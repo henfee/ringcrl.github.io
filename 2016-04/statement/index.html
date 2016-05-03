@@ -1,0 +1,774 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,语句," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="语句block块语句常用于组合0 ~ 多个语句。块语句用一对花括号定义。请注意：没有块级作用域实例1
+for (var i = 0; i &amp;lt; 10; i++) {
+var str = &amp;quot;hi&amp;quot;;
+console.log(str);
+}
+=
+var i = 0
+for (; i &amp;lt; 10; i++) {
+    var str = &amp;quot;hi&amp;quot;;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 语句">
+<meta property="og:url" content="http://ringcrl.com/2016-04/statement/index.html">
+<meta property="og:site_name" content="RingTalk">
+<meta property="og:description" content="语句block块语句常用于组合0 ~ 多个语句。块语句用一对花括号定义。请注意：没有块级作用域实例1
+for (var i = 0; i &amp;lt; 10; i++) {
+var str = &amp;quot;hi&amp;quot;;
+console.log(str);
+}
+=
+var i = 0
+for (; i &amp;lt; 10; i++) {
+    var str = &amp;quot;hi&amp;quot;;">
+<meta property="og:updated_time" content="2016-04-21T13:11:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 语句">
+<meta name="twitter:description" content="语句block块语句常用于组合0 ~ 多个语句。块语句用一对花括号定义。请注意：没有块级作用域实例1
+for (var i = 0; i &amp;lt; 10; i++) {
+var str = &amp;quot;hi&amp;quot;;
+console.log(str);
+}
+=
+var i = 0
+for (; i &amp;lt; 10; i++) {
+    var str = &amp;quot;hi&amp;quot;;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> JavaScript 语句 | RingTalk </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7c95bb71fd7c5dd5024a13675c205ea2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RingTalk</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最朴实的生活，最遥远的梦想。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'qp8_7pbfcjzMmTzmmaqF','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript 语句
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-21T00:00:00+08:00" content="2016-04-21">
+              2016-04-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-04/statement/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016-04/statement/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><h4 id="block"><a href="#block" class="headerlink" title="block"></a>block</h4><p>块语句常用于组合0 ~ 多个语句。块语句用一对花括号定义。<br>请注意：没有块级作用域<br>实例1</p>
+<pre><code>for (var i = 0; i &lt; 10; i++) {
+var str = &quot;hi&quot;;
+console.log(str);
+}
+=
+var i = 0
+for (; i &lt; 10; i++) {
+    var str = &quot;hi&quot;;
+    console.log(str);
+}
+</code></pre><p>实例2</p>
+<pre><code>{
+    var x = 1;
+    // .....
+}
+=
+var x = 1;
+{
+    // .....
+}
+</code></pre><p>实例3</p>
+<pre><code>function foo() {
+    var a = 1;
+    console.log(a); // 1
+}
+foo();
+console.log(typeof a); // undefined
+</code></pre><h4 id="try-catch"><a href="#try-catch" class="headerlink" title="try catch"></a>try catch</h4><p>有两种情况<br>一种是try catch finally,做某件事 捕获错误 结果<br>另一种是try finally,做某件事 不管有没有错误 直接出结果</p>
+<h4 id="function"><a href="#function" class="headerlink" title="function"></a>function</h4><p>函数声明(会被函数前置)</p>
+<pre><code>fd(); // true
+
+function fd() {
+    // do sth.
+    return true;
+}
+</code></pre><p>函数表达式</p>
+<pre><code>fe(); // TypeError
+
+var fe = function() {
+    // do sth.
+};
+</code></pre><h4 id="for…in"><a href="#for…in" class="headerlink" title="for…in"></a>for…in</h4><pre><code>var p;
+var obj = {x : 1, y: 2}
+for (p in obj) {
+}
+</code></pre><ol>
+<li>顺序不确定  </li>
+<li>enumerable为false时不会出现  </li>
+<li>for in对象属性时受原型链影响</li>
+</ol>
+<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><p>var val = 2;</p>
+<pre><code>switch(val) {
+    case 1:
+        console.log(1);
+        break;
+    case 2:
+        console.log(2);
+        break;
+    default:
+        console.log(0);
+        break;
+}
+</code></pre><p>结果是:2</p>
+<pre><code>switch(val) {
+    case 1:
+        console.log(1);
+    case 2:
+        console.log(2);
+    default:
+        console.log(0);
+}
+</code></pre><p>结果是:2,0</p>
+<pre><code>switch(val) {
+    case 1:
+    case 2:
+    case 3:
+        console.log(123);
+        break;
+    case 4:
+    case 5:
+        console.log(45); 
+        break;
+    default:
+        console.log(0);
+}
+</code></pre><p>结果是:123</p>
+<h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><p>严格模式是一种特殊的执行模式，它修复了部分语言上的不足，提供更强的错误检查，并增强安全性。<br><code>&#39;use strict&#39;;</code></p>
+<h4 id="不允许用with"><a href="#不允许用with" class="headerlink" title="不允许用with"></a>不允许用with</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span>;</span><br><span class="line">     <span class="keyword">with</span>(&#123;x : <span class="number">1</span>&#125;) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(x);</span><br><span class="line">      &#125;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>
+<p>结果:SyntaxError</p>
+<h4 id="不允许未声明的变量被赋值"><a href="#不允许未声明的变量被赋值" class="headerlink" title="不允许未声明的变量被赋值"></a>不允许未声明的变量被赋值</h4><pre><code>!function() {
+    &apos;use strict&apos;;
+     x = 1;
+      console.log(window.x);
+}();
+</code></pre><p>结果:ReferenceError</p>
+<h4 id="delete参数、函数名报错"><a href="#delete参数、函数名报错" class="headerlink" title="delete参数、函数名报错"></a>delete参数、函数名报错</h4><pre><code>!function(a) {
+    &apos;use strict&apos;;
+    delete a;
+}(1);
+</code></pre><p>结果:SyntaxError</p>
+<h4 id="delete不可配置的属性报错"><a href="#delete不可配置的属性报错" class="headerlink" title="delete不可配置的属性报错"></a>delete不可配置的属性报错</h4><pre><code>!function(a) {
+    &apos;use strict&apos;;
+    var obj = {};
+    Object.defineProperty(obj, 
+        &apos;a&apos;, {configurable : false});
+    delete obj.a;
+}(1);
+</code></pre><p>结果:TypeError</p>
+<h4 id="对象字面量重复属性名报错"><a href="#对象字面量重复属性名报错" class="headerlink" title="对象字面量重复属性名报错"></a>对象字面量重复属性名报错</h4><pre><code>!function() {
+    &apos;use strict&apos;;
+    var obj = {x : 1, x : 2};
+}();
+</code></pre><p>结果:SyntaxError</p>
+<h4 id="禁止八进制字面量"><a href="#禁止八进制字面量" class="headerlink" title="禁止八进制字面量"></a>禁止八进制字面量</h4><pre><code>!function() {
+    &apos;use strict&apos;;
+    console.log(0123);
+}();
+</code></pre><p>结果:SyntaxError</p>
+<h4 id="eval-arguments变为关键字，不能作为变量、函数名"><a href="#eval-arguments变为关键字，不能作为变量、函数名" class="headerlink" title="eval, arguments变为关键字，不能作为变量、函数名"></a>eval, arguments变为关键字，不能作为变量、函数名</h4><pre><code>!function() {
+    &apos;use strict&apos;;
+    function eval(){}
+}();
+</code></pre><p>结果:SyntaxError</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/语句/" rel="tag">#语句</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-04/data-type/" rel="next" title="JavaScript 数据类型">
+                <i class="fa fa-chevron-left"></i> JavaScript 数据类型
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-04/js-array/" rel="prev" title="JavaScript 数组操作与方法">
+                JavaScript 数组操作与方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016-04/statement/"
+           data-title="JavaScript 语句" data-url="http://ringcrl.com/2016-04/statement/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/RingTalk.jpg"
+               alt="Chenng" />
+          <p class="site-author-name" itemprop="name">Chenng</p>
+          <p class="site-description motion-element" itemprop="description">前端手艺人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ringcrl" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ringcrl" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#语句"><span class="nav-number">1.</span> <span class="nav-text">语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#block"><span class="nav-number">1.1.</span> <span class="nav-text">block</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#try-catch"><span class="nav-number">1.2.</span> <span class="nav-text">try catch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#function"><span class="nav-number">1.3.</span> <span class="nav-text">function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for…in"><span class="nav-number">1.4.</span> <span class="nav-text">for…in</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch"><span class="nav-number">1.5.</span> <span class="nav-text">switch</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#严格模式"><span class="nav-number">2.</span> <span class="nav-text">严格模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不允许用with"><span class="nav-number">2.1.</span> <span class="nav-text">不允许用with</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不允许未声明的变量被赋值"><span class="nav-number">2.2.</span> <span class="nav-text">不允许未声明的变量被赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#delete参数、函数名报错"><span class="nav-number">2.3.</span> <span class="nav-text">delete参数、函数名报错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#delete不可配置的属性报错"><span class="nav-number">2.4.</span> <span class="nav-text">delete不可配置的属性报错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象字面量重复属性名报错"><span class="nav-number">2.5.</span> <span class="nav-text">对象字面量重复属性名报错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁止八进制字面量"><span class="nav-number">2.6.</span> <span class="nav-text">禁止八进制字面量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#eval-arguments变为关键字，不能作为变量、函数名"><span class="nav-number">2.7.</span> <span class="nav-text">eval, arguments变为关键字，不能作为变量、函数名</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <a style="text-decoration:none;" href="https://github.com/ringcrl" target="_blank">GitHub</a>
+<span>&</span>
+<a style="text-decoration:none;" href="http://weibo.com/ringcrl" target="_blank">Weibo</a>
+
+<div class="copyright" >
+  
+  &copy;
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenng</span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ringtalk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

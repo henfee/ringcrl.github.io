@@ -1,0 +1,976 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="RegExp,正则表达式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="正则表达式检测在谷歌浏览器中打开console,输入以下代码即可进行正则的检测
+/\d\d\d/.test(&amp;quot;123&amp;quot;) //true
+/\d\d\d/.test(&amp;quot;abc&amp;quot;) //false
+示例很多正则表达式的教程中会罗列出来一大堆的知识点，各种正则的规则语法，别说背，用小本子抄都费劲，都不知道在抄什么东西。下面将直接拿出现实中常常使用的例子，表单判断来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实例+正则表达式，今后没有你看不懂的正则！">
+<meta property="og:url" content="http://ringcrl.com/2016-04/RegExp/index.html">
+<meta property="og:site_name" content="RingTalk">
+<meta property="og:description" content="正则表达式检测在谷歌浏览器中打开console,输入以下代码即可进行正则的检测
+/\d\d\d/.test(&amp;quot;123&amp;quot;) //true
+/\d\d\d/.test(&amp;quot;abc&amp;quot;) //false
+示例很多正则表达式的教程中会罗列出来一大堆的知识点，各种正则的规则语法，别说背，用小本子抄都费劲，都不知道在抄什么东西。下面将直接拿出现实中常常使用的例子，表单判断来">
+<meta property="og:updated_time" content="2016-04-23T09:21:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实例+正则表达式，今后没有你看不懂的正则！">
+<meta name="twitter:description" content="正则表达式检测在谷歌浏览器中打开console,输入以下代码即可进行正则的检测
+/\d\d\d/.test(&amp;quot;123&amp;quot;) //true
+/\d\d\d/.test(&amp;quot;abc&amp;quot;) //false
+示例很多正则表达式的教程中会罗列出来一大堆的知识点，各种正则的规则语法，别说背，用小本子抄都费劲，都不知道在抄什么东西。下面将直接拿出现实中常常使用的例子，表单判断来">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 实例+正则表达式，今后没有你看不懂的正则！ | RingTalk </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7c95bb71fd7c5dd5024a13675c205ea2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RingTalk</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最朴实的生活，最遥远的梦想。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'qp8_7pbfcjzMmTzmmaqF','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                实例+正则表达式，今后没有你看不懂的正则！
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-13T00:00:00+08:00" content="2016-04-13">
+              2016-04-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-04/RegExp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016-04/RegExp/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><h4 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h4><p>在谷歌浏览器中打开console,输入以下代码即可进行正则的检测</p>
+<pre><code>/\d\d\d/.test(&quot;123&quot;) //true
+/\d\d\d/.test(&quot;abc&quot;) //false
+</code></pre><h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>很多正则表达式的教程中会罗列出来一大堆的知识点，各种正则的规则语法，别说背，用小本子抄都费劲，都不知道在抄什么东西。下面将直接拿出现实中常常使用的例子，表单判断来开始这段教程。<br>很多网站给出一些框框让你填内容，如果你填写的内容不符合它的心意，那就会被小红框或者alert报错，那这背后是怎么判别的呢？<br>如果给出两个框框，第一个框框要求<code>必须为中英文字符</code>，第二个框框<code>必须为整数</code>，那背后实现的js代码长这样:</p>
+<pre><code>if(!city.match(/^[A-Za-z\u4E00-\u9FA5]+$/)){
+    alert(&quot;城市名必须为中英文字符！&quot;)
+    return;
+}
+if(!aqi.match(/^\d+$/)) {
+    alert(&quot;空气质量指数必须为整数！&quot;)
+    return;
+}
+</code></pre><p><code>match()</code>括号里面的就是正则表达式，就可以规定输入后的判别，下面开始从实例开始学习。</p>
+<h4 id="正则表达式讲解"><a href="#正则表达式讲解" class="headerlink" title="正则表达式讲解"></a>正则表达式讲解</h4><p>先把要用的参数罗列出来，下面再根据例子拼凑这些参数：<br><strong>直接量语法</strong></p>
+<pre><code>/pattern/attributes
+</code></pre><p><strong>创建 RegExp 对象的语法：</strong></p>
+<pre><code>new RegExp(pattern, attributes);
+</code></pre><p><strong>attributes参数是修饰符</strong></p>
+<pre><code>i
+执行对大小写不敏感的匹配。
+
+g
+执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。
+
+m
+执行多行匹配。
+</code></pre><p><strong>特殊字符</strong></p>
+<pre><code>*
+零次或多次匹配前面的字符或子表达式。等效于 {0,}。
+zo* 与“z”和“zoo”匹配。
+
++
+一次或多次匹配前面的字符或子表达式。等效于 {1,}。
+zo+ 与“zo”和“zoo”匹配，但与“z”不匹配。
+
+?
+零次或一次匹配前面的字符或子表达式。
+等效于{0,1}。当?紧随任何其他限定符（*、+、?、{n}、{n,} 或 {n,m}）之后时，匹配模式是非贪婪的。
+非贪婪模式匹配搜索到的、尽可能少的字符串。
+zo? 与“z”和“zo”匹配，但与“zoo”不匹配。
+o+? 只与“oooo”中的单个“o”匹配，而 o+ 与所有“o”匹配。
+do(es)? 与“do”或“does”中的“do”匹配。
+
+^
+匹配搜索字符串开始的位置。如果标志中包括 m（多行搜索）字符，^ 还将匹配 \n 或 \r 后面的位置。
+如果将 ^ 用作括号表达式中的第一个字符，则会对字符集求反。
+^\d{3} 与搜索字符串开始处的 3 个数字匹配。
+[^abc] 与除 a、b 和 c 以外的任何字符匹配。
+^\d{5,12}$,必须是5到12个数字
+
+$
+匹配搜索字符串结尾的位置。 如果标志中包括 m（多行搜索）字符，^ 还将匹配 \n 或 \r 前面的位置。
+\d{3}$ 与搜索字符串结尾处的 3 个数字匹配。
+
+.
+匹配除换行符 \n 之外的任何单个字符。 若要匹配包括 \n 在内的任意字符，请使用诸如 [\s\S] 之类的模式。
+a.c 与“abc”、“a1c”和“a-c”匹配。
+
+[]
+标记括号表达式的开始和结尾。
+[1-4] 与“1”、“2”、“3”或“4”匹配。
+[^aAeEiIoOuU] 与任何非元音字符匹配。
+
+{}
+标记限定符表达式的开始和结尾。
+a{2,3} 与“aa”和“aaa”匹配。
+
+()
+标记子表达式的开始和结尾。 可以保存子表达式以备将来之用。
+A(\d) 与“A0”至“A9”匹配。 保存该数字以备将来之用。
+
+|
+指示在两个或多个项之间进行选择。
+z|food 与“z”或“food”匹配。
+(z|f)ood 与“zood”或“food”匹配。
+
+/
+表示 JScript 中的文本正则表达式模式的开始或结尾。 在第二个“/”后添加单字符标志可以指定搜索行为。
+/abc/gi 是与“abc”匹配的 JScript 文本正则表达式。 
+g（全局）标志指定查找模式的所有匹配项，i（忽略大小写）标志使搜索不区分大小写。
+
+\
+将下一字符标记为特殊字符、文本、反向引用或八进制转义符。
+\n 与换行符匹配。 \( 与“(”匹配。 \\ 与“\”匹配。
+</code></pre><p><strong>集合</strong></p>
+<pre><code>[abc]
+字符集。与任何一个指定字符匹配。
+[abc] 与“plain”中的“a”匹配。
+
+[^abc]
+反向字符集。 与未指定的任何字符匹配。
+[^abc] 与“plain”中的“p”、“l”、“i”和“n”匹配。
+
+[0-9]
+查找任何从 0 至 9 的数字。
+
+[a-z]
+字符范围。 匹配指定范围内的任何字符。
+[a-z] 与“a”到“z”范围内的任何小写字母字符匹配。
+
+[^a-z]
+反向字符范围。 与不在指定范围内的任何字符匹配。
+[^a-z] 与不在范围“a”到“z”内的任何字符匹配。
+
+{n}
+正好匹配 n 次。 n 是非负整数。
+o{2} 与“Bob”中的“o”不匹配，但与“food”中的两个“o”匹配。
+{n,}
+至少匹配 n 次。 n 是非负整数。* 与 {0,} 相等。+ 与 {1,} 相等。
+o{2,} 与“Bob”中的“o”不匹配，但与“foooood”中的所有“o”匹配。
+
+{n,m}
+匹配至少 n 次，至多 m 次。 n 和 m 是非负整数，其中 n &lt;= m。逗号和数字之间不能有空格。? 与 {0,1} 相等。
+在搜索字符串“1234567”中，\d{1,3} 与“123”、“456”和“7”匹配。
+
+\cx
+匹配 x 指示的控制字符。 x 的值必须在 A-Z 或 a-z 范围内。 如果不是这样，则假定 c 就是文本“c”字符本身。
+\cM 与 Ctrl+M 或一个回车符匹配。
+
+\xn
+匹配 n，此处的 n 是一个十六进制转义码。 十六进制转义码必须正好是两位数长。 允许在正则表达式中使用 ASCII 代码。
+允许在正则表达式中使用 ASCII 代码。
+\x41 与“A”匹配。 \x041 等效于后跟有“1”的“\x04”（因为 n 必须正好是两位数）。
+
+\num
+匹配 num，此处的 num 是一个正整数。 这是对已保存的匹配项的引用。
+(.)\1 与两个连续的相同字符匹配。
+
+\n
+匹配 num，此处的 num 是一个正整数。 这是对已保存的匹配项的引用。
+(\d)\1 与两个连续的相同数字匹配。
+
+\nm
+标识一个八进制转义码或反向引用。
+如果 \nm 前面至少有 nm 个捕获子表达式，那么 nm 是反向引用。
+如果 \nm 前面至少有 n 个捕获子表达式，则 n 是反向引用，后面跟有文本 m。 如果上述情况都不存在，当 n 和 m 是八进制数字 (0-7) 时，\nm 匹配八进制转义码 nm。
+\11 与制表符匹配。
+
+\nml
+当 n 是八进制数字 (0-3)，m 和 l 是八进制数字 (0-7) 时，匹配八进制转义码 nml。
+\011 与制表符匹配。
+
+\un
+匹配 n，其中 n 是以四位十六进制数表示的 Unicode 字符。
+\u00A9 与版权符号 (©) 匹配。
+
+[A-Z]
+查找任何从大写 A 到大写 Z 的字符。
+
+[A-z]
+查找任何从大写 A 到小写 z 的字符。
+
+[adgk]
+查找给定集合内的任何字符。
+
+[^adgk]
+查找给定集合外的任何字符。
+
+(red|blue|green)
+查找任何指定的选项。
+</code></pre><p><strong>元字符</strong></p>
+<pre><code>.   查找单个字符，除了换行和行结束符。
+
+\w
+查找单词字符。字母或数字或下划线或汉字等。
+与以下任意字符匹配：A-Z、a-z、0-9 和下划线。等效于 [A-Za-z0-9_]。
+在搜索字符串“The quick brown fox…”中，\w+ 与“The”、“quick”、“brown”和“fox”匹配
+\w*，任意数量的字母或数字
+
+\W
+查找非单词字符。
+与除 A-Z、a-z、0-9 和下划线以外的任意字符匹配。等效于 [^A-Za-z0-9_]。
+在搜索字符串“The quick brown fox…”中，\W+ 与“…”和所有空格匹配。
+
+\d
+查找数字。等效于 [0-9]。
+在搜索字符串“12 345”中，\d{2} 与“12”和“34”匹配。 \d 与“1”、“2”、“3”、“4”和“5”匹配。
+匹配1个或更多连续的数字。这里的+是和*类似的元字符，不同的是*匹配重复任意次(可能是0次)，而+则匹配重复1次或更多次。 
+
+\D
+查找非数字字符。等效于 [^0-9]。
+\D+ 与“abc123 def”中的“abc”和“def”匹配。
+
+\s
+查找空白字符。
+任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格等。
+
+\S
+查找非空白字符。
+
+\b
+匹配单词边界。即字与空格间的位置。
+er\b，与“never”中的“er”匹配，但与“verb”中的“er”不匹配。
+
+\B
+匹配非单词边界。
+
+er\B
+与“verb”中的“er”匹配，但与“never”中的“er”不匹配。
+
+\0
+查找 NUL 字符。
+
+\n
+查找换行符。
+
+\f
+查找换页符。
+
+\r
+查找回车符。
+
+\t
+查找制表符。
+
+\v
+查找垂直制表符。
+
+\xxx
+查找以八进制数 xxx 规定的字符。
+
+\xdd
+查找以十六进制数 dd 规定的字符。
+
+\uxxxx
+查找以十六进制数 xxxx 规定的 Unicode 字符。
+</code></pre><p><strong>量词</strong></p>
+<pre><code>n+
+匹配任何包含至少一个 n 的字符串。
+
+n*
+匹配任何包含零个或多个 n 的字符串。
+
+n?
+匹配任何包含零个或一个 n 的字符串。
+
+n{X}
+匹配包含 X 个 n 的序列的字符串。
+
+n{X,Y}
+匹配包含 X 或 Y 个 n 的序列的字符串。
+
+n{X,}
+匹配包含至少 X 个 n 的序列的字符串。
+
+?=n
+匹配任何其后紧接指定字符串 n 的字符串。
+
+?!n
+匹配任何其后没有紧接指定字符串 n 的字符串。
+</code></pre><p><strong>支持正则表达式的 String 对象的方法</strong></p>
+<pre><code>search  检索与正则表达式相匹配的值。
+match   找到一个或多个正则表达式的匹配。
+replace 替换与正则表达式匹配的子串。
+split   把字符串分割为字符串数组。
+</code></pre><p><strong>优先级顺序</strong></p>
+<pre><code>\
+转义符
+
+(), (?:), (?=), []
+括号和中括号
+
+*、+、?、{n}、{n,}、{n,m}
+限定符
+
+^、$、\
+任何元字符 定位点和序列
+
+|
+替换
+</code></pre><p><strong>字符类</strong></p>
+<pre><code>\(?0\d{2}[) -]?\d{8}
+这个表达式可以匹配几种格式的电话号码，像(010)88886666，或022-22334455，或02912345678等。
+我们对它进行一些分析吧：首先是一个转义字符\(,它能出现0次或1次(?),然后是一个0，
+后面跟着2个数字(\d{2})，然后是)或-或空格中的一个，它出现1次或不出现(?)，最后是8个数字(\d{8})。
+</code></pre><p><strong>分支条件</strong><br>在字符类中，能够匹配010)12345678或(022-87654321这样的“不正确”的格式。要解决这个问题需要用到分支条件。正则表达式里的分枝条件指的是有几种规则，如果满足其中任意一种规则都应该当成匹配，具体方法是用|把不同的规则分隔开。<br><code>0\d{2}-\d{8}|0\d{3}-\d{7}</code>这个表达式能匹配两种以连字号分隔的电话号码：一种是三位区号，8位本地号(如010-12345678)，一种是4位区号，7位本地号(0376-2233445)。<br><code>\(?0\d{2}\)?[- ]?\d{8}|0\d{2}[- ]?\d{8}</code>这个表达式匹配3位区号的电话号码，其中区号可以用小括号括起来，也可以不用，区号与本地号间可以用连字号或空格间隔，也可以没有间隔。你可以试试用分枝条件把这个表达式扩展成也支持4位区号的。<br><code>\d{5}-\d{4}|\d{5}</code>这个表达式用于匹配美国的邮政编码。美国邮编的规则是5位数字，或者用连字号间隔的9位数字。之所以要给出这个例子是因为它能说明一个问题：使用分枝条件时，要注意各个条件的顺序。如果你把它改成<code>\d{5}|\d{5}-\d{4}</code>的话，那么就只会匹配5位的邮编(以及9位邮编的前5位)。原因是匹配分枝条件时，将会从左到右地测试每个条件，如果满足了某个分枝的话，就不会去再管其它的条件了。</p>
+<h3 id="常用正则表达式"><a href="#常用正则表达式" class="headerlink" title="常用正则表达式"></a>常用正则表达式</h3><p>转载自：<a href="http://deerchao.net/tutorials/regex/common.htm" target="_blank" rel="external">http://deerchao.net/tutorials/regex/common.htm</a></p>
+<p>说明：正则表达式通常用于两种任务：1.验证，2.搜索/替换。用于验证时，通常需要在前后分别加上^和$，以匹配整个待验证字符串；搜索/替换时是否加上此限定则根据搜索的要求而定，此外，也有可能要在前后加上\b而不是^和$。此表所列的常用正则表达式，除个别外均未在前后加上任何限定，请根据需要，自行处理。</p>
+<pre><code>网址（URL）
+[a-zA-z]+://[^\s]*
+
+IP地址(IP Address)
+((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)
+
+电子邮件(Email)
+\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*
+
+QQ号码
+[1-9]\d{4,}
+
+HTML标记(包含内容或自闭合)
+&lt;(.*)(.*)&gt;.*&lt;\/\1&gt;|&lt;(.*) \/&gt;
+
+密码(由数字/大写字母/小写字母/标点符号组成，四种都必有，8位以上)
+(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?=.*[A-Z])(?=.*[a-z])(?!.*\n).*$
+
+日期(年-月-日)
+(\d{4}|\d{2})-((1[0-2])|(0?[1-9]))-(([12][0-9])|(3[01])|(0?[1-9]))
+
+日期(月/日/年)
+((1[0-2])|(0?[1-9]))/(([12][0-9])|(3[01])|(0?[1-9]))/(\d{4}|\d{2})
+
+时间(小时:分钟, 24小时制)
+((1|0?)[0-9]|2[0-3]):([0-5][0-9])
+
+汉字(字符)
+[\u4e00-\u9fa5]
+
+中文及全角标点符号(字符)
+[\u3000-\u301e\ufe10-\ufe19\ufe30-\ufe44\ufe50-\ufe6b\uff01-\uffee]
+
+中国大陆固定电话号码
+(\d{4}-|\d{3}-)?(\d{8}|\d{7})
+
+中国大陆手机号码
+1\d{10}
+
+中国大陆邮政编码
+[1-9]\d{5}
+
+中国大陆身份证号(15位或18位)
+\d{15}(\d\d[0-9xX])?
+
+非负整数(正整数或零)
+\d+
+
+正整数
+[0-9]*[1-9][0-9]*
+
+负整数
+-[0-9]*[1-9][0-9]*
+
+整数
+-?\d+
+
+小数
+(-?\d+)(\.\d+)?
+
+不包含abc的单词
+\b((?!abc)\w)+\b
+</code></pre><h3 id="神器的事情"><a href="#神器的事情" class="headerlink" title="神器的事情"></a>神器的事情</h3><p>两个字：结束！就这么就结束了？对的，你回头去看看一开始那个实例，是不是发现轻松就读懂了？如果忘了，按下<code>cmd+f</code>进行文章搜索，看看是不是对应的部分已经讲得很清楚了？</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RegExp/" rel="tag">#RegExp</a>
+          
+            <a href="/tags/正则表达式/" rel="tag">#正则表达式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-04/Mac-Terminal/" rel="next" title="Mac 终端使用指南，20分钟大幅度提升操作效率">
+                <i class="fa fa-chevron-left"></i> Mac 终端使用指南，20分钟大幅度提升操作效率
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-04/Markdown/" rel="prev" title="关于Markdown语法，最好的使用向导！">
+                关于Markdown语法，最好的使用向导！ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016-04/RegExp/"
+           data-title="实例+正则表达式，今后没有你看不懂的正则！" data-url="http://ringcrl.com/2016-04/RegExp/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/RingTalk.jpg"
+               alt="Chenng" />
+          <p class="site-author-name" itemprop="name">Chenng</p>
+          <p class="site-description motion-element" itemprop="description">前端手艺人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ringcrl" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ringcrl" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检测"><span class="nav-number">1.1.</span> <span class="nav-text">检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-number">1.2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式讲解"><span class="nav-number">1.3.</span> <span class="nav-text">正则表达式讲解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用正则表达式"><span class="nav-number">2.</span> <span class="nav-text">常用正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神器的事情"><span class="nav-number">3.</span> <span class="nav-text">神器的事情</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <a style="text-decoration:none;" href="https://github.com/ringcrl" target="_blank">GitHub</a>
+<span>&</span>
+<a style="text-decoration:none;" href="http://weibo.com/ringcrl" target="_blank">Weibo</a>
+
+<div class="copyright" >
+  
+  &copy;
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenng</span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ringtalk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

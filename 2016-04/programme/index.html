@@ -1,0 +1,1558 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,编程题," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="本专题包括由易到难的50道JavaScript在线编程题，帮助各位前端爱好者进行JS能力自我评估及技能学习提高.
+数组查找数组元素位置找出元素 item 在给定数组 arr 中的位置
+输出描述:
+
+如果数组中存在 item，则返回元素在数组中的位置，否则返回 -1
+
+输入例子:
+
+indexOf([ 1, 2, 3, 4 ], 3)
+
+输出例子:
+
+2
+
+代码:
+方法一:调用ES5自带的查找方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 50道经典编程题">
+<meta property="og:url" content="http://ringcrl.com/2016-04/programme/index.html">
+<meta property="og:site_name" content="RingTalk">
+<meta property="og:description" content="本专题包括由易到难的50道JavaScript在线编程题，帮助各位前端爱好者进行JS能力自我评估及技能学习提高.
+数组查找数组元素位置找出元素 item 在给定数组 arr 中的位置
+输出描述:
+
+如果数组中存在 item，则返回元素在数组中的位置，否则返回 -1
+
+输入例子:
+
+indexOf([ 1, 2, 3, 4 ], 3)
+
+输出例子:
+
+2
+
+代码:
+方法一:调用ES5自带的查找方法">
+<meta property="og:updated_time" content="2016-04-25T03:27:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 50道经典编程题">
+<meta name="twitter:description" content="本专题包括由易到难的50道JavaScript在线编程题，帮助各位前端爱好者进行JS能力自我评估及技能学习提高.
+数组查找数组元素位置找出元素 item 在给定数组 arr 中的位置
+输出描述:
+
+如果数组中存在 item，则返回元素在数组中的位置，否则返回 -1
+
+输入例子:
+
+indexOf([ 1, 2, 3, 4 ], 3)
+
+输出例子:
+
+2
+
+代码:
+方法一:调用ES5自带的查找方法">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> JavaScript 50道经典编程题 | RingTalk </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7c95bb71fd7c5dd5024a13675c205ea2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RingTalk</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最朴实的生活，最遥远的梦想。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'qp8_7pbfcjzMmTzmmaqF','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript 50道经典编程题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-25T00:00:00+08:00" content="2016-04-25">
+              2016-04-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-04/programme/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016-04/programme/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://www.nowcoder.com/ta/js-assessment?query=&amp;asc=true&amp;order=&amp;page=3" target="_blank" rel="external">本专题</a>包括由易到难的50道JavaScript在线编程题，帮助各位前端爱好者进行JS能力自我评估及技能学习提高.</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="查找数组元素位置"><a href="#查找数组元素位置" class="headerlink" title="查找数组元素位置"></a>查找数组元素位置</h4><p><strong>找出元素 item 在给定数组 arr 中的位置</strong></p>
+<p>输出描述:</p>
+<blockquote>
+<p>如果数组中存在 item，则返回元素在数组中的位置，否则返回 -1</p>
+</blockquote>
+<p>输入例子:</p>
+<blockquote>
+<p>indexOf([ 1, 2, 3, 4 ], 3)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>2</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:调用ES5自带的查找方法</p>
+<pre><code>function indexOf(arr, item) {
+    return arr.indexOf(item);
+}
+</code></pre><p>方法二:纯函数方法</p>
+<pre><code>function indexOf(arr, item) {
+    for(var i = 0; i&lt;arr.length; i++) {
+        if(arr[i] == item) {
+            return i;
+        }
+     }
+     return -1;
+}
+</code></pre><p>方法三:判断是否支持ES5自带的查找方法</p>
+<pre><code>function indexOf(arr, item) {
+  if (Array.prototype.indexOf){
+      return arr.indexOf(item);
+  } else {
+      for (var i = 0; i &lt; arr.length; i++){
+          if (arr[i] === item){
+              return i;
+          }
+      }
+  }     
+  return -1;
+}
+</code></pre><h4 id="数组求和"><a href="#数组求和" class="headerlink" title="数组求和"></a>数组求和</h4><p><strong>计算给定数组 arr 中所有元素的总和</strong></p>
+<p>输入描述:</p>
+<blockquote>
+<p>数组中的元素均为 Number 类型</p>
+</blockquote>
+<p>输入例子:</p>
+<blockquote>
+<p>sum([ 1, 2, 3, 4 ])</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>10</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:Array.prototype.reduce,数组中每两个数进行操作</p>
+<pre><code>function sum(arr) {
+ var total = arr.reduce(function (a,b){
+        return a+b;
+    },0);
+    return total;
+}
+</code></pre><p>方法二:调用js的计算函数</p>
+<pre><code>function sum(arr) {
+return eval(arr.join(&apos;+&apos;));
+}
+</code></pre><p>方法三:常规的for循环</p>
+<pre><code>function sum(arr) {
+var ans=0;
+for(var i = 0;i&lt;arr.length;i++){
+    ans += arr[i];
+}
+return ans;
+}
+</code></pre><h4 id="移除数组中的元素1"><a href="#移除数组中的元素1" class="headerlink" title="移除数组中的元素1"></a>移除数组中的元素1</h4><p><strong>移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>remove([1, 2, 3, 4, 2], 2)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[1, 3, 4]</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:使用filter函数</p>
+<pre><code>function remove(arr, item) {
+        return arr.filter(
+        function(x) {
+        return x !== item;
+        });
+}
+</code></pre><p>方法二:for循环方法</p>
+<pre><code>function remove(arr, item) {
+     var a = [];
+     for(var i=0; i &lt; arr.length; i++){
+         if(arr[i] != item){
+             a.push(arr[i]);
+         }
+     }
+     return a;
+ }
+</code></pre><h4 id="移除数组中的元素2"><a href="#移除数组中的元素2" class="headerlink" title="移除数组中的元素2"></a>移除数组中的元素2</h4><p><strong>移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>removeWithoutCopy([1, 2, 2, 3, 4, 2, 2], 2)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[1, 3, 4]</p>
+</blockquote>
+<p>代码:</p>
+<pre><code>function removeWithoutCopy(arr, item) {
+     for(var i = 0; i &lt; arr.length; i++){
+         if(arr[i] == item){
+             //splice方法会改变数组长度
+             //当减掉一个元素后，后面的元素都会前移，因此需要相应减少i的值
+             arr.splice(i,1);
+             i--;
+         }
+     }
+     return arr;
+ }
+</code></pre><h4 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h4><p><strong>在数组 arr 末尾添加元素 item。不要直接修改数组 arr，结果返回新的数组</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>append([1, 2, 3, 4],  10)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[1, 2, 3, 4, 10]</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:先用slice函数进行复制,再在复制后的数组后操作</p>
+<pre><code>function append(arr, item) {
+     //复制数组
+     var a = arr.slice(0);
+     //添加元素
+     a.push(item);
+     return a;
+ }
+</code></pre><p>方法二:使用concat函数进行操作</p>
+<pre><code>function append(arr, item) {
+return arr.concat([item]);
+}
+</code></pre><h4 id="删除数组最后一个元素"><a href="#删除数组最后一个元素" class="headerlink" title="删除数组最后一个元素"></a>删除数组最后一个元素</h4><p><strong>删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>truncate([1, 2, 3, 4])</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[1, 2, 3]</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:先用slice复制,然后用pop操作复制后的数组</p>
+<pre><code>function truncate(arr) {
+     //复制数组
+     var a = arr.slice(0);
+     //删除元素
+     a.pop();
+     return a;
+ }
+</code></pre><p>方法二:直接用slice选出从0位置到length-1位置的元素,即把最后元素删除</p>
+<pre><code>function truncate(arr) {
+    return arr.slice(0,arr.length-1);
+}
+</code></pre><h4 id="添加元素1"><a href="#添加元素1" class="headerlink" title="添加元素1"></a>添加元素1</h4><p><strong>在数组 arr 开头添加元素 item。不要直接修改数组 arr，结果返回新的数组</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>prepend([1, 2, 3, 4], 10)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[10, 1, 2, 3, 4]</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:直接用数组拼接函数</p>
+<pre><code>function prepend(arr, item) {
+    return [item].concat(arr);   
+}
+</code></pre><p>方法二:因为需要不改变,所以先用slice复制一个原数组再进行操作</p>
+<pre><code>function prepend(arr, item) {
+     //将arr数组复制给a
+     var a = arr.slice(0);
+     //使用unshift方法向a开头添加item
+     a.unshift(item);
+     return a;
+ }
+</code></pre><h4 id="删除数组第一个元素"><a href="#删除数组第一个元素" class="headerlink" title="删除数组第一个元素"></a>删除数组第一个元素</h4><p><strong>删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>curtail([1, 2, 3, 4])</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[2, 3, 4]</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:直接用slice选出1位置到length位置的元素</p>
+<pre><code>function curtail(arr) {
+    return arr.slice(1,arr.length);
+}
+</code></pre><p>方法二:先用slice复制,再用基本方法操作</p>
+<pre><code>function curtail(arr) {
+     //复制数组arr
+     var a = arr.slice(0);
+     a.shift();
+     return a;
+ }
+</code></pre><h4 id="数组合并"><a href="#数组合并" class="headerlink" title="数组合并"></a>数组合并</h4><p><strong>合并数组 arr1 和数组 arr2。不要直接修改数组 arr，结果返回新的数组</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>concat([1, 2, 3, 4], [‘a’, ‘b’, ‘c’, 1])</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[1, 2, 3, 4, ‘a’, ‘b’, ‘c’, 1]</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:直接用cancat方法进行合并</p>
+<pre><code>function concat(arr1, arr2) {
+ return arr1.concat(arr2);
+}
+</code></pre><p>方法二:使用循环</p>
+<pre><code>function concat(arr1, arr2) {
+    var tmpArr = arr1.slice(0);
+    for(var i = 0; i &lt; arr2.length; i++) {
+         tmpArr.push(arr2[i]);
+    }
+    return tmpArr;
+}
+</code></pre><h4 id="添加元素2"><a href="#添加元素2" class="headerlink" title="添加元素2"></a>添加元素2</h4><p><strong>在数组 arr 的 index 处添加元素 item。不要直接修改数组 arr，结果返回新的数组</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>insert([1, 2, 3, 4], ‘z’, 2)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[1, 2, ‘z’, 3, 4]</p>
+</blockquote>
+<p>代码:</p>
+<p>直接用splice方法,先用slice复制一个数组</p>
+<pre><code>function insert(arr, item, index) {
+    var a = arr.slice(0);
+    a.splice(index,0,item);
+    return a;
+}
+</code></pre><h4 id="计数"><a href="#计数" class="headerlink" title="计数"></a>计数</h4><p><strong>统计数组 arr 中值等于 item 的元素出现的次数</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>count([1, 2, 4, 4, 3, 4, 3], 4)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>3</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:使用forEach遍历  用一个三元条件运算符来判断结果，true则执行count++，false则为0，最后返回count。</p>
+<pre><code>function count(arr, item) {
+    var count = 0;
+    arr.forEach(function(e){
+        e == item ? count++ : 0;
+    });
+    return count;
+}
+</code></pre><p>方法二:使用for循环方法</p>
+<pre><code>function count(arr, item) {
+    var cc = 0;
+
+    for(var i=0;i&lt;arr.length;i++ ){
+        if(arr[i]===item){
+              cc+=1;
+        }
+    }
+    return cc;
+}
+</code></pre><h4 id="查找重复元素"><a href="#查找重复元素" class="headerlink" title="查找重复元素"></a>查找重复元素</h4><p><strong>找出数组 arr 中重复出现过的元素</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3]).sort()</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[1, 3, 4]</p>
+</blockquote>
+<p>代码:</p>
+<p>先排序，如果后一个与前一个相等且未保存，则保存。</p>
+<pre><code>function duplicates(arr) {
+    var a=arr.sort(),b=[];
+    for(var i in a){
+        if(a[i]==a[i-1] &amp;&amp; b.indexOf(a[i])==-1){
+            b.push(a[i]);
+        } 
+    }
+    return b;
+}
+</code></pre><h4 id="求二次方"><a href="#求二次方" class="headerlink" title="求二次方"></a>求二次方</h4><p><strong>为数组 arr 中的每个元素求二次方。不要直接修改数组 arr，结果返回新的数组</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>square([1, 2, 3, 4])</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[1, 4, 9, 16]</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:使用map方法</p>
+<pre><code>function square(arr) {
+    return arr.map(function(x){
+        return x*x;
+    });
+}
+</code></pre><p>方法二:遍历原数组，将其每一个元素求平方，然后存入新的数组即可。</p>
+<pre><code>function square(arr) {
+   //声明一个新的数组存放结果
+     var a = [];
+     arr.forEach(function(e){
+         //将arr中的每一个元素求平方后，加入到a数组中
+         a.push(e*e);
+     });
+     return a;
+ }
+</code></pre><h4 id="查找元素位置"><a href="#查找元素位置" class="headerlink" title="查找元素位置"></a>查找元素位置</h4><p><strong>在数组 arr 中，查找值与 item 相等的元素出现的所有位置</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>findAllOccurrences(‘abcdefabc’.split(‘’), ‘a’).sort()</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[0, 6]</p>
+</blockquote>
+<p>代码:</p>
+<p>查找target的位置，只需要将数组arr中键值对key-value中value == target的key找出来存到新数组而已。因此，遍历arr，如果target == arr[i]，i即目标值位置，则将i加入到a数组中。</p>
+<pre><code>function findAllOccurrences(arr, target) {
+    var a = [];
+    for(var i = 0; i &lt; arr.length; i++){
+        if(target == arr[i])
+            a.push(i);
+    }
+    return a;
+}
+</code></pre><h3 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h3><h4 id="避免全局变量"><a href="#避免全局变量" class="headerlink" title="避免全局变量"></a>避免全局变量</h4><p><strong>给定的 js 代码中存在全局变量，请修复</strong></p>
+<pre><code>function globals() {
+    myObject = {
+      name : &apos;Jory&apos;
+    };
+    return myObject;
+}
+</code></pre><p>代码:</p>
+<pre><code>function globals() {
+    var myObject = {
+      name : &apos;Jory&apos;
+    };
+    return myObject;
+}
+</code></pre><h4 id="正确的函数定义"><a href="#正确的函数定义" class="headerlink" title="正确的函数定义"></a>正确的函数定义</h4><p><strong>请修复给定的 js 代码中，函数定义存在的问题</strong></p>
+<pre><code>function functions(flag) {
+    if (flag) {
+      function getValue() { return &apos;a&apos;; }
+    } else {
+      function getValue() { return &apos;b&apos;; }
+    }
+    return getValue();
+}
+</code></pre><p>输入例子:</p>
+<blockquote>
+<p>functions(true)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>a</p>
+</blockquote>
+<p>代码:</p>
+<p>else中的语句相当于将if中的function重写，因此无论flag为何值，返回的方法始终为重写后的方法。将方法赋值给一个变量，方法就不会被重写，因此才能得到正确的结果。</p>
+<pre><code>function functions(flag) {
+    if (flag) {
+      var getValue = function () { return &apos;a&apos;; }
+    } else {
+      var getValue = function () { return &apos;b&apos;; }
+    }
+    return getValue();
+}
+</code></pre><h4 id="正确的使用-parseInt"><a href="#正确的使用-parseInt" class="headerlink" title="正确的使用 parseInt"></a>正确的使用 parseInt</h4><p><strong>修改 js 代码中 parseInt 的调用方式，使之通过全部测试用例</strong></p>
+<pre><code>function parse2Int(num) {
+    return parseInt(num);
+}
+</code></pre><p>输入例子:</p>
+<blockquote>
+<p>parse2Int(‘12’); parse2Int(‘12px’); parse2Int(‘0x12’)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>12; 12; 0</p>
+</blockquote>
+<p>代码:</p>
+<p>按10进制去处理字符串，碰到非数字字符，会将后面的全部无视</p>
+<pre><code>function parse2Int(num) {
+     return parseInt(num,10);
+ }
+</code></pre><h4 id="完全等同"><a href="#完全等同" class="headerlink" title="完全等同"></a>完全等同</h4><p><strong>判断 val1 和 val2 是否完全等同</strong></p>
+<p>代码:</p>
+<pre><code>function identity(val1, val2) {
+       return val1===val2;
+}
+</code></pre><h3 id="计数-1"><a href="#计数-1" class="headerlink" title="计数"></a>计数</h3><h4 id="计时器"><a href="#计时器" class="headerlink" title="计时器"></a>计时器</h4><p><strong>实现一个打点计时器，要求</strong><br>1、从 start 到 end（包含 start 和 end），每隔 100 毫秒 console.log 一个数字，每次数字增幅为 1<br>2、返回的对象中需要包含一个 cancel 方法，用于停止定时操作<br>3、第一个数需要立即输出</p>
+<p>代码:</p>
+<p>setInterval() 方法会按照指定周期不停地调用函数，直到 clearInterval()被调用或窗口被关闭。由 setInterval() 返回的 ID 值可用作 clearInterval()方法的参数。注意第一个数需要立即输出即可。</p>
+<pre><code>function count(start, end) {
+  //立即输出第一个值
+  console.log(start++);
+     var timer = setInterval(function(){
+         if(start &lt;= end){
+             console.log(start++);
+         }else{
+             clearInterval(timer);
+         }
+     },100);
+    //返回一个对象
+     return {
+         cancel : function(){
+             clearInterval(timer);
+         }
+     };
+ }
+</code></pre><h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h4 id="流程控制-1"><a href="#流程控制-1" class="headerlink" title="流程控制"></a>流程控制</h4><p><strong>实现 fizzBuzz 函数，参数 num 与返回值的关系如下：</strong><br>1、如果 num 能同时被 3 和 5 整除，返回字符串 fizzbuzz<br>2、如果 num 能被 3 整除，返回字符串 fizz<br>3、如果 num 能被 5 整除，返回字符串 buzz<br>4、如果参数为空或者不是 Number 类型，返回 false<br>5、其余情况，返回参数 num</p>
+<p>输入例子:</p>
+<blockquote>
+<p>fizzBuzz(15)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>fizzbuzz</p>
+</blockquote>
+<p>代码:</p>
+<p>能否整除即余数是否为0，则使用%运算符。使用if-elseif结构，只要某一条匹配，则下面的不会在进行判断。判断num是否为Number，可以用typeof运算符，返回的是字符串。</p>
+<pre><code>function fizzBuzz(num) {
+    if(num%3 == 0 &amp;&amp; num%5 == 0)
+        return &quot;fizzbuzz&quot;;
+    else if(num%3 == 0)
+        return &quot;fizz&quot;;
+    else if(num%5 == 0)
+        return &quot;buzz&quot;;
+    else if(num == null || typeof num != &quot;number&quot;)
+        return false;
+    else return num;
+}
+</code></pre><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h4><p><strong>将数组 arr 中的元素作为调用函数 fn 的参数</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>argsAsArray(function (greeting, name, punctuation) {</p>
+<p>return greeting + ‘, ‘ + name + (punctuation || ‘!’);</p>
+<p>}, [‘Hello’, ‘Ellie’, ‘!’])</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>Hello, Ellie!</p>
+</blockquote>
+<p>代码:</p>
+<p>调用函数可以使用call或者apply这两个方法，区别在于call需要将传递给函数的参数明确写出来，是多少参数就需要写多少参数。而apply则将传递给函数的参数放入一个数组中，传入参数数组即可。</p>
+<pre><code>function argsAsArray(fn, arr) {
+  return fn.apply(this, arr);
+ }
+</code></pre><h4 id="函数的上下文"><a href="#函数的上下文" class="headerlink" title="函数的上下文"></a>函数的上下文</h4><p><strong>将函数 fn 的执行上下文改为 obj 对象</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>speak(function () {</p>
+<p>return this.greeting + ‘, ‘ + this.name + ‘!!!’;},</p>
+<p>{greeting: ‘Hello’, name: ‘Rebecca’})</p>
+</blockquote>
+<p>输出例子:<br>Hello, Rebecca!!!</p>
+<p>代码:</p>
+<p>在JavaScript中，函数是一种对象，其上下文是可以变化的，对应的，函数内的this也是可以变化的，函数可以作为一个对象的方法，也可以同时作为另一个对象的方法，可以通过Function对象中的call或者apply方法来修改函数的上下文，函数中的this指针将被替换为call或者apply的第一个参数。将函数 fn 的执行上下文改为 obj 对象，只需要将obj作为call或者apply的第一个参数传入即可。</p>
+<pre><code>function speak(fn, obj) {
+  return fn.apply(obj, obj);
+ }
+</code></pre><h4 id="返回函数"><a href="#返回函数" class="headerlink" title="返回函数"></a>返回函数</h4><p><strong>实现函数 functionFunction，调用之后满足如下条件:</strong><br>1、返回值为一个函数 f<br>2、调用返回的函数 f，返回值为按照调用顺序的参数拼接，拼接字符为英文逗号加一个空格，即 ‘, ‘<br>3、所有函数的参数数量为 1，且均为 String 类型</p>
+<p>输入例子:</p>
+<blockquote>
+<p>functionFunction(‘Hello’)(‘world’)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>Hello, world</p>
+</blockquote>
+<p>代码:</p>
+<p>首先执行functionFunction(‘Hello’)，传入参数str，然后返回函数f，f与(‘world’)组合，执行f(‘world’)，传入参数s，f返回str+”, “+s，即Hello, world。注意中间的逗号后面有一个空格。</p>
+<pre><code>function functionFunction(str) {
+  var f = function(s){
+         return str+&quot;, &quot;+s;
+     }
+     return f;
+ }
+</code></pre><h4 id="使用闭包"><a href="#使用闭包" class="headerlink" title="使用闭包"></a>使用闭包</h4><p><strong>实现函数 makeClosures，调用之后满足如下条件:</strong><br>1、返回一个函数数组 result，长度与 arr 相同<br>2、运行 result 中第 i 个函数，即 result[i]()，结果与 fn(arr[i]) 相同  </p>
+<p>输入例子:</p>
+<blockquote>
+<p>var arr = [1, 2, 3];</p>
+<p>var square = function (x) { </p>
+<p>return x * x; </p>
+<p>};</p>
+<p>var funcs = makeClosures(arr, square);</p>
+<p>funcs[1]();</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>4</p>
+</blockquote>
+<p>代码:</p>
+<p>简单的描述闭包：如果在函数func内部声明函数inner，然后在函数外部调用inner，这个过程即产生了一个闭包.<br>题目要求的是返回一个函数数组，如果在循环中直接写result[i] = function(){return fn(arr[i]);}或者result.push(function(){return fn(arr[i]);})，最终的结果是不正确的，因为在每次迭代的时候，那样的语句后面的方法并没有执行，只是创建了一个函数体为“return fn(arr[i]);”的函数对象而已，当迭代停止时，i为最终迭代停止的值，在函数被调用时，i依旧为最终迭代停止的值，因此无法返回正确的结果。<br>为了解决这个问题，需要声明一个匿名函数，并立即执行它。<br>function(num){return function(){return fn(arr[num]); }; }(i)，函数执行后，i立即传入并被内部函数访问到，因此就能得到正确的结果。闭包允许你引用存在于外部函数中的变量。<br>下面的代码使用的是forEach循环</p>
+<pre><code>function makeClosures(arr, fn) {
+  var result = [];
+     arr.forEach(function(e){
+         result.push(function(num){
+             return function(){
+                 return fn(num);
+             };
+         }(e));
+     });
+     return result;
+ }
+</code></pre><h4 id="二次封装函数"><a href="#二次封装函数" class="headerlink" title="二次封装函数"></a>二次封装函数</h4><p><strong>已知函数 fn 执行需要 3 个参数。请实现函数 partial，调用之后满足如下条件:</strong><br>1、返回一个函数 result，该函数接受一个参数<br>2、执行 result(str3) ，返回的结果与 fn(str1, str2, str3) 一致  </p>
+<p>输入例子:</p>
+<blockquote>
+<p>var sayIt = function(greeting, name, punctuation) {</p>
+<p>  return greeting + ‘, ‘ + name + (punctuation || ‘!’);<br>};</p>
+<p>partial(sayIt, ‘Hello’, ‘Ellie’)(‘!!!’);</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>Hello, Ellie!!!</p>
+</blockquote>
+<p>代码:<br>partial(sayIt, ‘Hello’, ‘Ellie’)(‘!!!’);首先执行partial(sayIt, ‘Hello’, ‘Ellie’)，将参数传入，然后返回函数result与(‘!!!’)组合成result(‘!!!’)执行。于是，可以在result函数里调用fn，因为函数的参数固定为三个，因此可以用call方法去调用函数fn。</p>
+<pre><code>function partial(fn, str1, str2) {
+    var result=function(str3){
+        return fn.call(null,str1,str2,str3);
+    }
+    return result;
+}
+</code></pre><h4 id="使用-arguments"><a href="#使用-arguments" class="headerlink" title="使用 arguments"></a>使用 arguments</h4><p>函数 useArguments 可以接收1个及以上的参数。请实现函数useArguments，返回所有调用参数相加后的结果。本题的测试参数全部为 Number 类型，不需考虑参数转换。 </p>
+<p>输入例子:</p>
+<blockquote>
+<p>useArguments(1, 2, 3, 4)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>10</p>
+</blockquote>
+<p>代码:<br>本题考查的是对于arguments的使用，arguments能获得函数对象传入的参数组，类似与一个数组，能够通过length获取参数个数，能通过下标获取该位置的参数，但是它不能使用forEach等方法。本题先通过arguments.length获得参数个数，然后循环求和，得出结果。</p>
+<pre><code>function useArguments() {
+  /*
+   因为参数数量不定，可以先获取参数个数arguments.length
+   然后循环求值
+  */
+  //声明一个变量保存最终结果
+  var sum = 0;
+  //循环求值
+  for(var i = 0; i &lt; arguments.length; i++){
+      sum += arguments[i];
+  }
+  return sum;
+ }
+</code></pre><h4 id="使用-apply-调用函数"><a href="#使用-apply-调用函数" class="headerlink" title="使用 apply 调用函数"></a>使用 apply 调用函数</h4><p><strong>实现函数 callIt，调用之后满足如下条件</strong><br>1、返回的结果为调用 fn 之后的结果<br>2、fn 的调用参数为 callIt 的第一个参数之后的全部参数</p>
+<p>输入例子:</p>
+<blockquote>
+<p>var a = 1; var b = 2;<br>var test = function (first, second) {<br>return first === a &amp;&amp; second === b;<br>};<br>callIt(test, a, b);</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>true</p>
+</blockquote>
+<p>代码:<br>因为arguments并非真正的数组，因此要获得callIt的第一个参数之后的所有参数，不能直接使用slice方法截取，需要先将arguments转换为真正的数组才行。有两种常见的方法，一是使用slice方法：var args = Array . prototype . slice . call ( arguments);二是循环遍历逐一填入新数组。在获得了args之后，就可以调用apply来执行传入的函数参数。</p>
+<pre><code>function callIt(fn) {
+    //将arguments转化为数组后，截取第一个元素之后的所有元素
+    var args = Array.prototype.slice.call(arguments,1);
+    //调用fn
+    var result = fn.apply(null,args);
+    return result;
+}
+</code></pre><h4 id="二次封装函数-1"><a href="#二次封装函数-1" class="headerlink" title="二次封装函数"></a>二次封装函数</h4><p><strong>实现函数 partialUsingArguments，调用之后满足如下条件：</strong><br>1、返回一个函数 result<br>2、调用 result 之后，返回的结果与调用函数 fn 的结果一致<br>3、fn 的调用参数为 partialUsingArguments 的第一个参数之后的全部参数以及 result 的调用参数</p>
+<p>输入例子:</p>
+<blockquote>
+<p>var a = 1; var b = 2; var c = 3; var d = 4;<br>var test = function (first, second, third, forth) {<br>return first + second + third + forth;};<br>partialUsingArguments(test, a, b)(c, d);</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>10</p>
+</blockquote>
+<p>代码:</p>
+<p>arguments不能用slice方法直接截取，需要先转换为数组，var args = Array.prototype.slice.call(arguments);合并参数可以使用concat方法，并且也需要将arguments先转换为数组才能使用concat进行合并。最用使用apply执行传入的函数即可。</p>
+<pre><code>function partialUsingArguments(fn) {
+     //先获取p函数第一个参数之后的全部参数
+     var args = Array.prototype.slice.call(arguments,1);
+     //声明result函数
+     var result = function(){
+         //使用concat合并两个或多个数组中的元素
+         return fn.apply(null, args.concat([].slice.call(arguments)));
+     }
+     return result;
+ }
+</code></pre><h4 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h4><p><strong>已知 fn 为一个预定义函数，实现函数 curryIt，调用之后满足如下条件：</strong><br>1、返回一个函数 a，a 的 length 属性值为 1（即显式声明 a 接收一个参数）<br>2、调用 a 之后，返回一个函数 b, b 的 length 属性值为 1<br>3、调用 b 之后，返回一个函数 c, c 的 length 属性值为 1<br>4、调用 c 之后，返回的结果与调用 fn 的返回值一致<br>5、fn 的参数依次为函数 a, b, c 的调用参数</p>
+<p>输入例子:</p>
+<blockquote>
+<p>var fn = function (a, b, c) {return a + b + c}; curryIt(fn)(1)(2)(3);</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>6</p>
+</blockquote>
+<p>代码:</p>
+<p>柯里化是把接受多个参数的函数变换成接受一个单一参数(最初函数的第一个参数)的函数，并且返回接受余下的参数且返回结果的新函数的技术。简单理解题目意思，就是指，我们将预定义的函数的参数逐一传入到curryIt中，当参数全部传入之后，就执行预定义函数。于是，我们首先要获得预定义函数的参数个数fn.length，然后声明一个空数组去存放这些参数。返回一个匿名函数接收参数并执行，当参数个数小于fn.length，则再次返回该匿名函数，继续接收参数并执行，直至参数个数等于fn.length。最后，调用apply执行预定义函数。</p>
+<pre><code>function curryIt(fn) {
+     //获取fn参数的数量
+     var n = fn.length;
+     //声明一个数组args
+     var args = [];
+     //返回一个匿名函数
+     return function(arg){
+         //将curryIt后面括号中的参数放入数组
+         args.push(arg);
+         //如果args中的参数个数小于fn函数的参数个数，
+         //则执行arguments.callee（其作用是引用当前正在执行的函数，这里是返回的当前匿名函数）。
+         //否则，返回fn的调用结果
+         if(args.length &lt; n){
+            return arguments.callee;
+         }else return fn.apply(&quot;&quot;,args);
+     }
+ }
+</code></pre><h3 id="逻辑操作"><a href="#逻辑操作" class="headerlink" title="逻辑操作"></a>逻辑操作</h3><h4 id="或运算"><a href="#或运算" class="headerlink" title="或运算"></a>或运算</h4><p><strong>返回参数 a 和 b 的逻辑或运算结果</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>or(false, true)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>true</p>
+</blockquote>
+<p>代码:</p>
+<pre><code>function or(a, b) {
+  return a||b;
+ }
+</code></pre><h4 id="且运算"><a href="#且运算" class="headerlink" title="且运算"></a>且运算</h4><p><strong>返回参数 a 和 b 的逻辑且运算结果</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>and(false, true)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>false</p>
+</blockquote>
+<p>代码:</p>
+<pre><code>function and(a, b) {
+  return a &amp;&amp; b;
+}
+</code></pre><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><h4 id="模块-1"><a href="#模块-1" class="headerlink" title="模块"></a>模块</h4><p><strong>完成函数 createModule，调用之后满足如下要求：</strong><br>1、返回一个对象<br>2、对象的 greeting 属性值等于 str1， name 属性值等于 str2<br>3、对象存在一个 sayIt 方法，该方法返回的字符串为 greeting属性值 + ‘, ‘ + name属性值</p>
+<p>代码:</p>
+<p>声明对象有两种常见的方式：var obj = {};和var obj = new Object();。前面一种可以直接在括号中以key:value的方式定义属性，后一种采用点运算符给对象添加属性。</p>
+<pre><code>function createModule(str1, str2) {
+     var obj = {
+         greeting : str1,
+         name     : str2,
+         sayIt    : function(){
+             //两个属性前面都需要加上this
+             return this.greeting+&quot;, &quot;+this.name;
+         }
+     };
+     return obj;
+ }
+</code></pre><h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><h4 id="二进制转换1"><a href="#二进制转换1" class="headerlink" title="二进制转换1"></a>二进制转换1</h4><p><strong>获取数字 num 二进制形式第 bit 位的值。注意：</strong><br>1、bit 从 1 开始<br>2、返回 0 或 1<br>3、举例：2 的二进制为 10，第 1 位为 0，第 2 位为 1</p>
+<p>输入例子:</p>
+<blockquote>
+<p>valueAtBit(128, 8)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>1</p>
+</blockquote>
+<p>代码:</p>
+<p>通过num.toString(2)能直接将num转换为2进制数格式的字符串，利用下标就能将对应值取出来。题目返回的数字是从右往左，因此下标为倒数。</p>
+<pre><code>function valueAtBit(num, bit) {
+  var s = num.toString(2);
+     return s[s.length - bit];
+ }
+</code></pre><h4 id="二进制转换2"><a href="#二进制转换2" class="headerlink" title="二进制转换2"></a>二进制转换2</h4><p><strong>给定二进制字符串，将其换算成对应的十进制数字 </strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>base10(‘11000000’)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>192</p>
+</blockquote>
+<p>代码:</p>
+<p>parseInt方法可以将其它进制转换为十进制，只需要给该方法传入需要转换的字符串和该字符串的进制表示两个参数即可。</p>
+<pre><code>function base10(str) {
+    /**
+        其它进制转十进制
+        parseInt(str,2)
+        parseInt(str,8)
+        parseInt(str,16)
+    */
+    return parseInt(str,2);
+}
+</code></pre><h4 id="二进制转换3"><a href="#二进制转换3" class="headerlink" title="二进制转换3"></a>二进制转换3</h4><p><strong>将给定数字转换成二进制字符串。如果字符串长度不足 8 位，则在前面补 0 到满8位。</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>convertToBinary(65)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>01000001</p>
+</blockquote>
+<p>代码:</p>
+<p>首先通过toString方法将num转为2进制数形式，然后判断其长度是否足够8位。如不足8位，则声明一个“0000000”字符串用于补0，因为目标的2进制数形式最少为一位，因此最多只需要7个0；通过slice方法对“0000000”进行截取，然后将其结果加在目标前面即可。</p>
+<pre><code>function convertToBinary(num) {
+     //转换为2进制格式
+     var s = num.toString(2);
+     //获得2进制数长度
+     var l = s.length;
+     if(l&lt;8){
+         //声明一个字符串用于补满0
+         var s1 = &quot;0000000&quot;;
+         var s2 = s1.slice(0,8-l);
+         s = s2+s; 
+     }
+     return s;
+ }
+</code></pre><h4 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h4><p><strong>求 a 和 b 相乘的值，a 和 b 可能是小数，需要注意结果的精度问题</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>multiply(3, 0.0001)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>0.0003</p>
+</blockquote>
+<p>代码:</p>
+<p>通过将a、b小数位数的相加，能够得到a<em>b结果的小数位数最大可能值。然后使用toFixed方法可以将结果的小数位数指定为可能的最大值，即保证了结果的精度。但本题实际上，仅返回a</em>b也能通过。在浏览器上做实验，最大17位的小数位数满足了该题全部的测试用例。</p>
+<pre><code>function multiply(a, b) {
+  return a*b;
+ }
+</code></pre><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><h4 id="改变上下文"><a href="#改变上下文" class="headerlink" title="改变上下文"></a>改变上下文</h4><p><strong>将函数 fn 的执行上下文改为 obj，返回 fn 执行后的值</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>alterContext(function() {<br>return this.greeting + ‘, ‘ + this.name + ‘!’; },<br>{name: ‘Rebecca’, greeting: ‘Yo’ })</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>Yo, Rebecca!</p>
+</blockquote>
+<p>代码:</p>
+<p>在JavaScript中，函数是一种对象，其上下文是可以变化的，对应的，函数内的this也是可以变化的，函数可以作为一个对象的方法，也可以同时作为另一个对象的方法，可以通过Function对象中的call或者apply方法来修改函数的上下文，函数中的this指针将被替换为call或者apply的第一个参数。将函数 fn 的执行上下文改为 obj 对象，只需要将obj作为call或者apply的第一个参数传入即可。</p>
+<pre><code>function alterContext(fn, obj) {
+  return fn.call(obj,obj);
+ }
+</code></pre><h4 id="批量改变对象的属性"><a href="#批量改变对象的属性" class="headerlink" title="批量改变对象的属性"></a>批量改变对象的属性</h4><p><strong>给定一个构造函数 constructor，请完成 alterObjects 方法，将 constructor 的所有实例的 greeting 属性指向给定的 greeting 变量。</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>var C = function(name) {this.name = name; return this;};<br>var obj1 = new C(‘Rebecca’);<br>alterObjects(C, ‘What\’s up’);<br>obj1.greeting;</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>What’s up</p>
+</blockquote>
+<p>代码:</p>
+<p>这是原型链问题。访问一个对象的方法或者是属性，首先会在该对象中寻找，如果找到则返回，如果没找到，则在其原型链上面向上寻找，直至基原型，如还未找到，则返回undefined。将 constructor 的所有实例的 greeting 属性指向给定的 greeting 变量，只需要在constructor的原型上面添加greeting属性，并指定值。</p>
+<pre><code>function alterObjects(constructor, greeting) {
+  constructor.prototype.greeting = greeting;
+ }
+</code></pre><h4 id="属性遍历"><a href="#属性遍历" class="headerlink" title="属性遍历"></a>属性遍历</h4><p><strong>找出对象 obj 不在原型链上的属性(注意这题测试例子的冒号后面也有一个空格~)</strong><br>1、返回数组，格式为 key: value<br>2、结果数组不要求顺序</p>
+<p>输入例子:</p>
+<blockquote>
+<p>var C = function() {<br>this.foo = ‘bar’; this.baz = ‘bim’;};<br>C.prototype.bop = ‘bip’;<br>iterate(new C());</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>[“foo: bar”, “baz: bim”]</p>
+</blockquote>
+<p>代码:</p>
+<p>可以使用for-in来遍历对象中的属性，hasOwnproperty方法能返回一个布尔值，指出一个对象是否具有指定名称的属性。此方法无法检查该对象的原型链中是否具有该属性，该属性必须为对象本身的属性。</p>
+<pre><code>function iterate(obj) {
+     var arr = [];
+     //使用for-in遍历对象属性
+     for(var key in obj){
+         //判断key是否为对象本身的属性
+         if(obj.hasOwnProperty(key)){
+             //将属性和值按格式存入数组
+             arr.push(key+&quot;: &quot;+obj[key]);
+         }
+     }
+     return arr;
+ }
+</code></pre><h3 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h3><h4 id="判断是否包含数字"><a href="#判断是否包含数字" class="headerlink" title="判断是否包含数字"></a>判断是否包含数字</h4><p><strong>给定字符串 str，检查其是否包含数字，包含返回 true，否则返回 false</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>containsNumber(‘abc123’)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>true</p>
+</blockquote>
+<p>代码:</p>
+<p>方法一:直接表达式判断</p>
+<pre><code>function containsNumber(str) {
+    return /\d/.test(str);
+}
+</code></pre><p>方法二:用if函数进行判断,只要有一个数字,就返回true</p>
+<pre><code>function containsNumber(str) {
+    var pattern=/\d/g;
+    if(str.match(pattern))
+        return true;
+    else
+        return false;
+}
+</code></pre><h4 id="检查重复字符串"><a href="#检查重复字符串" class="headerlink" title="检查重复字符串"></a>检查重复字符串</h4><p><strong>给定字符串 str，检查其是否包含连续重复的字母（a-zA-Z），包含返回 true，否则返回 false</strong></p>
+<p>输入例子:</p>
+<blockquote>
+<p>containsRepeatingLetter(‘rattler’)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>true</p>
+</blockquote>
+<p>代码:</p>
+<p>在正则表达式中，利用()进行分组，使用斜杠加数字表示引用，\1就是引用第一个分组，\2就是引用第二个分组。将[a-zA-Z]做为一个分组，然后引用，就可以判断是否有连续重复的字母。</p>
+<pre><code>function containsRepeatingLetter(str) {
+     return /([a-zA-Z])\1/.test(str);
+ }
+</code></pre><h4 id="判断是否以元音字母结尾"><a href="#判断是否以元音字母结尾" class="headerlink" title="判断是否以元音字母结尾"></a>判断是否以元音字母结尾</h4><p><strong>给定字符串 str，检查其是否以元音字母结尾</strong><br>1、元音字母包括 a，e，i，o，u，以及对应的大写<br>2、包含返回 true，否则返回 false</p>
+<p>输入例子:</p>
+<blockquote>
+<p>endsWithVowel(‘gorilla’)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>true</p>
+</blockquote>
+<p>代码:</p>
+<p>首先确定元音集合[a,e,i,o,u]，然后是以元音结尾，加上$，最后通配大小写，加上i。因此正则表达式为:/[a,e,i,o,u]$/i，最后用test方法去检测字符串str</p>
+<pre><code>function endsWithVowel(str) {
+    return /[a,e,i,o,u]$/i.test(str)
+}
+</code></pre><h4 id="获取指定字符串"><a href="#获取指定字符串" class="headerlink" title="获取指定字符串"></a>获取指定字符串</h4><p><strong>给定字符串 str，检查其是否包含 3 个连续的数字</strong><br>1、如果包含，返回最新出现的 3 个数字的字符串<br>2、如果不包含，返回 false</p>
+<p>输入例子:</p>
+<blockquote>
+<p>captureThreeNumbers(‘9876543’)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>987</p>
+</blockquote>
+<p>代码:</p>
+<p>考察的是字符串中是否含有连续的三个任意数字，而不是三个连续的数字。依题，若存在连续的三个任意数字，则返回最早出现的三个数字，若不存在，则返回false。因此需要用到match方法，match()返回的是正则表达式匹配的字符串数组，连续的三个任意数字用正则表达式表示为/\d{3}/。</p>
+<pre><code>function captureThreeNumbers(str) {
+     //声明一个数组保存匹配的字符串结果
+  var arr = str.match(/\d{3}/);
+     //如果arr存在目标结果，则返回第一个元素，即最早出现的目标结果
+     if(arr)
+         return arr[0];
+     else return false;
+ }
+</code></pre><h4 id="判断是否符合指定格式"><a href="#判断是否符合指定格式" class="headerlink" title="判断是否符合指定格式"></a>判断是否符合指定格式</h4><p><strong>给定字符串 str，检查其是否符合如下格式</strong><br>1、XXX-XXX-XXXX<br>2、其中 X 为 Number 类型 </p>
+<p>输入例子:</p>
+<blockquote>
+<p>matchesPattern(‘800-555-1212’)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>true</p>
+</blockquote>
+<p>代码:</p>
+<p>本题需要注意格式，开头^和结尾$必须加上来限定字符串，3个数可表示为\d{3}，4个数则为\d{4}，{n}表示前面内容出现的次数。正则表达式可写作/^\d{3}-\d{3}-\d{4}$/，有相同部分\d{3}-，因此也可写作/^(\d{3}-){2}\d{4}$/</p>
+<pre><code>function matchesPattern(str) {
+    return /^(\d){3}-(\d){3}-(\d){4}$/.test(str);
+}
+</code></pre><h4 id="判断是否符合-USD-格式"><a href="#判断是否符合-USD-格式" class="headerlink" title="判断是否符合 USD 格式"></a>判断是否符合 USD 格式</h4><p><strong>给定字符串 str，检查其是否符合美元书写格式</strong><br>1、以 $ 开始<br>2、整数部分，从个位起，满 3 个数字用 , 分隔<br>3、如果为小数，则小数部分长度为 2<br>4、<br>正确的格式如：$1,023,032.03 或者 $2.03，<br>错误的格式如：$3,432,12.12 或者 $34,344.3</p>
+<p>输入例子:</p>
+<blockquote>
+<p>isUSD(‘$20,933,209.93’)</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>true</p>
+</blockquote>
+<p>代码:</p>
+<p>本题注意点有必须是USD格式，以$开头，数字结尾，$和小数点的转义。<br>首先，开头必是$，而正则表达式中$表示结尾，需要进行转义，因此开头为^\$<br>然后$后必然接数字，并且最少一位，最多三位数，可用{m,n}表示,  最少m位，最多n位，因此此段为\d{1,3}<br>接着，后面如还有数，则必然有，分隔，并且后面必有3个数，类似于，XXX的格式会出现0或者n次，因此此段可表示为(,\d{3})<em><br>最后，如有小数部分，则注意对小数点进行转义，此段可表示为(.\d{2})?<br>因此，最后的正则表达式为/^\$\d{1,3}(,\d{3})</em>(.\d{2})?$/<br>使用test方法去检测str</p>
+<pre><code>function isUSD(str) {
+   return /^\$\d{1,3}(,\d{3})*(\.\d{2})?$/.test(str);
+}
+</code></pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/编程题/" rel="tag">#编程题</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-04/js-function/" rel="next" title="JavaScript 函数相关知识点(函数、this、闭包、作用域)">
+                <i class="fa fa-chevron-left"></i> JavaScript 函数相关知识点(函数、this、闭包、作用域)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-04/js-canvas/" rel="prev" title="JavaScript 使用 Canvas 绘图">
+                JavaScript 使用 Canvas 绘图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016-04/programme/"
+           data-title="JavaScript 50道经典编程题" data-url="http://ringcrl.com/2016-04/programme/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/RingTalk.jpg"
+               alt="Chenng" />
+          <p class="site-author-name" itemprop="name">Chenng</p>
+          <p class="site-description motion-element" itemprop="description">前端手艺人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ringcrl" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ringcrl" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找数组元素位置"><span class="nav-number">1.1.</span> <span class="nav-text">查找数组元素位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组求和"><span class="nav-number">1.2.</span> <span class="nav-text">数组求和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除数组中的元素1"><span class="nav-number">1.3.</span> <span class="nav-text">移除数组中的元素1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除数组中的元素2"><span class="nav-number">1.4.</span> <span class="nav-text">移除数组中的元素2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加元素"><span class="nav-number">1.5.</span> <span class="nav-text">添加元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数组最后一个元素"><span class="nav-number">1.6.</span> <span class="nav-text">删除数组最后一个元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加元素1"><span class="nav-number">1.7.</span> <span class="nav-text">添加元素1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数组第一个元素"><span class="nav-number">1.8.</span> <span class="nav-text">删除数组第一个元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组合并"><span class="nav-number">1.9.</span> <span class="nav-text">数组合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加元素2"><span class="nav-number">1.10.</span> <span class="nav-text">添加元素2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计数"><span class="nav-number">1.11.</span> <span class="nav-text">计数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找重复元素"><span class="nav-number">1.12.</span> <span class="nav-text">查找重复元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#求二次方"><span class="nav-number">1.13.</span> <span class="nav-text">求二次方</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找元素位置"><span class="nav-number">1.14.</span> <span class="nav-text">查找元素位置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码规范"><span class="nav-number">2.</span> <span class="nav-text">编码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#避免全局变量"><span class="nav-number">2.1.</span> <span class="nav-text">避免全局变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正确的函数定义"><span class="nav-number">2.2.</span> <span class="nav-text">正确的函数定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正确的使用-parseInt"><span class="nav-number">2.3.</span> <span class="nav-text">正确的使用 parseInt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完全等同"><span class="nav-number">2.4.</span> <span class="nav-text">完全等同</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计数-1"><span class="nav-number">3.</span> <span class="nav-text">计数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计时器"><span class="nav-number">3.1.</span> <span class="nav-text">计时器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程控制"><span class="nav-number">4.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#流程控制-1"><span class="nav-number">4.1.</span> <span class="nav-text">流程控制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">5.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数传参"><span class="nav-number">5.1.</span> <span class="nav-text">函数传参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的上下文"><span class="nav-number">5.2.</span> <span class="nav-text">函数的上下文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回函数"><span class="nav-number">5.3.</span> <span class="nav-text">返回函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用闭包"><span class="nav-number">5.4.</span> <span class="nav-text">使用闭包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二次封装函数"><span class="nav-number">5.5.</span> <span class="nav-text">二次封装函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-arguments"><span class="nav-number">5.6.</span> <span class="nav-text">使用 arguments</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-apply-调用函数"><span class="nav-number">5.7.</span> <span class="nav-text">使用 apply 调用函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二次封装函数-1"><span class="nav-number">5.8.</span> <span class="nav-text">二次封装函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#柯里化"><span class="nav-number">5.9.</span> <span class="nav-text">柯里化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑操作"><span class="nav-number">6.</span> <span class="nav-text">逻辑操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#或运算"><span class="nav-number">6.1.</span> <span class="nav-text">或运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#且运算"><span class="nav-number">6.2.</span> <span class="nav-text">且运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块"><span class="nav-number">7.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模块-1"><span class="nav-number">7.1.</span> <span class="nav-text">模块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number"><span class="nav-number">8.</span> <span class="nav-text">Number</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制转换1"><span class="nav-number">8.1.</span> <span class="nav-text">二进制转换1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制转换2"><span class="nav-number">8.2.</span> <span class="nav-text">二进制转换2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制转换3"><span class="nav-number">8.3.</span> <span class="nav-text">二进制转换3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#乘法"><span class="nav-number">8.4.</span> <span class="nav-text">乘法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象"><span class="nav-number">9.</span> <span class="nav-text">对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#改变上下文"><span class="nav-number">9.1.</span> <span class="nav-text">改变上下文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#批量改变对象的属性"><span class="nav-number">9.2.</span> <span class="nav-text">批量改变对象的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性遍历"><span class="nav-number">9.3.</span> <span class="nav-text">属性遍历</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则"><span class="nav-number">10.</span> <span class="nav-text">正则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#判断是否包含数字"><span class="nav-number">10.1.</span> <span class="nav-text">判断是否包含数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查重复字符串"><span class="nav-number">10.2.</span> <span class="nav-text">检查重复字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断是否以元音字母结尾"><span class="nav-number">10.3.</span> <span class="nav-text">判断是否以元音字母结尾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取指定字符串"><span class="nav-number">10.4.</span> <span class="nav-text">获取指定字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断是否符合指定格式"><span class="nav-number">10.5.</span> <span class="nav-text">判断是否符合指定格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断是否符合-USD-格式"><span class="nav-number">10.6.</span> <span class="nav-text">判断是否符合 USD 格式</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <a style="text-decoration:none;" href="https://github.com/ringcrl" target="_blank">GitHub</a>
+<span>&</span>
+<a style="text-decoration:none;" href="http://weibo.com/ringcrl" target="_blank">Weibo</a>
+
+<div class="copyright" >
+  
+  &copy;
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenng</span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ringtalk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

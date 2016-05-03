@@ -1,0 +1,669 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Atom," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="发现Sublime能够编写Markdown之后，对Sublime真是爱不释手了。还想着找个时间彻底学习一下Sublime，并对自己常用的插件进行一个汇总，让工具更为自己所用。下面是我在Sublime上安装的所有插件：
+
+后来因为对GitHub路转粉，GitHub推出的Atom当然要尝试一下，试了一下就决定要深入学习一下这款神器了。说不定学完之后就把它当作我的编程武器了。
+基础菜单栏
+Atom/Fi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Atom入门，由Sublime过渡到Atom的惊喜">
+<meta property="og:url" content="http://ringcrl.com/2016-05/Atom-induction/index.html">
+<meta property="og:site_name" content="RingTalk">
+<meta property="og:description" content="发现Sublime能够编写Markdown之后，对Sublime真是爱不释手了。还想着找个时间彻底学习一下Sublime，并对自己常用的插件进行一个汇总，让工具更为自己所用。下面是我在Sublime上安装的所有插件：
+
+后来因为对GitHub路转粉，GitHub推出的Atom当然要尝试一下，试了一下就决定要深入学习一下这款神器了。说不定学完之后就把它当作我的编程武器了。
+基础菜单栏
+Atom/Fi">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Atom-induction01.png">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Atom-induction02.png">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Atom-induction03.png">
+<meta property="og:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Atom-induction04.png">
+<meta property="og:updated_time" content="2016-05-03T10:26:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Atom入门，由Sublime过渡到Atom的惊喜">
+<meta name="twitter:description" content="发现Sublime能够编写Markdown之后，对Sublime真是爱不释手了。还想着找个时间彻底学习一下Sublime，并对自己常用的插件进行一个汇总，让工具更为自己所用。下面是我在Sublime上安装的所有插件：
+
+后来因为对GitHub路转粉，GitHub推出的Atom当然要尝试一下，试了一下就决定要深入学习一下这款神器了。说不定学完之后就把它当作我的编程武器了。
+基础菜单栏
+Atom/Fi">
+<meta name="twitter:image" content="http://7xt1ds.com2.z0.glb.clouddn.com/Atom-induction01.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Atom入门，由Sublime过渡到Atom的惊喜 | RingTalk </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7c95bb71fd7c5dd5024a13675c205ea2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RingTalk</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最朴实的生活，最遥远的梦想。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'qp8_7pbfcjzMmTzmmaqF','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Atom入门，由Sublime过渡到Atom的惊喜
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-03T00:00:00+08:00" content="2016-05-03">
+              2016-05-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-05/Atom-induction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016-05/Atom-induction/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>发现Sublime能够编写Markdown之后，对Sublime真是爱不释手了。还想着找个时间彻底学习一下Sublime，并对自己常用的插件进行一个汇总，让工具更为自己所用。下面是我在Sublime上安装的所有插件：</p>
+<p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Atom-induction01.png" alt="pic"></p>
+<p>后来因为对GitHub路转粉，GitHub推出的Atom当然要尝试一下，试了一下就决定要深入学习一下这款神器了。说不定学完之后就把它当作我的编程武器了。</p>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="菜单栏"><a href="#菜单栏" class="headerlink" title="菜单栏"></a>菜单栏</h4><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Atom-induction02.png" alt="pic"></p>
+<p>Atom/File — 文件的保存打开,项目的保存打开,最后一次的项目加载,关闭及设置中心,以及用户自定义的配置(配置文件,初始化脚本,样式风格,代码片段,快捷键配置文件)等<br>Edit — 文件编辑的操作,文件编码格式,及行跳转等<br>View — 重载页面,全屏,字体大小的缩放等<br>Find — 都是关于查询的 ,跟 Sublime text 极其相似,快捷键基本一样<br>Package — 包,就是插件列表的集合点  </p>
+<h4 id="设置中心"><a href="#设置中心" class="headerlink" title="设置中心"></a>设置中心</h4><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Atom-induction03.png" alt="pic"></p>
+<p>Settings — 全局设置,可以设置文件的编码,菜单栏是否显示,忽略文件,文档缩进,字体大小,项目主目录等</p>
+<p>Keybindings — 快捷键配置,默认快捷键都汇总于此了,很方便查询对应的快捷键的功能,也方便修改</p>
+<p>Packages — 插件管理中心,可以设置插件,删除插件及禁用,无安装功能</p>
+<p>Themes —主题管理中心,可以设置主题(支持鼠标选定,也支持写入配置文件生效),管理主题(删除及在线下载主题)</p>
+<p>Updates — 目前功能只有一个,查询社区包的状态,随时随地的更新已安装的插件</p>
+<p>Install — 目前分为两栏,自上而下,第一部分是搜索(可以搜索社区的插件),下面一部分会展示目前比较流行的插件(可以直接点击下载使用)</p>
+<p>Open Config Folder — 这一块算不上鼠标操作控制,完全是软件的配置文件集合目录</p>
+<h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><p>Copy Path（复制当前窗口文档的路径)：Control + Shift + C<br>Slect Grammar（语法选择）：Control + Shift + L<br>Toggle Tree View（展示隐藏目录树）：Cmd + \<br>Select Line（选定一行）：Cmd + L<br>Select All（匹配选定所有）：Control + Cmd + G<br>Delte End of Word（光标在词尾时候删除这个词）：Alt + delete<br>Delete Line（删除一行）：Control + Shift + K<br>Toggle developer tools（打开Chrome调试器）Cmd + Alt + I<br>Selected Rows（增加或减少缩进）：Cmd + ]/[<br>Move Line（行向上或向下移动）：Control + Cmd +up/down  </p>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><h4 id="必备插件"><a href="#必备插件" class="headerlink" title="必备插件"></a>必备插件</h4><p>1.Emmet — 用过都说好,神器;有个别快捷键会和 Markdown preview 快捷键冲突，改下就好了</p>
+<p>2.autoprefixer — 用来补充 css 前缀的，会自动生成多个浏览器的前缀</p>
+<p>3.color-picker — 取色器,太赞了有木有，比 sublime 那个好用，不卡，启动超快</p>
+<p>4.linter — 这货默认可以识别多门语言的错误,但是不细致，属于主插件，可以针对性的安装更细致的检查插件(太多，不一一列出，下面是前端可能用到的)<br>linter-jshint, for JavaScript and JSON, using jshint<br>linter-coffeelint, for CoffeeScript, using coffeelint<br>linter-tslint, for Typescript, using tslint<br>linter-php, for PHP using php -l<br>linter-pylint, for Python, using pylint<br>linter-scss-lint, for SASS/SCSS, using scss-lint<br>linter-less, for LESS, using less<br>linter-csslint, for CSS, using csslint<br>linter-stylint, for Stylus, using stylint<br>linter-stylus, for Stylus, using stylus</p>
+<p>5.less-autocompile — 实时编译</p>
+<p>6.docblockr — 注释插件，非常的实用</p>
+<p>7.atom-html-preview - 实时预览网页</p>
+<p>8.Markdown-scroll-sync - markdown 实时显示</p>
+<p>9.run-in-brower - 在浏览器中打开html</p>
+<p>10.filetype-color — 在标签栏不同格式文件显示不同的颜色的标题，支持二度设置</p>
+<p>11.minimap — 用过 Sublime Text 的友友们都知道有一个很实用的功能，就是内部编辑那里有一个小小的代码图,这货就是补全 Atom 这个功能的,支持高亮代码,还可控，具体看内部设置。</p>
+<p>12.atom-ternjs - JS 代码智能提示补全</p>
+<p>13.jquery-snippets - JQ 代码智能提示补全</p>
+<p>14.atom-beautify - 格式化代码</p>
+<h3 id="自定义按键绑定"><a href="#自定义按键绑定" class="headerlink" title="自定义按键绑定"></a>自定义按键绑定</h3><p><img src="http://7xt1ds.com2.z0.glb.clouddn.com/Atom-induction04.png" alt="pic"></p>
+<p>找到需要修改的快捷键，点击最左边那个按钮，这时候剪切板就复制了该快捷键的设置。然后在正文中点击蓝字进入用户快捷键自定义窗口，在最下方先复制，然后改成需要更改的快捷键即可。</p>
+<hr>
+<p>Atom真是一个值得细细品味的代码编辑器，上手比Sublime快多了，也许是之前也已经用习惯Sublime的关系。但是有个问题是我到现在都不能通过浏览器内部进行插件的安装，也不能通过apm命令来安装。只能够先找到该插件的GitHub地址。进入<code>cd .Atom/Package</code>，再通过<code>git clone</code>来安装。然后现在还不懂为什么需要在<code>git clone</code>之后还要<code>npm install</code>,我的插件没有执行这一步依然能够使用。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Atom/" rel="tag">#Atom</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-04/network-protocol/" rel="next" title="互联网网络协议入门">
+                <i class="fa fa-chevron-left"></i> 互联网网络协议入门
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016-05/Atom-induction/"
+           data-title="Atom入门，由Sublime过渡到Atom的惊喜" data-url="http://ringcrl.com/2016-05/Atom-induction/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/RingTalk.jpg"
+               alt="Chenng" />
+          <p class="site-author-name" itemprop="name">Chenng</p>
+          <p class="site-description motion-element" itemprop="description">前端手艺人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ringcrl" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ringcrl" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#菜单栏"><span class="nav-number">1.1.</span> <span class="nav-text">菜单栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置中心"><span class="nav-number">1.2.</span> <span class="nav-text">设置中心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用快捷键"><span class="nav-number">1.3.</span> <span class="nav-text">常用快捷键</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件"><span class="nav-number">2.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#必备插件"><span class="nav-number">2.1.</span> <span class="nav-text">必备插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义按键绑定"><span class="nav-number">3.</span> <span class="nav-text">自定义按键绑定</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <a style="text-decoration:none;" href="https://github.com/ringcrl" target="_blank">GitHub</a>
+<span>&</span>
+<a style="text-decoration:none;" href="http://weibo.com/ringcrl" target="_blank">Weibo</a>
+
+<div class="copyright" >
+  
+  &copy;
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenng</span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ringtalk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
