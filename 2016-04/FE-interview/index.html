@@ -83,15 +83,15 @@
 <meta name="description" content="本文由我收集总结了一些前端面试题，初学者阅后也要用心钻研其中的原理，重要知识需要系统学习、透彻学习，形成自己的知识链。万不可投机取巧，临时抱佛脚只求面试侥幸混过关是错误的！也是不可能的！不可能的！不可能的！
 前端还是一个年轻的行业，新的行业标准， 框架， 库都不断在更新和新增，正如赫门在2015深JS大会上的《前端服务化之路》主题演讲中说的一句话：“每18至24个月，前端都会难一倍”，这些变化使前">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大前端面试题(不断完善与增添)">
+<meta property="og:title" content="大前端面试题">
 <meta property="og:url" content="http://ringcrl.com/2016-04/FE-interview/index.html">
 <meta property="og:site_name" content="RingTalk">
 <meta property="og:description" content="本文由我收集总结了一些前端面试题，初学者阅后也要用心钻研其中的原理，重要知识需要系统学习、透彻学习，形成自己的知识链。万不可投机取巧，临时抱佛脚只求面试侥幸混过关是错误的！也是不可能的！不可能的！不可能的！
 前端还是一个年轻的行业，新的行业标准， 框架， 库都不断在更新和新增，正如赫门在2015深JS大会上的《前端服务化之路》主题演讲中说的一句话：“每18至24个月，前端都会难一倍”，这些变化使前">
 <meta property="og:image" content="http://www.w3school.com.cn/i/ct_js_value.gif">
-<meta property="og:updated_time" content="2016-05-02T11:55:59.000Z">
+<meta property="og:updated_time" content="2016-05-06T00:20:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大前端面试题(不断完善与增添)">
+<meta name="twitter:title" content="大前端面试题">
 <meta name="twitter:description" content="本文由我收集总结了一些前端面试题，初学者阅后也要用心钻研其中的原理，重要知识需要系统学习、透彻学习，形成自己的知识链。万不可投机取巧，临时抱佛脚只求面试侥幸混过关是错误的！也是不可能的！不可能的！不可能的！
 前端还是一个年轻的行业，新的行业标准， 框架， 库都不断在更新和新增，正如赫门在2015深JS大会上的《前端服务化之路》主题演讲中说的一句话：“每18至24个月，前端都会难一倍”，这些变化使前">
 <meta name="twitter:image" content="http://www.w3school.com.cn/i/ct_js_value.gif">
@@ -112,7 +112,7 @@
   };
 </script>
 
-  <title> 大前端面试题(不断完善与增添) | RingTalk </title>
+  <title> 大前端面试题 | RingTalk </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +262,7 @@
             
             
               
-                大前端面试题(不断完善与增添)
+                大前端面试题
               
             
           </h1>
@@ -756,13 +756,13 @@ wcDog.work();
 </code></pre><p>5、用混合方式来创建</p>
 <pre><code>function Car(name,price){
   this.name=name;
-  this.price=price; 
+  this.price=price;
 }
  Car.prototype.sell=function(){
    alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);
   }
 var camry =new Car(&quot;凯美瑞&quot;,27);
-camry.sell(); 
+camry.sell();
 </code></pre></blockquote>
 <p>Javascript作用链域?</p>
 <blockquote>
@@ -786,7 +786,7 @@ camry.sell();
 <pre><code>typeof undefined
     //&quot;undefined&quot;
     undefined :是一个表示&quot;无&quot;的原始值或者说表示&quot;缺少值&quot;，就是此处应该有一个值，但是还没有定义。  
-    当尝试读取时会返回 undefined； 
+    当尝试读取时会返回 undefined；
     例如变量被声明了，但没有赋值时，就等于undefined
 
 typeof null
@@ -1096,7 +1096,7 @@ define([&apos;./a&apos;, &apos;./b&apos;], function(a, b) { // 依赖必须一�
 <p>document.write只能重绘整个页面</p>
 <p>innerHTML可以重绘页面的一部分</p>
 </blockquote>
-<p>DOM操作——怎样添加、移除、移动、复制、创建和查找节点?</p>
+<p>DOM操作——怎样添加、移除、移动、复制、创建和查找节点?<br>&gt;</p>
 <blockquote>
 <pre><code>（1）创建新节点
   createDocumentFragment()    //创建一个DOM片段
@@ -1184,7 +1184,7 @@ $(&quot;&quot;).stringifyArray(array)
 //&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36
   (KHTML, like Gecko) Chrome/41.0.2272.101 Safari/537.36&quot;
 </code></pre></blockquote>
-<p>What is a Polyfill? </p>
+<p>What is a Polyfill?</p>
 <blockquote>
 <p>polyfill 是“在旧版浏览器上复制标准 API 的 JavaScript 补充”,可以动态地加载 JavaScript 代码或库，在不支持这些标准 API 的浏览器中模拟它们。</p>
 <p>例如，geolocation（地理位置）polyfill 可以在 navigator 对象上添加全局的 geolocation 对象，还能添加 getCurrentPosition 函数以及“坐标”回调对象，</p>
@@ -1217,7 +1217,7 @@ $(&quot;&quot;).stringifyArray(array)
 <p>有一些数组或对象的方法经常能使用到，jQuery将其保存为局部变量以提高访问速度。</p>
 <p>jquery实现的链式调用可以节约代码，所返回的都是同一个对象，可以提高代码效率。</p>
 </blockquote>
-<p>做的项目中，有没有用过或自己实现一些 polyfill 方案（兼容性处理方案）？比如： html5shiv、Geolocation、Placeholder </p>
+<p>做的项目中，有没有用过或自己实现一些 polyfill 方案（兼容性处理方案）？比如： html5shiv、Geolocation、Placeholder</p>
 <p>我们给一个dom同时绑定两个点击事件，一个用捕获，一个用冒泡。会执行几次事件，会先执行冒泡还是捕获？</p>
 <p>JQuery一个对象可以同时绑定多个事件，这是如何实现的？</p>
 <p>Node.js的适用场景？</p>
@@ -1246,7 +1246,7 @@ $(&quot;&quot;).stringifyArray(array)
 <p>JQuery的源码看过吗？能不能简单概况一下它的实现原理？</p>
 <p>jQuery.fn的init方法返回的this指的是什么对象？为什么要返回this？</p>
 <p>jquery中如何将数组转化为json字符串，然后再转化回来？</p>
-<p>jQuery 的属性拷贝(extend)的实现原理是什么，如何实现深拷贝？ </p>
+<p>jQuery 的属性拷贝(extend)的实现原理是什么，如何实现深拷贝？</p>
 <p>jquery.extend 与 jquery.fn.extend的区别？</p>
 <p>jQuery 的队列是如何实现的？队列可以用在哪些地方？</p>
 <p>谈一下Jquery中的bind(),live(),delegate(),on()的区别？</p>
@@ -1259,10 +1259,10 @@ $(&quot;&quot;).stringifyArray(array)
 <p>谈一谈你对ECMAScript6的了解？</p>
 <p><code>[].forEach.call($$(&quot;*&quot;),function(a){a.style.outline=&quot;1px solid #&quot;+(~~(Math.random()*(1&lt;&lt;24))).toString(16)})</code> 能解释一下这段代码的意思吗？</p>
 <p>用原生JavaScript的实现过什么功能吗？</p>
-<p>ECMAScript6 怎么写class么，为什么会出现class这种东西? </p>
+<p>ECMAScript6 怎么写class么，为什么会出现class这种东西?</p>
 <p>JQuery的源码看过吗？能不能简单说一下它的实现原理？</p>
 <p>什么是window对象? 什么是document对象?</p>
-<h2 id="ECMAScript6-相关"><a href="#ECMAScript6-相关" class="headerlink" title="ECMAScript6 相关"></a><a name="other">ECMAScript6 相关</a></h2><p>ES6的了解</p>
+<h2 id="ECMAScript6-相关"><a href="#ECMAScript6-相关" class="headerlink" title="ECMAScript6 相关"></a><a name="other">ECMAScript6 相关</a></h2><p>ES6的了解<br>&gt;</p>
 <blockquote>
 <ul>
 <li>新增模板字符串（为JavaScript提供了简单的字符串插值功能）</li>
@@ -1275,9 +1275,9 @@ $(&quot;&quot;).stringifyArray(array)
 </ul>
 <p><a href="http://es6.ruanyifeng.com/#README" target="_blank" rel="external">ECMAScript 6 入门</a></p>
 </blockquote>
-<p>Object.is() 与原来的比较操作符“ ===”、“ ==”的区别？ </p>
+<p>Object.is() 与原来的比较操作符“ ===”、“ ==”的区别？</p>
 <blockquote>
-<p>两等号判等，会在比较时进行类型转换；<br>三等号判等(判断严格)，比较时不进行隐式类型转换,（类型不同则会返回false）； </p>
+<p>两等号判等，会在比较时进行类型转换；<br>三等号判等(判断严格)，比较时不进行隐式类型转换,（类型不同则会返回false）；</p>
 <p>Object.is 在三等号判等的基础上特别处理了 NaN 、-0 和 +0 ，保证 -0 和 +0 不再相同，<br>但 Object.is(NaN, NaN) 会返回 true.</p>
 <p>Object.is 应被认为有其特殊的用途，而不能用它认为它比其它的相等对比更宽松或严格。</p>
 </blockquote>
@@ -1702,7 +1702,7 @@ HTTP 503：由于超载或停机维护，服务器目前无法使用，一段时
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016-04/FE-interview/"
-           data-title="大前端面试题(不断完善与增添)" data-url="http://ringcrl.com/2016-04/FE-interview/">
+           data-title="大前端面试题" data-url="http://ringcrl.com/2016-04/FE-interview/">
       </div>
     
   </div>
@@ -1747,7 +1747,7 @@ HTTP 503：由于超载或停机维护，服务器目前无法使用，一段时
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
