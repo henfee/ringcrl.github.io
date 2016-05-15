@@ -283,4 +283,3 @@
 	$.jsonp = jsonp;
 
 } )( jQuery );
-</script>
