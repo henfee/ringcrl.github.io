@@ -1,0 +1,875 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Node.js,网络,TCP,进程线程,并发并行," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="TCP内容一个程序员境界的提升，并不在于你写的一首好代码，更在于你能说出代码背后的故事。首先这幅图大家必须记得非常清楚才行。
+
+OSI七层模型大家应该烂熟于心的。
+
+其中TCP处理transport层，主要是用来建立可靠的连接。 而建立连接的基础，是他丰富的报文内容(md~超级多).我们先来解释一下。 首先，我们TCP3次握手用的报文就是绿色的”TCP Flags”内容。 通过发送ACK，SYN包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跟网络相关的知识">
+<meta property="og:url" content="http://ringcrl.com/2016-05/network-related/index.html">
+<meta property="og:site_name" content="RingTalk">
+<meta property="og:description" content="TCP内容一个程序员境界的提升，并不在于你写的一首好代码，更在于你能说出代码背后的故事。首先这幅图大家必须记得非常清楚才行。
+
+OSI七层模型大家应该烂熟于心的。
+
+其中TCP处理transport层，主要是用来建立可靠的连接。 而建立连接的基础，是他丰富的报文内容(md~超级多).我们先来解释一下。 首先，我们TCP3次握手用的报文就是绿色的”TCP Flags”内容。 通过发送ACK，SYN包">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/network-related01.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/network-related02.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/network-related03.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/network-related04.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/network-related05.png">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/network-related06.png">
+<meta property="og:updated_time" content="2016-05-16T03:22:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跟网络相关的知识">
+<meta name="twitter:description" content="TCP内容一个程序员境界的提升，并不在于你写的一首好代码，更在于你能说出代码背后的故事。首先这幅图大家必须记得非常清楚才行。
+
+OSI七层模型大家应该烂熟于心的。
+
+其中TCP处理transport层，主要是用来建立可靠的连接。 而建立连接的基础，是他丰富的报文内容(md~超级多).我们先来解释一下。 首先，我们TCP3次握手用的报文就是绿色的”TCP Flags”内容。 通过发送ACK，SYN包">
+<meta name="twitter:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/network-related01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 跟网络相关的知识 | RingTalk </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7c95bb71fd7c5dd5024a13675c205ea2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RingTalk</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最朴实的生活，最遥远的梦想。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'qp8_7pbfcjzMmTzmmaqF','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                跟网络相关的知识
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-16T00:00:00+08:00" content="2016-05-16">
+              2016-05-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-05/network-related/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016-05/network-related/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="TCP内容"><a href="#TCP内容" class="headerlink" title="TCP内容"></a>TCP内容</h3><p>一个程序员境界的提升，并不在于你写的一首好代码，更在于你能说出代码背后的故事。<br>首先这幅图大家必须记得非常清楚才行。</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/network-related01.jpg" alt="01"></p>
+<p>OSI七层模型大家应该烂熟于心的。</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/network-related02.jpg" alt="02"></p>
+<p>其中TCP处理transport层，主要是用来建立可靠的连接。 而建立连接的基础，是他丰富的报文内容(md~超级多).我们先来解释一下。 首先，我们TCP3次握手用的报文就是绿色的”TCP Flags”内容。 通过发送ACK，SYN包实现。具体涉及的Tag详见:</p>
+<p>Source Port / Destination Port:这个就是客户端口(源端口)和服务器端口（目的端口）. 端口就是用来区别主机中的不同进程，通过结合源IP和目的IP结合，得出唯一的TCP连接。</p>
+<p>Sequence Number(seqNumber): 一般由 客户端发送，用来表示报文段中第一个数据字节在数据流中的序号，主要用来解决网络包乱序的问题。</p>
+<p>Acknowledgment Number(ACK): 即就是用来存放客户端发来的seqNumber的下一个信号(seqNumber+1). 只有当 TCP flags中的ACK为1时才有效. 主要是用来解决不丢包的问题。</p>
+<p>TCP flags: TCP中有6个首部，用来控制TCP连接的状态.取值为0,1.这6个有:URG，ACK，PSH，RST，SYN，FIN.</p>
+<ul>
+<li>URG 当为1时，用来保证TCP连接不被中断, 并且将该次TCP内容数据的紧急程度提升(就是告诉电脑，你丫赶快把这个给resolve了)</li>
+<li>ACK 通常是服务器端返回的。 用来表示应答是否有效。 1为有效，0为无效</li>
+<li>PSH 表示，当数据包得到后，立马给应用程序使用(PUSH到最顶端)</li>
+<li>RST 用来确保TCP连接的安全。 该flag用来表示 一个连接复位的请求。 如果发生错误连接，则reset一次，重新连。当然也可以用来拒绝非法数据包。</li>
+<li>SYN 同步的意思,通常是由客户端发送，用来建立连接的。第一次握手时: SYN:1 , ACK:0. 第二次握手时: SYN:1 ACK:1</li>
+<li>FIN 用来表示是否结束该次TCP连接。 通常当你的数据发送完后，会自动带上FIN 然后断开连接。</li>
+</ul>
+<h3 id="TCP-3次握手"><a href="#TCP-3次握手" class="headerlink" title="TCP 3次握手"></a>TCP 3次握手</h3><p>还是一样， 先上张图，让大家先看一下。 上面大家已经基本了解了TCP里面相应的字段，现在看看图里面的是不是觉得有些亲切嘞？</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/network-related03.jpg" alt="03"></p>
+<p>其实，大家看上面的图，差不多都已经能够摸清楚，每次发送请求的内容。其实，TCP3次握手是为了建立 稳定可靠的连接。所以也就不存在神马 2次连接等的怪癖。</p>
+<p>(图中flag说明:SYN包表示标志位syn=1,ACK包表示标志位ack=1,SYN+ACK包表示标志位syn=1,ack=1)</p>
+<p>现在，我们来正式进入3次握手环节。</p>
+<ul>
+<li>第一次握手. 客户端向服务器发送一个SYN包，并且添加上seqNumber(假设为x),然后进入SYN_SEND状态，并且等待服务器的确认。</li>
+<li>第二次握手: 服务器接受SYN包，并且进行确认，如果该请求有效，则将TCP flags中的ACK 标志位置1， 然后将AckNumber置为(seqNumber+1)，并且再添加上自己的seqNumber(y), 完成后，返回给客户端.服务器进入SYN_RECV状态.(这里服务端是发送SYN+ACK包)</li>
+<li>第三次握手 客户端接受ACK+SYN报文后，获取到服务器发送seqNumber(y), 并且 将新头部的AckNumber变为(y+1).然后发送给服务器，完成TCP3次连接。此时服务器和客户端都进入ESTABLISHED状态.</li>
+</ul>
+<p>回答一下这个比较尴尬的问题，为什么只有3次握手，而不是4次，或者2次？</p>
+<p>当客户端发送一次请求A后，但是A在网络延迟了很久， 接着客户端又发送了一次B，但是此时A已经无效了。 接着服务器相应了B，并返回TCP连接头，建立连接(这里就2次哈)。 然后，A 历经千山万水终于到服务器了， 服务器一看有请求来了，则接受，由于一开始A带着的TCP格式都是正确的，那么服务器，理所应当的也返回成功连接的flag，但是，此时客户端已经判断该次请求无效，废弃了。 然后服务器，就这么一直挂着(浪费资源)，造成的一个问题是，md, 这个锅是谁的？ 所以，为了保险起见，再补充一次连接就可以了。所以3次是最合适的。在Chinese中，以3为起称为多，如果你用4，5，6，7，8…次的话，这不更浪费吗？</p>
+<h3 id="TCP4次挥手"><a href="#TCP4次挥手" class="headerlink" title="TCP4次挥手"></a>TCP4次挥手</h3><p>TCP4次挥手，是比较简单的。大家对照上面那个图，我们一步一步进行一下讲解。</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/network-related04.jpg" alt="04"></p>
+<ul>
+<li>第一次挥手: A机感觉此时如果keep-alive比较浪费资源，则他提出了分手的请求。设置SeqNumber和AckNumber之后，向B机发送FIN包, 表示我这已经没有数据给你了。然后A机进入FIN_WAIT_1状态</li>
+<li>第二次挥手:B机收到了A机的FIN包，已经知道了A机没有数据再发送了。此时B机会给A机发送一个ACK包，并且将AckNumber 变为 A机传输来的SeqNumber+1. 当A机接受到之后，则变为FIN_WAIT_2状态。表示已经得到B机的许可，可以进行关闭操作。不过此时，B机还是可以向A机发送请求的。</li>
+<li>第三次挥手 B机向A机发送FIN包，请求关闭，相当于告诉A机，我这里也没有你要的数据了。然后B机进入CLOSE_WAIT状态.（这里还需要带上SeqNumber，大家看图说话就可以了）</li>
+<li>第四次挥手 A机接收到B机的FIN包之后，然后同样，发送一个ACK包给B机。 B机接受到之后，就断开了。 而A机 会等待2MSL之后，如果没有回复，确保服务器端确实是关闭了。然后A机也可以关闭连接。A,B都进入了CLOSE状态.</li>
+</ul>
+<p>2MSL=2*MSL. 而MSL其实就是Maximum Segment Lifetime，中文意思就是报文最大生存时间。RFC 793中规定MSL为2分钟，实际应用中常用的是30秒，1分钟和2分钟等。 同样上面的TIME_WAT状态其实也就是2MSL状态。 如果超过改时间，则会将该报文废弃，然后直接进入CLOSED状态.</p>
+<h3 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h3><p>亲，请问php是一门什么语言? (提示，关于进程)</p>
+<p>官方回答: php是一门基于多线程的语言</p>
+<p>亲，请问nodeJS是一门什么语言？（提示，关于线程）</p>
+<p>官方回答: Node.js是单线程!异步!非阻塞!(不过早已可以实现多进程交互了)</p>
+<p>那php和nodeJS区别在哪呢？具体可以见图:<br>PHP</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/network-related05.png" alt="05.png"></p>
+<p>NodeJS</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/network-related06.png" alt="06.png"></p>
+<p>亲，那进程和线程区别是什么嘞？</p>
+<p>这算是计算机的基本知识吧。 首先我们需要记住的是，进程包括线程。这非常重要。</p>
+<p>进程就是系统分配资源的基本单位(比如CPU,内存等)，线程就是程序执行的最小单位</p>
+<p>进程有自己的空间，如果一个进程崩溃不会引起其它进程的崩溃。</p>
+<p>线程，没有自己独立的空间，多个线程共享的是进程的地址空间，当然处理一些基本的如程序计数器,一组寄存器和栈等。</p>
+<p>如果一个线程崩溃，它所在的进程就崩溃了。 虽然说，多进程很稳定，但是进程切换时，耗费的资源也是很大的。 所以对于大并发的nodeJS来说，使用多线程的效果要远远比多进程快，稳定。</p>
+<h3 id="线程的优势"><a href="#线程的优势" class="headerlink" title="线程的优势"></a>线程的优势</h3><ol>
+<li>系统在启动一个进程的时候，会首先在资源中独立一块出来，在后台建立一些列表进行维护。 而，线程是比进程低一个level的，所以创建线程所耗费的资源要远远比，创建进程的资源少。</li>
+<li>由于进程本身就比较复杂，所以如果进行进程切换的话，造成的性能损耗也是不言而喻的(因为多个进程独立，在切换的时候还需要保证各自的独立性)。 而线程切换就不同了，因为在处在同一进程下面，对于其他的进程都是透明化的(内存共享)，所以在进行进程切换时，所耗费的资源远远比进程切换的小。</li>
+<li>在Linux和window下，CPU的分配是根据线程数来的，如果<br>总线程数&lt;= CPU数量：并行运行<br>总线程数&gt; CPU数量：并发运行<br>并行指的是，当你的CPU核数比线程数多的话，则会将每个线程都分在一个CPU核里进行处理。<br>并发指的是，当你的CPU核数比线程数少的话，则会利用“时间片轮转进程调度算法”，对每个线程进行同等的运行。</li>
+<li>细化进程的处理，通常一个进程可以拆分为多个线程进行处理，就和模块化处理是类似的，使用模块化书写的效果要远远比使用单main入口方式书写 清晰，稳定。</li>
+</ol>
+<h3 id="并发-并行原理"><a href="#并发-并行原理" class="headerlink" title="并发,并行原理"></a>并发,并行原理</h3><p>实际上，并发和并行是完全不同的概念。 这里主要和CPU核数有关。这里为了理解，拿线程来作为参考吧。<br>当你的</p>
+<pre><code>总线程数&lt;= CPU数量：并行运行
+总线程数&gt; CPU数量：并发运行
+</code></pre><p>很明显，并行其实是真正意义上的同时执行。 当线程数&lt; CPU核数时，每个线程会独立分配到一个CPU里进行处理。</p>
+<p>大家看过火影忍者吗？<br>没错，就是鸣人 出关 口遁九尾之后。 他使用影分身，跑去各地支援同伴，对抗斑。 这里类比来说，就可以理解为， 每个CPU 都是鸣人的一个影分身，他们执行这各自不同的工作，但是，在同一时间上，他们都在运行。 这就是并行。</p>
+<p>那并发嘞？<br>其实，并发有点难以理解，他做的工作其实，就是利用一系列算法实现，并行做的事。一个比较容易理解的就是“时间片轮转进程调度算法”。<br>即: 在系统控制下，每个线程轮流使用CPU，而且，每个线程使用时间必须很短(比如10ms), 所以这样切换下来。我们(愚蠢的人类，哈哈哈), 天真的以为任务，真的是在”并行”执行.</p>
+<h3 id="nodeJS的进程实现"><a href="#nodeJS的进程实现" class="headerlink" title="nodeJS的进程实现"></a>nodeJS的进程实现</h3><p>一开始nodeJS最令人诟病的就是他的单线程特性。既是绝招也是死穴，不过nodeJS发展很快，在v0.8版本就已经添加了cluster作为内置模块，实现多核的利用。</p>
+<p>关于nodeJS的进程模块，最主要的当然还是cluster. 通过调用child_process.fork()函数来开启进程。 先看一个具体的demo(from 官网)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cluster = <span class="built_in">require</span>(<span class="string">'cluster'</span>);</span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> numCPUs = <span class="built_in">require</span>(<span class="string">'os'</span>).cpus().length;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"master start..."</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Fork workers.</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; numCPUs; i++) &#123;</span><br><span class="line">        cluster.fork();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//用来监听子worker创建监听服务</span></span><br><span class="line">    cluster.on(<span class="string">'listening'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">worker,address</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'listening: worker '</span> + worker.process.pid +<span class="string">', Address: '</span>+address.address+<span class="string">":"</span>+address.port);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    cluster.on(<span class="string">'exit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">worker, code, signal</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'worker '</span> + worker.process.pid + <span class="string">' died'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">        res.writeHead(<span class="number">200</span>);</span><br><span class="line">        res.end(<span class="string">"hello world\n"</span>);</span><br><span class="line">    &#125;).listen(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>存放为app.js 然后运行node app.js就可以实现一个简单的多进程效果。<br>结果可能为下:</p>
+<pre><code>master start...
+listening: worker 1559, Address: null:57803
+listening: worker 1556, Address: null:57803
+listening: worker 1558, Address: null:57803
+listening: worker 1557, Address: null:57803
+</code></pre><p>可以从上面的demo中看出，通过cluster.isMaster来区分master和worker. 而master和worker之间使用listen(0)进行通信.</p>
+<p>server.listen(0):在master和worker通信过程，集群中的worker会打开一个随机端口共用，通过socket通信像上例中的57803</p>
+<p>当然你也可以手动打开一个端口共享监听。像这样.</p>
+<pre><code>http.createServer(function(req, res) {
+       res.writeHead(200);
+       res.end(&quot;hello world\n&quot;);
+   }).listen(3000);
+</code></pre><h4 id="cluster对应API"><a href="#cluster对应API" class="headerlink" title="cluster对应API"></a>cluster对应API</h4><p>cluster对象的属性和函数</p>
+<ul>
+<li>cluster.setttings:配置集群参数对象</li>
+<li>cluster.isMaster:判断是不是master节点*</li>
+<li>cluster.isWorker:判断是不是worker节点*</li>
+<li>Event: ‘fork’: 监听创建worker进程事件</li>
+<li>Event: ‘online’: 监听worker创建成功事件</li>
+<li>Event: ‘listening’: 监听worker开启的http.listen</li>
+<li>Event: ‘disconnect’: 监听worker断线事件</li>
+<li>Event: ‘exit’: 监听worker退出事件</li>
+<li>Event: ‘setup’: 监听setupMaster事件</li>
+<li>cluster.setupMaster([settings]): 设置集群参数</li>
+<li>cluster.fork([env]): 创建worker进程</li>
+<li>cluster.disconnect([callback]): 关闭worket进程*</li>
+<li>cluster.worker: 获得当前的worker对象*</li>
+<li>cluster.workers: 获得集群中所有存活的worker对象*</li>
+</ul>
+<p>通过cluster.worker获得的worker对象和相应的参数</p>
+<ul>
+<li>worker.id: 进程ID号</li>
+<li>worker.process: ChildProcess对象*</li>
+<li>worker.suicide: 在disconnect()后，判断worker是否自杀*</li>
+<li>worker.send(message, [sendHandle]):* master给worker发送消息。注：worker给发master发送消息要用process.send(message)</li>
+<li>worker.kill([signal=’SIGTERM’]): 杀死指定的worker，别名destory()*</li>
+<li>worker.disconnect(): 断开worker连接，让worker自杀</li>
+<li>Event: ‘message’: 监听master和worker的message事件</li>
+<li>Event: ‘online’: 监听指定的worker创建成功事件</li>
+<li>Event: ‘listening’: 监听master向worker状态事件</li>
+<li>Event: ‘disconnect’: 监听worker断线事件</li>
+<li>Event: ‘exit’: 监听worker退出事件</li>
+</ul>
+<p>这些就是cluster的全部内容。不过这仅仅只是内容而已，如果使用cluster，这便是我们程序员要做的事了。</p>
+<h4 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h4><p>由于nodeJS 只能实现单进程的效果，所以他的进程数只能为一个，但是通过引用cluster模块，可以开启多个子进程实现CPU的利用。</p>
+<p><a href="https://jsfiddle.net/jimmyTHR/Lkz41fw9/" target="_blank" rel="external">简单进程交互</a></p>
+<p>运行后的结果为:</p>
+<pre><code>[master] start master...
+[master] fork: worker1
+[master] fork: worker2
+[master] fork: worker3
+[master] fork: worker4
+[master] online: worker1
+[master] online: worker4
+[master] online: worker2
+[master] online: worker3
+[worker] start worker ...1
+[worker] start worker ...4
+[worker] start worker ...2
+[master] listening: worker4,pid:990, Address:null:3000
+[master] listening: worker1,pid:987, Address:null:3000
+[master] listening: worker2,pid:988, Address:null:3000
+[worker] start worker ...3
+[master] listening: worker3,pid:989, Address:null:3000
+</code></pre><p>参照注释代码和上述的结果，我们可以很容易的得到一个触发逻辑。<br>运行过程是:</p>
+<ul>
+<li>首先fork子进程</li>
+<li>触发fork事件</li>
+<li>创建成功，触发online事件</li>
+<li>然后重新执行一遍app.js,通过isWorker判断子进程</li>
+<li>创建子进程服务-&gt;触发master上的listening</li>
+</ul>
+<p>上面只是创建满负载子进程的流程。 但怎样实现进程间的交互呢？ 很简单，master和worker监听message事件，通过传递参数，进行交互。</p>
+<ul>
+<li>cluster.worker.send(message[,handleFn]) master向worker发送信息</li>
+<li>process.send(message[,handleFn]); worker向master发送信息</li>
+</ul>
+<p><a href="https://jsfiddle.net/jimmyTHR/jcc8ezo3/" target="_blank" rel="external">这个是多进程之间的通信</a></p>
+<p>我们来分解一下代码块:</p>
+<pre><code>//开启master监听worker的通信
+cluster.workers[id].on(&apos;message&apos;, function(msg){
+          //...
+        });
+
+//开启worker监听master的通信
+process.on(&apos;message&apos;, function(msg) {
+       //...
+    });
+</code></pre><p>运行上面的demo. 这里就不细说，整个流程，只看一下信息通信这一块了。</p>
+<ul>
+<li>创建子进程,触发listening事件</li>
+<li>使用process.on监听message</li>
+<li>接受master发送过来的消息</li>
+<li>再向master返回消息</li>
+</ul>
+<h4 id="nodeJS负载均衡"><a href="#nodeJS负载均衡" class="headerlink" title="nodeJS负载均衡"></a>nodeJS负载均衡</h4><p>现在，nodeJS负载均衡应该是最容易实现的，其内部已经帮我们封装好了，我们直接调用就over了。<br>其中，实现负载均衡的模块就是cluster。以前cluster确实很累赘。负载均衡的算法实现的不是很好，导致的下场就是npm2的兴起。不过现在已经实现了负载均衡，官方说法就是用round-robin,来进行请求分配。 round-robin其实就是一个队列的循环，灰常容易理解。先看一下，cluster封装好实现的负载均衡.</p>
+<pre><code>var cluster = require(&apos;cluster&apos;);
+var http = require(&apos;http&apos;);
+var numCPUs = require(&apos;os&apos;).cpus().length;
+
+if (cluster.isMaster) {
+    console.log(&apos;[master] &apos; + &quot;start master...&quot;);
+
+    for (var i = 0; i &lt; numCPUs; i++) {
+         cluster.fork();
+    }
+
+    cluster.on(&apos;listening&apos;, function (worker, address) {
+        console.log(&apos;[master] &apos; + &apos;listening: worker&apos; + worker.id + &apos;,pid:&apos; + worker.process.pid + &apos;, Address:&apos; + address.address + &quot;:&quot; + address.port);
+    });
+
+} else if (cluster.isWorker) {
+     console.log(&apos;[worker] &apos; + &quot;start worker ...&quot; + cluster.worker.id);
+    var num = 0;
+    http.createServer(function (req, res) {
+        num++;
+        console.log(&apos;worker&apos;+cluster.worker.id+&quot;:&quot;+num);
+        res.end(&apos;worker&apos;+cluster.worker.id+&apos;,PID:&apos;+process.pid);
+    }).listen(3000);
+}
+</code></pre><p>（哥哥，你骗人，这哪里实现了负载均衡，这不就是上面的算法么？)</p>
+<p>是呀，，， 我又没说负载均衡不是这个。</p>
+<p>负载均衡就是帮你解决请求的分配问题。ok~ 为了证明，我没有骗你，我们来进行测试一下。</p>
+<p>使用brew安装siege测试,当然你也可以使用其他测试工具，不过在MAC 上面最好使用siege和webbench或者ab，我这里使用siege</p>
+<pre><code>brew install siege
+</code></pre><p>使用的测试语法就是</p>
+<pre><code>siege -c 并发数 -t 运行测试时间 URL
+</code></pre><p>测试的时间后面需要带上单位，比如s,m,h,d等。默认单位是m(分钟). 举个例子吧.</p>
+<pre><code>siege -c 100 -t 10s http://girls.hustonline.net
+</code></pre><p>对女生节网页进行 100次并发测试，持续时间是10s.</p>
+<p>当然siege里还有其他的参数.</p>
+<ul>
+<li>-c NUM 设置并发的数量.eg: -c 100; //设置100次并发</li>
+<li>-r NUM 设置发送几轮的请求，即，总的请求数为: -cNum*-rNum但是, -r不能和-t一起使用(为什么呢？你猜).eg: -r 20</li>
+<li>-t NUM 测试持续时间，指你运行一次测试需要的时间，在timeout后，结束测试.</li>
+<li>-f file. 用来测试file里面的url路径.file的尾缀需要为.url. eg: -f girls.url.</li>
+<li>-b . 就是询问开不开启基准测试(benchmark)。 这个参数不太重要，有兴趣的同学，可以下去学习一下。</li>
+</ul>
+<p>siege常用的就是这几个. 通常我们是搭配 -c + -r 或者-c + -t.</p>
+<p>OK，现在我们开始我们的测试 procedure.</p>
+<p>首先开启多进程NodeJS. node app.js</p>
+<p>使用siege -c 100 -t 10s 127.0.0.1:3000. (Ps: 当然也可以使用<a href="http://localhost:3000进行代替" target="_blank" rel="external">http://localhost:3000进行代替</a>)</p>
+<p>得到的结果为</p>
+<pre><code>Transactions:                 600 hits
+Availability:              100.00 %
+Elapsed time:                6.08 secs
+Data transferred:            0.01 MB
+Response time:                0.01 secs
+Transaction rate:           98.68 trans/sec
+Throughput:                0.00 MB/sec
+Concurrency:                0.88
+Successful transactions:         600
+Failed transactions:               0
+Longest transaction:            0.04
+Shortest transaction:            0.00
+</code></pre><p>在10s内，发起了600次请求，最大的峰值是98.68 trans/sec。 通过统计分析，得到每个worker的分发量.</p>
+<pre><code>worker1:162
+worker2:161
+worker3:167
+worker4:170
+</code></pre><p>可以看出，基本上每个负载上分配的请求的数目都差不多。这就已经达到了负载均衡的效果。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Node-js/" rel="tag">#Node.js</a>
+          
+            <a href="/tags/网络/" rel="tag">#网络</a>
+          
+            <a href="/tags/TCP/" rel="tag">#TCP</a>
+          
+            <a href="/tags/进程线程/" rel="tag">#进程线程</a>
+          
+            <a href="/tags/并发并行/" rel="tag">#并发并行</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-05/css-adaptation/" rel="next" title="想知道的CSS布局相关内容都在这里">
+                <i class="fa fa-chevron-left"></i> 想知道的CSS布局相关内容都在这里
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016-05/network-related/"
+           data-title="跟网络相关的知识" data-url="http://ringcrl.com/2016-05/network-related/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/RingTalk.jpg"
+               alt="Chenng" />
+          <p class="site-author-name" itemprop="name">Chenng</p>
+          <p class="site-description motion-element" itemprop="description">前端手艺人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ringcrl" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ringcrl" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP内容"><span class="nav-number">1.</span> <span class="nav-text">TCP内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-3次握手"><span class="nav-number">2.</span> <span class="nav-text">TCP 3次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP4次挥手"><span class="nav-number">3.</span> <span class="nav-text">TCP4次挥手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程与线程"><span class="nav-number">4.</span> <span class="nav-text">进程与线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的优势"><span class="nav-number">5.</span> <span class="nav-text">线程的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发-并行原理"><span class="nav-number">6.</span> <span class="nav-text">并发,并行原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nodeJS的进程实现"><span class="nav-number">7.</span> <span class="nav-text">nodeJS的进程实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cluster对应API"><span class="nav-number">7.1.</span> <span class="nav-text">cluster对应API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程通信"><span class="nav-number">7.2.</span> <span class="nav-text">进程通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nodeJS负载均衡"><span class="nav-number">7.3.</span> <span class="nav-text">nodeJS负载均衡</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <a style="text-decoration:none;" href="https://github.com/ringcrl" target="_blank">GitHub</a>
+<span>&</span>
+<a style="text-decoration:none;" href="http://weibo.com/ringcrl" target="_blank">Weibo</a>
+
+<div class="copyright" >
+  
+  &copy;
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenng</span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ringtalk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
