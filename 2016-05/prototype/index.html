@@ -90,7 +90,7 @@ JavaScript原型继承提到JavaScript原型，用处最多的场景便是实现
 <meta property="og:description" content="prototype,__proto__和constructor这三个属性令许多Javascript初学者头疼。Javascript原型是支持语言的根本，而这三者是Javascript原型的根本，非常重要。
 JavaScript原型继承提到JavaScript原型，用处最多的场景便是实现继承。然而在实现继承时总有一些细节处理不到位，引起一些看起来莫名其妙的问题。比如使用下述代码：
 1234567fu">
-<meta property="og:updated_time" content="2016-05-18T04:50:06.000Z">
+<meta property="og:updated_time" content="2016-05-18T08:46:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解JavaScript原型：prototype,__proto__和constructor">
 <meta name="twitter:description" content="prototype,__proto__和constructor这三个属性令许多Javascript初学者头疼。Javascript原型是支持语言的根本，而这三者是Javascript原型的根本，非常重要。
@@ -316,7 +316,7 @@ JavaScript原型继承提到JavaScript原型，用处最多的场景便是实现
 <p>上述代码首先定义了Animal类的构造函数，随后改变了其原型指向。Cat类将其原型指向Animal类的一个实例对象。以上写法可以满足大部分简单需求，比如创建一个Cat类的实例对象cat_1，此时如果使用instanceof判断会得到以下结果：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat_1 <span class="keyword">instanceof</span> Cat; <span class="comment">// true</span></span><br><span class="line">cat_1 <span class="keyword">instanceof</span> Animal; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>以上的实现方式有什么不妥之处呢？这个问题先不解答，我们首先讲解以下原型的几个关键属性：prototype,__proto__和constructor。理解了它们之后，再进一步完善上述代码。</p>
-<h3 id="prototype和-proto"><a href="#prototype和-proto" class="headerlink" title="prototype和__proto__"></a>prototype和__proto__</h3><p>许多初学者容易混淆prototype和<strong>proto</strong>。简单来说：prototype属性是可以作为构造函数的函数对象才具备的属性，__proto__属性是任何对象(除了null)都具备的属性，两者的指向都是其所属类的原型对象，也就是下文提到的内部属性[[Prototype]]。</p>
+<h3 id="prototype和-proto"><a href="#prototype和-proto" class="headerlink" title="prototype和__proto__"></a>prototype和__proto__</h3><p>许多初学者容易混淆prototype和__proto__。简单来说：prototype属性是可以作为构造函数的函数对象才具备的属性，__proto__属性是任何对象(除了null)都具备的属性，两者的指向都是其所属类的原型对象，也就是下文提到的内部属性[[Prototype]]。</p>
 <blockquote>
 <p>JavaScript语言中并没有严格意义上的类，本文中提到的类可以理解为一个抽象的概念，原型对象可以理解为类暴露出来的接口。</p>
 </blockquote>
@@ -385,7 +385,8 @@ JavaScript原型继承提到JavaScript原型，用处最多的场景便是实现
 <li>保证constructor指向的正确性。</li>
 </ol>
 <p>有些书籍把以上方式称为组合式继承，可以说是最接近传统OO语言类式继承的一种方式了。</p>
-<p>原文地址：<a href="http://ihardcoder.github.io/js/2015/09/09/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JavaScript%E5%8E%9F%E5%9E%8B%EF%BC%9Aprototype,__proto__%E5%92%8Cconstructor.html" target="_blank" rel="external">http://ihardcoder.github.io/js/2015/09/09/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JavaScript%E5%8E%9F%E5%9E%8B%EF%BC%9Aprototype,__proto__%E5%92%8Cconstructor.html</a></p>
+<p>原文地址：</p>
+<p><a href="http://ihardcoder.github.io/js/2015/09/09/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JavaScript%E5%8E%9F%E5%9E%8B%EF%BC%9Aprototype,__proto__%E5%92%8Cconstructor.html" target="_blank" rel="external">http://ihardcoder.github.io/js/2015/09/09/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JavaScript%E5%8E%9F%E5%9E%8B%EF%BC%9Aprototype,__proto__%E5%92%8Cconstructor.html</a></p>
 
       
     </div>
