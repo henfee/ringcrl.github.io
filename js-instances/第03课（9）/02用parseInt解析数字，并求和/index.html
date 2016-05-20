@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02用parseInt解析数字，并求和</title>
+  <script>
+    window.onload = function(){
+      var oInput = document.getElementsByTagName("input");
+      var oSpan = document.getElementsByTagName("span")[0];
+      for(var i = 0;i < oInput.length - 1;i++){
+        oInput[i].onkeyup = function(){
+          this.value = this.value.replace(/[^\d]/,"")
+        }
+      }
+      oInput[2].onclick = function(){
+        (oInput[0].value == "" || oInput[1].value =="") ?
+        alert("请输入数字！") :
+        oSpan.innerHTML = parseInt(oInput[0].value) + parseInt(oInput[1].value);
+      }
+    }
+  </script>
+</head>
+<body>
+  <input type="text">
+  <strong>+</strong>
+  <input type="text">
+  <strong>=</strong>
+  <span>?</span>
+  <input type="button" value="求和">
+</body>
+</html>
