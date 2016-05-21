@@ -1,0 +1,748 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端优化," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="优化的总结图
+
+这篇文章并不是罗列前端优化指南，而是重点结合项目总结这一次优化中如何寻找优化点以及收益比较大的常见方法。
+小图处理纯色图处理纯色图一般应用到装饰性的小 icon，如侧导航的标题 icon：
+
+此类图标由单色组成，可以根据一定的绘制规则制成 iconfont 图标，iconfont 的图标具有矢量性，其大小和颜色可以都可以通过样式来控制。
+新版首页出现了 33 个单色图标，这些图标复">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端优化-实践方面">
+<meta property="og:url" content="http://ringcrl.com/2016-05/FE-optimize/index.html">
+<meta property="og:site_name" content="RingTalk">
+<meta property="og:description" content="优化的总结图
+
+这篇文章并不是罗列前端优化指南，而是重点结合项目总结这一次优化中如何寻找优化点以及收益比较大的常见方法。
+小图处理纯色图处理纯色图一般应用到装饰性的小 icon，如侧导航的标题 icon：
+
+此类图标由单色组成，可以根据一定的绘制规则制成 iconfont 图标，iconfont 的图标具有矢量性，其大小和颜色可以都可以通过样式来控制。
+新版首页出现了 33 个单色图标，这些图标复">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize01.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize02.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize03.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize04.png">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize05.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize06.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize07.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize08.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize09.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize10.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize11.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize02.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize13.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize14.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize15.gif">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize16.gif">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize17.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize18.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize19.jpg">
+<meta property="og:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize20.gif">
+<meta property="og:updated_time" content="2016-05-21T13:41:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端优化-实践方面">
+<meta name="twitter:description" content="优化的总结图
+
+这篇文章并不是罗列前端优化指南，而是重点结合项目总结这一次优化中如何寻找优化点以及收益比较大的常见方法。
+小图处理纯色图处理纯色图一般应用到装饰性的小 icon，如侧导航的标题 icon：
+
+此类图标由单色组成，可以根据一定的绘制规则制成 iconfont 图标，iconfont 的图标具有矢量性，其大小和颜色可以都可以通过样式来控制。
+新版首页出现了 33 个单色图标，这些图标复">
+<meta name="twitter:image" content="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 前端优化-实践方面 | RingTalk </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7c95bb71fd7c5dd5024a13675c205ea2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">RingTalk</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">最朴实的生活，最遥远的梦想。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="http://ringcrl.com/resume/print.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'qp8_7pbfcjzMmTzmmaqF','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端优化-实践方面
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-21T00:00:00+08:00" content="2016-05-21">
+              2016-05-21
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016-05/FE-optimize/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016-05/FE-optimize/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>优化的总结图</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize01.jpg" alt=""></p>
+<p>这篇文章并不是罗列前端优化指南，而是<strong>重点结合项目</strong>总结这一次优化中<strong>如何寻找优化点</strong>以及<strong>收益比较大的常见方法。</strong></p>
+<h3 id="小图处理"><a href="#小图处理" class="headerlink" title="小图处理"></a>小图处理</h3><h4 id="纯色图处理"><a href="#纯色图处理" class="headerlink" title="纯色图处理"></a>纯色图处理</h4><p>纯色图一般应用到装饰性的小 icon，如侧导航的标题 icon：</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize02.jpg" alt=""></p>
+<p>此类图标由单色组成，可以根据一定的绘制规则制成 iconfont 图标，iconfont 的图标具有矢量性，其大小和颜色可以都可以通过样式来控制。</p>
+<p>新版首页出现了 33 个单色图标，这些图标复用性很强，同一个图标在不同页面都有出现，而且同一个图标还有不一样的尺寸，如果用传统方法做成图片的话图片数量会很多，即使全部合并成 sprite 图，图片的 K 数也会很大，而且后期如果有修改的话还得重新合并 sprite 图，因此这次首页改版所有的纯色图标的高清适配全部使用 iconfont 图标。</p>
+<p>改版所用到的 ICONFONT 图标生成以及管理选择了『阿里巴巴矢量图标库』线上服务，在上面通过上传图标的 SVG 文件生成对应的字体文件，还可以根据图标分项目管理：</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize03.jpg" alt=""></p>
+<p>图标生成后，该服务还会自动打包好所需文件，并制成 DEMO 网页，供本地预览查找图标对应的字体编码以及使用方法：</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize04.png" alt=""></p>
+<h4 id="非纯色图处理"><a href="#非纯色图处理" class="headerlink" title="非纯色图处理"></a>非纯色图处理</h4><p>非纯色图通常用『2X』图适配，适配方案可以有很多选择：媒体查询、srcset属性、image-set属性、脚本控制。</p>
+<p>媒体查询、srcset属性 和 image-set属性成功匹配的基本是高端浏览器，兼容性略差，脚本控制兼容性更佳，项目具体用哪一种要看『国情』了：</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize05.jpg" alt=""></p>
+<p>上图是我国PC端操作系统市场份额的大概分布情况，可以看出 95% 以上的用户都是使用 Windows 系统的，使用 Windows 系统的用户设备屏幕大部分都是普清屏，而使用高清屏的用户基本都是使用 Mac OS 系统，Mac OS 系统的浏览器又以『高富帅』Chrome 和 Safari 为主，因此只考虑适配 Mac OS 设备，最终选择比媒体查询更为方便的『srcset属性』和『image-set属性』方案：内容图使用 srcset 属性适配，背景图使用 image-set 属性适配高清图：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src="images/bg_eco_v2_@1x.png" srcset="images/bg_eco_v2_@1x.png 1x, images/bg_eco_v2_@2x.png 2x" alt=""&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.chain_item_icon</span>&#123;</span><br><span class="line">   <span class="attribute">background-image</span>: <span class="built_in">-webkit-image-set</span>(url(<span class="string">"images/bg_chains_@1x.png"</span>) <span class="number">1</span>x, <span class="built_in">url</span>(<span class="string">"images/bg_chains_@2x.png"</span>) <span class="number">2</span>x);</span><br><span class="line">   <span class="attribute">background-image</span>: <span class="built_in">image-set</span>(url(<span class="string">"images/bg_chains_@1x.png"</span>) <span class="number">1</span>x, <span class="built_in">url</span>(<span class="string">"images/bg_chains_@2x.png"</span>) <span class="number">2</span>x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="设计类字体处理"><a href="#设计类字体处理" class="headerlink" title="设计类字体处理"></a>设计类字体处理</h3><p>新版京东云出现了很多设计类字体，也就是我们平时所说的非系统字体，如新版京东云首页版块标题用的字体 —-『方正兰亭超细黑体』</p>
+<p>对于设计类字体，前端和视觉会达成共识不会大面积使用，因为该类字体的实现只能用图片或通过样式@font-face 属性去实现：</p>
+<ul>
+<li><p>图片方案：虽然可以高精度还原，兼容性强，但是每改动一处地方都需要换图，不方便维护，内容扩展性差，而且如果要适配高清设备，又得多一套图。</p>
+</li>
+<li><p>@font-face 属性方案：字体具有矢量性，高清设备可以轻松适配，内容扩展性强，但是不同的浏览器存在渲染的差异，兼容性略弱，@font-face 字体文件大小一般又是 M 级别，会不同程度影响页面加载体验。</p>
+</li>
+</ul>
+<p>如果非系统字体应用的地方只有几个标题，而且不常改动的话，用图片方案较优，但是新版京东云在其它频道的首页也会应用到，内容较多，而且要适配高清图，所以图片方案并不适用，@font-face 属性方案更合适。</p>
+<p>针对 『@font-face 属性方案』文件体积大和浏览器渲染差异的两个不足之处，采取了一个折中的方案，也就是浏览器的渲染差异在视觉可以接受的范围下，只抽取要用到的字体生成体积相对较小的字体文件。</p>
+<p>Junmer 出品的 Fontmin 工具可以大大满足这个需求，只需要将用到了字体源以及需要生成的文字内容加入到工具中，就可以生成相应的字体文件：</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize06.jpg" alt=""></p>
+<p>原来 2MB 的字体，生成的字体文件只有 11KB，字体文件体积减少达到了 99%。</p>
+<h3 id="页面加载优化"><a href="#页面加载优化" class="headerlink" title="页面加载优化"></a>页面加载优化</h3><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><h5 id="图片请求数量多"><a href="#图片请求数量多" class="headerlink" title="图片请求数量多"></a>图片请求数量多</h5><p>旧版首页加载的时候，一共有40个请求，其中图片的请求就有 31 个，占总请求数的 77%</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize07.jpg" alt=""></p>
+<p>其中至少有 11 张图片是可以合并成一张图片的，也就是至少多了 27% 的额外请求数。</p>
+<h5 id="资源浪费"><a href="#资源浪费" class="headerlink" title="资源浪费"></a>资源浪费</h5><p>首屏的图片资源加载了 31个，但其可见的图片只有 2 张，加载了 100% 的图片资源，首屏图片资源利用率只有 6%。</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize08.jpg" alt=""></p>
+<p>只要用户没有完全浏览完网页就跳到其它页面的话，都会造成资源浪费。</p>
+<h5 id="图片加载体验差"><a href="#图片加载体验差" class="headerlink" title="图片加载体验差"></a>图片加载体验差</h5><p>首屏耗时较长的大图加载过程并没有做 Loading占位图 提示，有机会出现轮播图区域空白时间过长：</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize09.jpg" alt=""></p>
+<p>上图显示页面加载 1.8s 后，Banner 背景图还是没有出来，虽然网速飞快的用户有可能不出现这种情况，但是不排除网络慢的用户会碰上。</p>
+<p>除此之外，图片加载失败的时候也没有做容错处理，就有机会出现图片加载失败的系统默认图标样式，会影响页面的美观性：</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize10.jpg" alt=""></p>
+<p>虽然新版首页的图片资源的排版和内容有所不同，但至少可以针对旧版额外请求数多、资源浪费、加载体验差这三个方向去改进。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><h5 id="减少额外请求数"><a href="#减少额外请求数" class="headerlink" title="减少额外请求数"></a>减少额外请求数</h5><p>减少图片额外请求数，收益比较明显的一般有三个方法：图片合并、iconfont 图标、Base64，三个方法都有各自的优缺点：</p>
+<p>图片合并<br>优点：兼容性强可缓存可提前加载多态图可提升图片加载显示体验<br>缺点：维护性差、合并图片类型以及大小控制限制高、有可能造成资源浪费<br>适合：修改更新少的常驻型低色位的装饰小图</p>
+<p>Iconfont<br>优点：可缓存矢量性可控性强<br>缺点：存在浏览器渲染差异性、只能纯色、文件体积略大<br>适合：纯色图标</p>
+<p>Base64<br>优点：无额外请求<br>缺点：不可缓存、兼容性差、代码冗余、可读性差、维护不便、CPU内存耗损大<br>适合：体积小复用率低的背景装饰图标</p>
+<p>新版首页一共有 70 个图片资源，其中有 49 个是纯色图标，16 个是低色位非纯色图，5 个是高色位图。</p>
+<p>49 个纯色图标全部使用了 Iconfont 方法处理，13 个低色位非纯色图使用了合并方法，一共有 62 个图片做了减少额外请求处理，最终图片资源请求数一共只有 14 个，其中纯色图的请求数占 2 个，低色位非纯色图请求数占 6 个，图片总请求数减少了 80% ，图片合并和 Iconfont 的额外请求处理率分别达到了 56% 和 96%。</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize11.jpg" alt=""></p>
+<p>可以看到 Iconfont 的额外请求处理率相当出色，因为适合应用他的对象特点比较简单，而图片合并会受到合并图片的格式、资源分布、模块分布等情况影响，其额外请求处理率会相对低于 Iconfont。</p>
+<p>我们可以得到一个优化图片额外请求的小结论：纯色图标优先考虑 Iconfont，低色位非纯色图片根据项目实际需要来做合并优化，Base64非特殊图片不使用</p>
+<h5 id="资源按需加载"><a href="#资源按需加载" class="headerlink" title="资源按需加载"></a>资源按需加载</h5><p>新版首页需要加载的图片资源一共有 14个，其中首屏的图片资源有 8 个，可见图片有 5 个，如果不作处理，那么首屏图片资源的利用率只有 35%。</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize02.jpg" alt=""></p>
+<p>如果进行资源按需加载，在非首屏的图片资源实行懒加载，将轮播图不可见的两张图片做触发加载处理，这样首屏的加载图片资源只有 8 个，首屏图片资源利用率则可达到 60%，提高了 70% 的图片资源利用率，资源按需加载不失为一种避免资源浪费的最挂实践方法。</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize13.jpg" alt=""></p>
+<h5 id="占位提示图提高加载体验"><a href="#占位提示图提高加载体验" class="headerlink" title="占位提示图提高加载体验"></a>占位提示图提高加载体验</h5><p>图片加载的时间长短由很多因素决定，如服务器响应时间、用户所用网络带宽、图片大小等，但无论是哪一种情况，总有一个等待的过程，在这过程总会有一个空白时间，特别是占屏面积比较大的首屏轮播大图和采取懒加载的图片，即使图片空白时间很短，用户也会有不同程度的感知，会给用户带来一种唐突或漫长等待的感觉，如果加载过程给图片加上体积比较小的占位提示图，则会让用户有一个图片加载预知，当图片加载完成后再呈现给用户看，这样用户在图片加载过程中看到的都是完整的图片。</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize14.jpg" alt=""></p>
+<h3 id="渐进增强优化"><a href="#渐进增强优化" class="headerlink" title="渐进增强优化"></a>渐进增强优化</h3><p>渐进增强是指从最基本的功能出发，在保证系统在任何环境中的可用性基础上，逐步增加功能，提高用户体验。</p>
+<h4 id="动画性能渐进增强"><a href="#动画性能渐进增强" class="headerlink" title="动画性能渐进增强"></a>动画性能渐进增强</h4><p>出现在页面比较重要位置的模块，如轮播图、导航等，如果需要做动画效果的话，在高低端浏览器上都应该能统一实现出来，新旧版首页首屏都以轮播图为主，轮播图切换都使用了渐隐渐现的动画效果。</p>
+<p>旧版的动画实现在高低端浏览器都使用了 JQ 第三方动画库</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/jcloud_new/jquery.SuperSlide.2.1.1.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">..</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">//banner</span></span><br><span class="line">$(<span class="string">".banner-slider"</span>).slide(&#123;mainCell:<span class="string">".bd ul"</span>,effect:<span class="string">"fold"</span>,autoPlay:<span class="literal">true</span>,interTime:<span class="number">4000</span>,delayTime:<span class="number">1000</span>&#125;);</span><br><span class="line">$(<span class="string">".box-slider"</span>).slide(&#123;mainCell: <span class="string">".bd ul"</span>, effect: <span class="string">"left"</span>, autoPlay: <span class="literal">true</span>, interTime: <span class="number">5000</span>, scroll: <span class="number">6</span>, vis: <span class="number">6</span>&#125;);</span><br><span class="line">...</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其实渐隐渐现的效果 CSS3 动画也能实现。新版首页的轮播图动画设置了 CSS3 动画后，再利用脚本控制样变化以触发 CSS3 动画，这样支持动画属性的浏览器就能以 CSS3 动画实现效果，而不支持的浏览器则通过脚本的属性判断，用 JQ 动画实现：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.fc_item&#123;</span><br><span class="line">   position: absolute;</span><br><span class="line">   left: 0;</span><br><span class="line">   top: 0;</span><br><span class="line">   right: 0;</span><br><span class="line">   bottom: 0;</span><br><span class="line">   filter: alpha(opacity=0);</span><br><span class="line">   opacity: 0;</span><br><span class="line">   background: #fff;</span><br><span class="line">   @include trst(opacity 0.8s linear);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 轮播图切换</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">imgChange</span>(<span class="params">opt</span>)</span>&#123;  </span><br><span class="line">   ...   </span><br><span class="line">   <span class="comment">// 如果支持 transform 属性，使用CSS3动画</span></span><br><span class="line">   <span class="keyword">if</span>(supports(<span class="string">'transform'</span>))&#123;</span><br><span class="line">     $imgList.eq(opt).addClass(<span class="string">'active'</span>).css(<span class="string">'opacity'</span>,<span class="string">'1'</span>).siblings().removeClass(<span class="string">'active'</span>).css(<span class="string">'opacity'</span>,<span class="string">'0'</span>);</span><br><span class="line">   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="comment">// 如果不支持 transform 属性，使用JQ动画</span></span><br><span class="line">     $imgList.eq(opt).stop().animate(&#123;</span><br><span class="line">       <span class="string">'opacity'</span>: <span class="string">'1'</span></span><br><span class="line">     &#125;,<span class="number">800</span>).addClass(<span class="string">'active'</span>).siblings().stop().animate(&#123;</span><br><span class="line">       <span class="string">'opacity'</span>: <span class="string">'0'</span></span><br><span class="line">     &#125;,<span class="number">800</span>).removeClass(<span class="string">'active'</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>JQ 动画虽然兼容性好，但其动画性能远远不及 CSS3 动画，因此我们可以用以下的方法对动画性能实现渐进增强：高端浏览器可以通过触发 CSS3 动画实现效果，低端浏览器则使用 JQ 动画实现。</p>
+<h4 id="视觉渐进增强"><a href="#视觉渐进增强" class="headerlink" title="视觉渐进增强"></a>视觉渐进增强</h4><p>视觉渐进增强通常可以通过 CSS3 属性和增加 CSS3 动画来实现，现主流的网站基本都会对视觉做渐进增强处理。本次首页改版主要在多态元素、切换元素上做了处理</p>
+<p>支持 CSS3 动画的 SexyGuy</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize15.gif" alt=""></p>
+<p>不支持 CSS3 动画的 PoorGuy</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize16.gif" alt=""></p>
+<h5 id="Tab-键锚点聚焦优化"><a href="#Tab-键锚点聚焦优化" class="headerlink" title="Tab 键锚点聚焦优化"></a>Tab 键锚点聚焦优化</h5><p>浏览页面的时候，通过 Tab 键可以聚焦页面上的链接锚点，这时候浏览器会在锚点增加一个系统默认边框样式告诉用户锚点已选中，按 Enter 就可以打开选中的锚点，如 Chrome 浏览器上 google 首页的语音搜索按钮：</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize17.jpg" alt=""></p>
+<p>即使用户在浏览页面的时候鼠标突然失灵了也可以通过键盘操作继续完成浏览网页，这样的设计显然是为了增强页面的可用性。</p>
+<p>但很多时候，在一些重要位置的内容，如全站的导航，产品经理或视觉设计师会要求将这个系统的样式去掉，于是很多同学可能会选择设置outline:none去掉边框样式，有些甚至会在全局 a 标签上设置，如旧版的京东云首页：</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize18.jpg" alt=""></p>
+<p>outline:none设置之后，页面上的所有链接虽然能通过Tab键聚焦，但链接并没有被选中的样式，没有办法直观辨出选中的链接</p>
+<p>虽然并非所有用户都会用到 Tab 键，但还是会有少数用户会用到，如键盘党，而这种降低可用性的体验存在表明页面并没有健全，因此并不建议去掉outline样式。</p>
+<p>如果真的有去掉 outline样式的需求怎么办？其实，页面链接一般都会被设计为多态的，利用链接的多态样式，为链接加上:focus伪类选中样式，Tab 选中链接后就会展示 :focus伪类样式了，如新版首页的导航：</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize19.jpg" alt=""></p>
+<p>可以为链接加上:focus伪类样式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.mod_hd_nav_sub_col&#123;</span><br><span class="line">	...</span><br><span class="line">	a&#123;</span><br><span class="line">		color: #fff;</span><br><span class="line">		text-decoration: none;</span><br><span class="line">		outline: none;</span><br><span class="line">		&amp;:hover,&amp;:focus&#123;</span><br><span class="line">			color: #ffe400;</span><br><span class="line">			text-decoration: none;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>当选中链接还绑定有事件的时候，也应该为之绑定相应事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">$navBox.on(&#123;</span><br><span class="line"> <span class="string">'mouseenter'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   ...</span><br><span class="line"> &#125;,</span><br><span class="line"></span><br><span class="line"> <span class="string">'focus'</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   $(<span class="keyword">this</span>).trigger(<span class="string">'mouseenter'</span>); <span class="comment">// Tab 操作支持</span></span><br><span class="line"> &#125;,</span><br><span class="line"></span><br><span class="line"> <span class="string">'mouseleave'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   ...</span><br><span class="line"> &#125;,</span><br><span class="line"></span><br><span class="line"> <span class="string">'blur'</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   $(<span class="keyword">this</span>).trigger(<span class="string">'mouseleave'</span>); <span class="comment">// Tab 操作支持</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;, <span class="string">'.mod_hd_nav_item'</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>处理完，虽然 outline样式去掉了，但依然可以用 Tab 键完成链接的选中。</p>
+<p><img src="http://7xt1ds.com1.z0.glb.clouddn.com/FE-optimize20.gif" alt=""></p>
+<h4 id="静态资源更新发布"><a href="#静态资源更新发布" class="headerlink" title="静态资源更新发布"></a>静态资源更新发布</h4><p>旧版首页所有的静态资源的更新发布方式都是采用覆盖式更新：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/jcloud_new/jquery-1.7.2.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/jcloud_new/jquery.SuperSlide.2.1.1.js"</span>&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/jcloud_new/login_w.js"</span>&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"http://jcms.jd.com/resource/js/cms.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>覆盖式更新发布有机会遇到缓存问题以及在发布的时候导致页面错乱问题，详情可以看一下张云龙前辈在知乎对问题『大公司里怎样开发和部署前端代码？』的回答，解决覆盖式更新产生的问题，现主流方法就是使用 MD5 文件名进行非覆盖式发布，京东云新版首页所有的静态资源的更新发布都采用了这种方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"//labs.qiang.it/pc/jcloud/gb/js/lib.min_2f4dab0c.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"//labs.qiang.it/pc/jcloud/gb/js/gb.min_b599b860.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"//labs.qiang.it/pc/jcloud/home/js/index.min_9d957a15.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端优化/" rel="tag">#前端优化</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-05/prototype/" rel="next" title="深入理解JavaScript原型：prototype,__proto__和constructor">
+                <i class="fa fa-chevron-left"></i> 深入理解JavaScript原型：prototype,__proto__和constructor
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016-05/FE-optimize/"
+           data-title="前端优化-实践方面" data-url="http://ringcrl.com/2016-05/FE-optimize/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/RingTalk.jpg"
+               alt="Chenng" />
+          <p class="site-author-name" itemprop="name">Chenng</p>
+          <p class="site-description motion-element" itemprop="description">前端手艺人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ringcrl" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ringcrl" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#小图处理"><span class="nav-number">1.</span> <span class="nav-text">小图处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#纯色图处理"><span class="nav-number">1.1.</span> <span class="nav-text">纯色图处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非纯色图处理"><span class="nav-number">1.2.</span> <span class="nav-text">非纯色图处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计类字体处理"><span class="nav-number">2.</span> <span class="nav-text">设计类字体处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面加载优化"><span class="nav-number">3.</span> <span class="nav-text">页面加载优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">3.1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#图片请求数量多"><span class="nav-number">3.1.1.</span> <span class="nav-text">图片请求数量多</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#资源浪费"><span class="nav-number">3.1.2.</span> <span class="nav-text">资源浪费</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#图片加载体验差"><span class="nav-number">3.1.3.</span> <span class="nav-text">图片加载体验差</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方案"><span class="nav-number">3.2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#减少额外请求数"><span class="nav-number">3.2.1.</span> <span class="nav-text">减少额外请求数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#资源按需加载"><span class="nav-number">3.2.2.</span> <span class="nav-text">资源按需加载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#占位提示图提高加载体验"><span class="nav-number">3.2.3.</span> <span class="nav-text">占位提示图提高加载体验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进增强优化"><span class="nav-number">4.</span> <span class="nav-text">渐进增强优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#动画性能渐进增强"><span class="nav-number">4.1.</span> <span class="nav-text">动画性能渐进增强</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视觉渐进增强"><span class="nav-number">4.2.</span> <span class="nav-text">视觉渐进增强</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Tab-键锚点聚焦优化"><span class="nav-number">4.2.1.</span> <span class="nav-text">Tab 键锚点聚焦优化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态资源更新发布"><span class="nav-number">4.3.</span> <span class="nav-text">静态资源更新发布</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <a style="text-decoration:none;" href="https://github.com/ringcrl" target="_blank">GitHub</a>
+<span>&</span>
+<a style="text-decoration:none;" href="http://weibo.com/ringcrl" target="_blank">Weibo</a>
+
+<div class="copyright" >
+  
+  &copy;
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenng</span>
+</div>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ringtalk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
