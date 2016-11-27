@@ -7,4 +7,4 @@ HTML5 移动Web App阅读器
 - 使用 base64加密、jsonp跨域请求、HTML5本地存储 完成页面与服务器通信代码的开发；
 - 阅读阮一峰的《ECMAScript 6入门》，简单尝试使用 ES6 promise 以平行形式代替嵌套形式组织代码。
 
-在线预览：<http://ringcrl.com/chenng/imooc-web-reader/index.html>
+在线预览：<http://ringcrl.com/chenng/imooc-project/imooc-web-reader/index.html>
