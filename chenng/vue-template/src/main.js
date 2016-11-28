@@ -15,27 +15,17 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
 
-// 引入手势库 vue-touch，文档：https://github.com/vuejs/vue-touch/tree/next
-// import VueTouch from 'vue-touch'
-// Vue.use(VueTouch)
-
 // 引入前端本地客户端压缩图片插件，文档：https://github.com/think2011/localResizeIMG
-import lrz from 'lrz/dist/lrz.all.bundle'
-window.lrz = lrz
-
-// 引入手势库 vue-finger，文档：https://www.npmjs.com/package/vue-finger
-import Transform from 'transform.js'
-window.Transform = Transform
-import VueFinger from 'vue-finger'
-Vue.use(VueFinger)
+// import lrz from 'lrz/dist/lrz.all.bundle'
+// window.lrz = lrz
 
 // 引入 weixin-js-sdk，文档：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
 // import wx from 'weixin-js-sdk'
 // window.wx = wx
 
 // 引入 Swiper，文档：http://www.swiper.com.cn/demo/index.html
-import Swiper from 'swiper/dist/js/swiper.js'
-window.Swiper = Swiper
+// import Swiper from 'swiper/dist/js/swiper.js'
+// window.Swiper = Swiper
 
 // 引入 Element-ui，文档：http://element.eleme.io/#/zh-CN/component/installation
 // import ElementUI from 'element-ui'

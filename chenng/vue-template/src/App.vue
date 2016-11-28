@@ -146,7 +146,9 @@ export default {
 
 /*引入 swiper.css，文档：http://idangero.us/swiper/demos/#.WDbLiHdtaF0*/
 
-@import '~swiper/dist/css/swiper.css';
+
+/*@import '~swiper/dist/css/swiper.css';*/
+
 
 /*reset样式和动画样式*/
 
