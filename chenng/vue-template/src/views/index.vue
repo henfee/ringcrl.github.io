@@ -1,42 +1,34 @@
 <template>
   <div class="page-index">
-    <!-- Swiper -->
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/1)"></div>
-        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/2)"></div>
-        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/3)"></div>
-        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/4)"></div>
-        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/5)"></div>
-        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/6)"></div>
-        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/7)"></div>
-        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/8)"></div>
-        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/9)"></div>
-        <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/10)"></div>
-      </div>
-      <!-- Add Pagination -->
-      <div class="swiper-pagination"></div>
-    </div>
+    <section>
+      <img src="http://lorempixel.com/200/200/nature/1">
+      <p class="clearfix">This text sits next to the image and because the...</p>
+      <img src="http://lorempixel.com/200/200/nature/2">
+      <p class="clearfix">This text is short, so the next image can float up...</p>
+      <img src="http://lorempixel.com/200/200/nature/3">
+      <p class="clearfix">Because the previous image’s text does not...</p>
+    </section>
   </div>
 </template>
 <style lang='scss' scoped>
 .page-index {
-  background: #fff;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-  .swiper-container {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .swiper-slide {
-    background-position: center;
-    background-size: cover;
+  section {
     width: 300px;
-    height: 300px;
+    border: 1px solid red;
+    img {
+      float: left;
+      margin: 0 4px 4px 0;
+    }
+    p {
+      margin: 0 0 5px 0
+    }
+  }
+  .clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
   }
 }
 </style>
@@ -51,20 +43,7 @@ export default {
 
   },
   mounted: function() {
-    var swiper = new Swiper('.swiper-container', {
-      pagination: '.swiper-pagination',
-      effect: 'coverflow',
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: 'auto',
-      coverflow: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true
-      }
-    });
+
   },
 }
 </script>
