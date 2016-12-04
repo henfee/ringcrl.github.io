@@ -37,19 +37,24 @@ Vue.use(MintUI)
 // window.model = model
 
 // 引入 underscore，文档：http://www.css88.com/doc/underscore/
-// import _ from 'underscore'
-// window._ = _
+import _ from 'underscore'
+window._ = _
 
 // 引入 n-zepto ，文档：http://www.css88.com/doc/zeptojs_api
 // import $ from 'n-zepto'
 // window.$ = $
 
 // 引入 vConsole 调试工具，文档：https://github.com/WechatFE/vConsole/blob/dev/doc/tutorial_CN.md
-// import vConsole from 'vconsole'
+import vConsole from 'vconsole'
 
-// 引入 amfe-env 判断页面打开时候的场景，文档：https://github.com/amfe/amfe-env/blob/master/doc/API.md
-import * as env from 'amfe-env'
+// 引入 env.js 判断页面打开时候的场景，文档：https://github.com/ringcrl/ringcrl.github.io/issues/11
+import env from './assets/js/env.js'
 window.env = env
+
+// 引入 Mock.js，脱离接口进行调试
+// 文档：https://github.com/nuysoft/Mock/wiki，实例：https://github.com/ringcrl/ringcrl.github.io/issues/12
+// import Mock from 'mockjs'
+// window.Mock = Mock
 
 // 引入官方推荐的 ajax 库，文档：https://github.com/mzabriskie/axios
 // 用法：

@@ -8,10 +8,7 @@
 <script>
 export default {
   data: function() {
-    return {
-
-    }
-  },
-  mounted: function() {},
+    return {}
+  }
 }
 </script>

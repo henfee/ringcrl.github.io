@@ -132,16 +132,16 @@ export default {
 /*scoped*/
 
 
+/*引入 flex.css，文档：http://lzxb.github.io/flex.css*/
+
+
+@import '~flex.css/dist/flex.css';
+
+
 /*引入animate.css，文档：https://github.com/daneden/animate.css*/
 
 
 /*@import "~animate.css/animate.css";*/
-
-
-/*引入 flex.css，文档：http://lzxb.github.io/flex.css*/
-
-
-/*@import '~flex.css/dist/flex.css';*/
 
 
 /*引入 swiper.css，文档：http://idangero.us/swiper/demos/#.WDbLiHdtaF0*/
@@ -160,7 +160,10 @@ export default {
 body {
   font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
   color: #434343;
+  font-size: 0.7rem;
   user-select: none;
+  box-sizing: border-box;
+  min-height: 100%;
   a,
   img {
     /*禁止长按链接与图片弹出菜单*/

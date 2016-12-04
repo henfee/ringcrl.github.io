@@ -14,7 +14,13 @@
     <p>route page</p>
   </div>
 </template>
-<script>
-</script>
-<style>
+<style lang='scss' scoped>
+.page-route {}
 </style>
+<script>
+export default {
+  data: function() {
+    return {}
+  }
+}
+</script>

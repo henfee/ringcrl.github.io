@@ -9,7 +9,6 @@
     "build": "node build/build.js"
   },
   "devDependencies": {
-    "amfe-env": "^2.0.0",
     "animate.css": "^3.5.2",
     "autoprefixer": "^6.4.0",
     "axios": "^0.15.2",
@@ -34,6 +33,7 @@
     "json-loader": "^0.5.4",
     "lrz": "^4.9.40",
     "mint-ui": "^2.0.2",
+    "mockjs": "^1.0.1-beta3",
     "n-zepto": "^1.2.0",
     "node-sass": "^3.10.1",
     "opn": "^4.0.2",
