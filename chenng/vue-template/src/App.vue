@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app" id="app">
     <!-- 使用图片放大预览 -->
     <!-- <img src="url" @click="eImgClick($event)"> -->
     <!-- <img-views v-show="imgView.show" :src="imgView.src" @click="eImgViewClick"></img-views> -->
@@ -134,9 +134,7 @@ export default {
 
 /*引入 flex.css，文档：http://lzxb.github.io/flex.css*/
 
-
 @import '~flex.css/dist/flex.css';
-
 
 /*引入animate.css，文档：https://github.com/daneden/animate.css*/
 
@@ -157,45 +155,52 @@ export default {
   padding: 0;
 }
 
-body {
-  font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
-  color: #434343;
-  font-size: 0.7rem;
-  user-select: none;
-  box-sizing: border-box;
-  min-height: 100%;
-  a,
-  img {
-    /*禁止长按链接与图片弹出菜单*/
-    -webkit-touch-callout: none;
-    text-decoration: none;
-  }
-  img {
-    border: 0;
-  }
-  a,
-  input,
-  button {
-    /*去掉点击时候背景的高亮颜色*/
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-  /*定义过度状态*/
-  .fade-enter {
-    /*过度的开始状态，在元素被插入时生效，在下一个帧移除*/
-    opacity: 0;
-  }
-  .fade-enter-active {
-    /*定义进入过度的结束状态。在元素被插入时生效，在 transition/animation 完成后移除*/
-    transition: all .5s ease;
-  }
-  .fade-leave {
-    /*定义离开过度的开始状态，在离开过度被触发时生效，在下一帧移除*/
-    opacity: 100;
-  }
-  .fade-leave-active {
-    /*定义离开过度的结束状态，在离开过度被触发时生效，在 transition/ainimation 完成后移除*/
-    opacity: 0;
-    transition: all .5s ease;
+html {
+  height: 100%;
+  body {
+    font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
+    color: #434343;
+    font-size: 0.7rem;
+    line-height: 1.4286;
+    user-select: none;
+    box-sizing: border-box;
+    height: 100%;
+    a,
+    img {
+      /*禁止长按链接与图片弹出菜单*/
+      -webkit-touch-callout: none;
+      text-decoration: none;
+    }
+    img {
+      border: 0;
+    }
+    a,
+    input,
+    button {
+      /*去掉点击时候背景的高亮颜色*/
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    .app {
+      height: 100%;
+    }
+    /*定义过度状态*/
+    .fade-enter {
+      /*过度的开始状态，在元素被插入时生效，在下一个帧移除*/
+      opacity: 0;
+    }
+    .fade-enter-active {
+      /*定义进入过度的结束状态。在元素被插入时生效，在 transition/animation 完成后移除*/
+      transition: all .5s ease;
+    }
+    .fade-leave {
+      /*定义离开过度的开始状态，在离开过度被触发时生效，在下一帧移除*/
+      opacity: 100;
+    }
+    .fade-leave-active {
+      /*定义离开过度的结束状态，在离开过度被触发时生效，在 transition/ainimation 完成后移除*/
+      opacity: 0;
+      transition: all .5s ease;
+    }
   }
 }
 </style>

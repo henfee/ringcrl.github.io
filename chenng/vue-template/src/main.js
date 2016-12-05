@@ -45,7 +45,7 @@ window._ = _
 // window.$ = $
 
 // 引入 vConsole 调试工具，文档：https://github.com/WechatFE/vConsole/blob/dev/doc/tutorial_CN.md
-import vConsole from 'vconsole'
+// import vConsole from 'vconsole'
 
 // 引入 env.js 判断页面打开时候的场景，文档：https://github.com/ringcrl/ringcrl.github.io/issues/11
 import env from './assets/js/env.js'

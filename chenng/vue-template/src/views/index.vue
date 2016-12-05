@@ -3,7 +3,9 @@
   </div>
 </template>
 <style lang='scss' scoped>
-.page-index {}
+.page-index {
+  height: 100%;
+}
 </style>
 <script>
 export default {
