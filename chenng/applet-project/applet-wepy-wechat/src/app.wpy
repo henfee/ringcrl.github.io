@@ -1,0 +1,45 @@
+<style type="sass">
+page, .body{
+    height: 100%;
+    font-family: "\5FAE\8F6F\96C5\9ED1", arial;
+}
+</style>
+
+<script>
+
+import wepy from 'wepy';
+import "babel-polyfill";
+
+export default class extends wepy.app {
+
+    config = {
+        "pages":[
+            "pages/index",
+            "pages/chat"
+        ],
+        "window":{
+            "backgroundTextStyle": "light",
+            "navigationBarBackgroundColor": "#3b3a40",
+            "navigationBarTitleText": "WeChat",
+            "navigationBarTextStyle": "black"
+        }
+    };
+
+    globalData = {
+        userInfo: null
+    };
+
+    onLaunch() {
+    }
+
+    async getUserInfo() {
+        if (this.globalData.userInfo) {
+            return this.globalData.userInfo;
+        }
+        let x = await wx.login();
+        let res = await wx.getUserInfo();
+        this.globalData.userInfo = res.userInfo;
+        return res.userInfo;
+    }
+}
+</script>

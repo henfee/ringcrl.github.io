@@ -9,8 +9,11 @@
 </style>
 <script>
 export default {
-  data: function() {
-    return {}
+  name: 'index',
+  data: function () {
+    return {
+
+    }
   }
 }
 </script>

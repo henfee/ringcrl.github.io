@@ -47,7 +47,7 @@ export default {
     text: ''
   },
   methods: {
-    eClick: function() {
+    eClick: function () {
       this.$emit('click')
     }
   }
@@ -68,8 +68,8 @@ export default {
 //     }
 //   },
 //   methods: {
-//     showShade: function() {
-//       this.guideShade.text = '浏览器'
+//     showShade: function(browser) {
+//       this.guideShade.text = browser
 //       this.guideShade.show = true
 //     }
 //   }

@@ -38,7 +38,7 @@ export default {
   name: 'img-views',
   props: ['src'],
   methods: {
-    eClick: function() {
+    eClick: function () {
       this.$emit('click')
     }
   }
@@ -46,6 +46,7 @@ export default {
 // 用法
 // 在<template>中
 // <img-views v-show="imgView.show" :src="imgView.src" @click="eImgViewClick"></img-views>
+// <img :src="img.url" @click="eImgClick($event)" v-bind:style="[img.width - img.height > 0 ? {'height': '100%'} : {'width': '100%'}]">
 // 在<script>中
 // import Views from '../components/pic-views.vue'
 // export default {

@@ -1,10 +1,5 @@
 <template>
   <div class="app" id="app">
-    <!-- 使用图片放大预览 -->
-    <!-- <img src="url" @click="eImgClick($event)"> -->
-    <!-- <img-views v-show="imgView.show" :src="imgView.src" @click="eImgViewClick"></img-views> -->
-    <!-- 使用 animate 的 transition -->
-    <!-- <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut"></transition> -->
     <transition name="fade" mode="out-in">
       <keep-alive>
         <router-view></router-view>
@@ -13,119 +8,80 @@
   </div>
 </template>
 <script>
-// import Views from '../components/picViews.vue'
+// import Views from '../components/pic-views.vue'
 export default {
   name: 'app',
   components: {
     // 'imgViews': Views
   },
-  data: function() {
+  data: function () {
     return {
-      // params: {},
-      // imgView: {
-      //   show: false,
-      //   src: ''
-      // }
+      params: {}
     }
   },
   computed: {
-    // changeData: function() {
-    //   return this.data...
-    // }
+
   },
   methods: {
-    /**
-     * [eImgClick description]
-     * 从缩略图到大图（-1000x1000）
-     * @param  {[type]} e [description]
-     * @return {[type]}   [description]
-     */
-    eImgClick: function(e) {
-      this.imgView.show = true;
-      let url = e.currentTarget.src;
-      let stubLength = url.lastIndexOf('-');
-      let dotLength = url.lastIndexOf('.');
-      let prefix = url.slice(0, stubLength);
-      let suffix = url.slice(dotLength);
-      url = prefix + '-1000x1000' + suffix;
-      this.imgView.src = url;
-    },
-    eImgViewClick: function() {
-      this.imgView.show = false;
-    },
-    /**
-     * [imgMin description]
-     * 图片压缩方法
-     * @param  {[type]} imgUrl [description] 原图片 url
-     * @param  {[type]} size   [description] 压缩后的尺寸： '-800x800'
-     * @return {[type]}        [description] 压缩后的图片的 url
-     */
-    imgMin: function(imgUrl, size) {
-      let url = imgUrl;
-      let dotLength = url.lastIndexOf('.');
-      let prefix = url.slice(0, dotLength);
-      let suffix = url.slice(dotLength);
-      url = prefix + size + suffix;
-      return url;
-    }
+
   },
-  /**
-   * [beforeCreate description]
-   * 在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。
-   * @return {[type]} [description]
-   */
-  beforeCreate: function() {},
-  /**
-   * [created description]
-   * 实例已经创建完成之后被调用。
-   * 在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。
-   * 然而，挂载阶段还没开始，$el 属性目前不可见。
-   * @return {[type]} [description]
-   */
-  created: function() {},
-  /**
-   * [beforeMount description]
-   * 在挂载开始之前被调用：相关的 render 函数首次被调用。
-   * @return {[type]} [description]
-   */
-  beforeMount: function() {},
-  /**
-   * [mounted description]
-   * el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。
-   * 如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。
-   * @return {[type]} [description]
-   */
-  mounted: function() {
+  beforeCreate: function () {
+    /**
+     * [beforeCreate description]
+     * 在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。
+     */
+  },
+  created: function () {
+    /**
+     * [created description]
+     * 实例已经创建完成之后被调用。
+     * 在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。
+     * 然而，挂载阶段还没开始，$el 属性目前不可见。
+     */
+  },
+  beforeMount: function () {
+    /**
+     * [beforeMount description]
+     * 在挂载开始之前被调用：相关的 render 函数首次被调用。
+     */
+  },
+
+  mounted: function () {
+    /**
+     * [mounted description]
+     * el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。
+     * 如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。
+     */
     // 获取当前路由参数
     // this.params = this.$route.query
   },
-  /**
-   * [beforeUpdate description]
-   * 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。
-   * 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。
-   * @return {[type]} [description]
-   */
-  beforeUpdate: function() {},
-  /**
-   * [updated description]
-   * 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
-   * 当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。
-   * 然而在大多数情况下，你应该避免在此期间更改状态，因为这可能会导致更新无限循环。
-   * @return {[type]} [description]
-   */
-  updated: function() {},
-  /**
-   * [activated description]
-   * keep-alive 组件激活时调用。
-   * @return {[type]} [description]
-   */
-  activated: function() {},
-  /**
-   * [deactivated description]
-   * keep-alive 组件停用时调用。
-   * @return {[type]} [description]
-   */
-  deactivated: function() {}
+  beforeUpdate: function () {
+    /**
+     * [beforeUpdate description]
+     * 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。
+     * 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。
+     */
+  },
+  updated: function () {
+    /**
+     * [updated description]
+     * 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
+     * 当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。
+     * 然而在大多数情况下，你应该避免在此期间更改状态，因为这可能会导致更新无限循环。
+     */
+  },
+  activated: function () {
+    /**
+     * [activated description]
+     * keep-alive 组件激活时调用。
+     */
+  },
+  deactivated: function () {
+    /**
+     * [deactivated description]
+     * keep-alive 组件停用时调用。
+     */
+  }
 }
 </script>
 <style lang='scss'>
@@ -158,7 +114,9 @@ export default {
 html {
   height: 100%;
   body {
-    font-family: Helvetica Neue, Helvetica, STHeiTi, sans-serif;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     color: #434343;
     font-size: 0.7rem;
     line-height: 1.4286;
