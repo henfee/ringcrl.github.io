@@ -109,6 +109,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -137,6 +138,12 @@ html {
     button {
       /*去掉点击时候背景的高亮颜色*/
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    input {
+      outline: none;
+    }
+    input:focus {
+      outline: none;
     }
     .app {
       height: 100%;

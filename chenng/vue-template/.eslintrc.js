@@ -21,6 +21,10 @@ module.exports = {
     'generator-star-spacing': 0,
     // 禁止出现未使用过的变量
     'no-unused-vars': 0,
+    // 强制在 function的左括号之前使用一致的空格
+    'space-before-function-paren': 0,
+    // 强制使用一致的缩进
+    'indent': 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }

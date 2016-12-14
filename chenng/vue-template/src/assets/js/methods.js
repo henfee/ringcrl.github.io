@@ -7,7 +7,7 @@ computed: {
    * @param  {[type]} size   压缩后的尺寸 '-800x800'
    * @return {[type]}        压缩后的图片的 url
    */
-  minImg: function(imgUrl, size) {
+  minImg: function (imgUrl, size) {
     let url = imgUrl;
     let dotLength = url.lastIndexOf('.');
     let prefix = url.slice(0, dotLength);
@@ -22,7 +22,7 @@ computed: {
    * @param  {[type]} size   大图的尺寸 '-1000x1000'，传 0 则为原图
    * @return {[type]}        大图 url
    */
-  maxImg: function(imgUrl, size) {
+  maxImg: function (imgUrl, size) {
     let url = imgUrl
     let stubLength = url.lastIndexOf('-');
     let dotLength = url.lastIndexOf('.');
@@ -34,7 +34,7 @@ computed: {
     url = prefix + size + suffix;
     return url
   },
-  proto: function() {
+  proto: function () {
     return {
       /**
        * [isInteger description]
@@ -42,7 +42,7 @@ computed: {
        * @param  {[type]}  num 
        * @return {Boolean}     
        */
-      isInteger: function(num) {
+      isInteger: function (num) {
         return typeof num == 'number' && num % 1 == 0;
       },
       /**
@@ -51,7 +51,7 @@ computed: {
        * @param  {[type]} arr 元素组
        * @return {[type]}     拷贝后的新数组
        */
-      copyArr: function(arr) {
+      copyArr: function (arr) {
         return arr.slice()
       },
       /**
@@ -61,11 +61,11 @@ computed: {
        * @param  {[type]} t 间隔时间
        * @return {[type]}   
        */
-      consoleLog: function(a, t) {
+      consoleLog: function (a, t) {
         let arr = a,
           len = arr.length,
           index = 0;
-        let timer = setInterval(function() {
+        let timer = setInterval(function () {
           if (index >= len) {
             clearInterval(timer)
           } else {
@@ -80,13 +80,13 @@ computed: {
        * @param  {[type]} length 要生成的数组长度
        * @return {[type]}        乱序后的数组
        */
-      shuffleArr: function(length) {
+      shuffleArr: function (length) {
         let arr = [];
         let len = length;
         for (let i = 0; i < len; i++) {
           arr.push(i)
         }
-        arr.sort(function() {
+        arr.sort(function () {
           return Math.random() > 0.5 ? -1 : 1;
         });
         return arr;
@@ -97,7 +97,7 @@ computed: {
        * @param  {[type]} url 传入的 url
        * @return {[type]}     参数对象，如果没有参数，则为 {}
        */
-      getUrlParams: function(url) {
+      getUrlParams: function (url) {
         var search = url ? (url.split('?')[1] || '') : window.location.search.substr(1),
           paramArray = search.split('&'),
           paramObj = {};
@@ -118,7 +118,7 @@ computed: {
        * 判断当前网址是否是 https 网址
        * @return {Boolean} 
        */
-      isHttps: function() {
+      isHttps: function () {
         if ('https:' == location.protocol) {
           console.log('这是一个https网址')
           return true
@@ -134,7 +134,7 @@ computed: {
        * @param  {[type]} url 完整的 url
        * @return {[type]}     域名主机
        */
-      getHost: function(url) {
+      getHost: function (url) {
         var host = "null";
         if (typeof url == "undefined" || null == url) {
           url = window.location.href;
@@ -153,9 +153,31 @@ computed: {
        * @param  {[type]} max 最大值
        * @return {[type]}     随机整数
        */
-      randomNum: function(min, max) {
+      randomNum: function (min, max) {
         var c = max - min + 1;
         return Math.floor(Math.random() * c + min);
+      },
+      /**
+       * [setTitle description]
+       * 微信内更换 title 不生效时候的 hack 方案
+       * @param {[type]} title 需要更换的 title
+       */
+      setTitle: function (title) {
+        var oldTitle = window.document.title;
+        if (oldTitle != title) {
+          window.document.title = title;
+          var iframe = window.document.createElement("iframe");
+          iframe.src = "hack.gif";
+          iframe.style.visibility = "hidden";
+          iframe.style.width = "1px";
+          iframe.style.height = "1px";
+          iframe.onload = function () {
+            setTimeout(function () {
+              window.document.body.removeChild(iframe);
+            }, 0);
+          };
+          window.document.body.appendChild(iframe);
+        }
       }
     }
   }
