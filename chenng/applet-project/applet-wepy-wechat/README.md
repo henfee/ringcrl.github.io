@@ -1,5 +1,7 @@
 wepy 组件式开发模仿微信的小程序
 ---
+原地址：<https://github.com/wepyjs/wepy-wechat-demo>
+
 技术栈：wepy
 
 本项目基于wepy开发，[参考这里](https://github.com/wepyjs/wepy)
