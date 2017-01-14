@@ -1,7 +1,8 @@
-个人的 github 空间
+个人主页
 ---
-技术栈：vue、mint-ui、angular等...
-- 博客：<https://github.com/ringcrl/ringcrl.github.io/issues>
-- 项目：<https://github.com/ringcrl/ringcrl.github.io/tree/master/chenng>
+掌握的技术栈：vue、angular、MINA等...
 
-在线预览：<http://ringcrl.com>
+- GitHub 博客：<https://github.com/ringcrl/ringcrl.github.io/issues>
+- 项目代码：已经将所有项目代码转移至 Bitbucket 的私有项目
+
+地址：<http://ringcrl.com>
